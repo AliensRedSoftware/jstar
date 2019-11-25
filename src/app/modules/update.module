@@ -1,0 +1,39 @@
+{
+  "props": {
+    "singleton": true,
+    "author": "uxredbyte",
+    "description": "Обновление",
+    "version": "0.25"
+  },
+  "components": {
+    "jdownloader": {
+      "type": "bundle\\jurl\\jURLDownloader",
+      "x": 160,
+      "y": 480,
+      "props": {}
+    },
+    "version": {
+      "type": "script\\storage\\IniStorage",
+      "x": 320,
+      "y": 400,
+      "props": {
+        "path": "version.ini",
+        "autoSave": "1",
+        "multiLineValues": "1"
+      }
+    },
+    "mail": {
+      "type": "script\\MailScript",
+      "x": 144,
+      "y": 208,
+      "props": {
+        "hostName": "smtp.gmail.com",
+        "smtpPort": "587",
+        "sslOnConnect": "1",
+        "timeout": "15000",
+        "mailCharset": "UTF-8",
+        "mailFrom": ""
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?import javafx.scene.*?><?import javafx.collections.*?><?import javafx.scene.layout.*?><?import javafx.scene.control.*?><?import javafx.scene.text.*?><?import javafx.scene.image.*?><?import javafx.scene.shape.*?><?import javafx.scene.paint.*?><?import javafx.scene.web.*?><?import javafx.geometry.*?><?import java.lang.*?><?import org.develnext.jphp.ext.javafx.classes.data.*?><?import org.develnext.jphp.ext.javafx.support.*?><?import org.develnext.jphp.ext.javafx.support.control.*?><?import org.develnext.jphp.ext.game.support.*?><AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" focusTraversable="false" id="" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240" prefWidth="320" styleClass="">
+  <children>
+    <TextArea AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="8" editable="true" focusTraversable="true" id="textArea" layoutX="8" layoutY="8" prefColumnCount="40" prefHeight="224" prefWidth="304" promptText="То что нужно сохранить )" styleClass="text-input text-area " text="" wrapText="true">
+      <font>
+        <Font name="SansSerif Regular" size="13"/>
+      </font>
+    </TextArea>
+    <Data cursor="DEFAULT" enabled="1" id="data-textArea" visible="1"/>
+  </children>
+</AnchorPane>

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?import javafx.scene.*?><?import javafx.collections.*?><?import javafx.scene.layout.*?><?import javafx.scene.control.*?><?import javafx.scene.text.*?><?import javafx.scene.image.*?><?import javafx.scene.shape.*?><?import javafx.scene.paint.*?><?import javafx.scene.web.*?><?import javafx.geometry.*?><?import java.lang.*?><?import org.develnext.jphp.ext.javafx.classes.data.*?><?import org.develnext.jphp.ext.javafx.support.*?><?import org.develnext.jphp.ext.javafx.support.control.*?><?import org.develnext.jphp.ext.game.support.*?><AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" focusTraversable="false" id="" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480" prefWidth="640" styleClass="">
+  <children>
+    <Panel AnchorPane.bottomAnchor="152" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="40" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="panel" layoutX="8" layoutY="40" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="288" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+      <children>
+        <TextArea AnchorPane.bottomAnchor="7" AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" AnchorPane.topAnchor="7" editable="false" focusTraversable="false" id="textArea" layoutX="8" layoutY="8" prefColumnCount="40" prefHeight="136" prefWidth="232" promptText="Сообщение..." styleClass="text-input text-area " text="" wrapText="true">
+          <font>
+            <Font name="System Regular" size="13"/>
+          </font>
+        </TextArea>
+        <Data cursor="DEFAULT" enabled="1" id="data-textArea" visible="1"/>
+      </children>
+      <titleFont>
+        <Font name="System Regular" size="13"/>
+      </titleFont>
+    </Panel>
+    <Data cursor="DEFAULT" enabled="1" id="data-panel" visible="1"/>
+    <Button alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="settings" layoutX="8" layoutY="8" prefHeight="24" prefWidth="34" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+      <font>
+        <Font name="System Regular" size="13"/>
+      </font>
+    </Button>
+    <Data cursor="DEFAULT" enabled="1" graphic=".data/img/settings.png" id="data-settings" tooltipText="Настройки чата" visible="1"/>
+    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="panelAlt" layoutX="8" layoutY="424" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="48" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+      <children>
+        <TextField AnchorPane.bottomAnchor="7" AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" alignment="CENTER" editable="true" focusTraversable="true" id="text" layoutX="8" layoutY="8" prefColumnCount="12" prefHeight="32" prefWidth="608" promptText="Введите текст..." styleClass="text-input text-field " text="">
+          <font>
+            <Font name="System Regular" size="13"/>
+          </font>
+        </TextField>
+        <Data cursor="DEFAULT" enabled="1" id="data-text" visible="1"/>
+      </children>
+      <titleFont>
+        <Font name="System Regular" size="13"/>
+      </titleFont>
+    </Panel>
+    <Data cursor="DEFAULT" enabled="1" id="data-panelAlt" visible="1"/>
+    <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="0" id="clearchat" layoutX="48" layoutY="8" prefHeight="24" prefWidth="32" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+      <font>
+        <Font name="System Regular" size="13"/>
+      </font>
+    </Button>
+    <Data cursor="DEFAULT" enabled="1" graphic=".data/img/Burn.png" id="data-clearchat" tooltipText="Очистить чат" visible="1"/>
+    <ComboBox editable="false" focusTraversable="true" id="typeselected" layoutX="88" layoutY="8" prefHeight="26" prefWidth="128" promptText="Тип" styleClass="combo-box-base combo-box " value="Локальный" visibleRowCount="10">
+      <items xmlns:fx="http://javafx.com/fxml">
+        <FXCollections fx:factory="observableArrayList">
+          <String fx:value="Вконтакте"/>
+          <String fx:value="Телеграмм"/>
+          <String fx:value="Локальный"/>
+        </FXCollections>
+      </items>
+    </ComboBox>
+    <Data cursor="DEFAULT" enabled="1" id="data-typeselected" visible="1"/>
+    <Panel AnchorPane.bottomAnchor="64" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="panelerrorlist" layoutX="8" layoutY="336" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="80" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+      <children>
+        <ComboBox AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" editable="false" focusTraversable="true" id="errorlist" layoutX="8" layoutY="8" prefHeight="26" prefWidth="608" promptText="Лист ошибок" styleClass="combo-box-base combo-box " value="" visibleRowCount="10">
+          <items xmlns:fx="http://javafx.com/fxml">
+            <FXCollections fx:factory="observableArrayList"/>
+          </items>
+        </ComboBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-errorlist" visible="1"/>
+        <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="Echeckbox_errorlist" layoutX="160" layoutY="40" prefHeight="32" prefWidth="72" styleClass="check-box " text="Чекать" textAlignment="LEFT" underline="false" wrapText="false">
+          <font>
+            <Font name="SansSerif Regular" size="13"/>
+          </font>
+        </CheckBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-Echeckbox_errorlist" visible="1"/>
+        <org.develnext.jphp.ext.javafx.support.control.NumberSpinner alignment="CENTER_LEFT" arrowsStyle="RIGHT_VERTICAL" editable="false" focusTraversable="true" id="counterror" initial="0" layoutX="8" layoutY="40" max="5000" min="1" prefHeight="32" prefWidth="144" step="1" styleClass="spinner "/>
+        <Data cursor="DEFAULT" enabled="1" id="data-counterror" visible="1"/>
+        <LabelEx AnchorPane.rightAnchor="7" alignment="CENTER_RIGHT" autoSize="false" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="counterrorlist" layoutX="512" layoutY="56" prefHeight="16" prefWidth="104" styleClass="label " text="0" textAlignment="LEFT" underline="false" wrapText="false">
+          <font>
+            <Font name="SansSerif Regular" size="13"/>
+          </font>
+        </LabelEx>
+        <Data cursor="DEFAULT" enabled="1" id="data-counterrorlist" visible="1"/>
+      </children>
+      <titleFont>
+        <Font name="System Regular" size="13"/>
+      </titleFont>
+    </Panel>
+    <Data cursor="DEFAULT" enabled="1" id="data-panelerrorlist" visible="1"/>
+    <CheckBox alignment="CENTER_LEFT" contentDisplay="TEXT_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="Echeckerror" layoutX="224" layoutY="8" prefHeight="24" prefWidth="264" selected="true" styleClass="check-box " text="Искать неиспользованные ответы&#10;" textAlignment="LEFT" underline="false" wrapText="false">
+      <font>
+        <Font name="SansSerif Regular" size="13"/>
+      </font>
+    </CheckBox>
+    <Data cursor="DEFAULT" enabled="1" id="data-Echeckerror" visible="1"/>
+  </children>
+</AnchorPane>

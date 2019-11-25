@@ -1,0 +1,9 @@
+{
+  "props": {
+    "author": "uxredbyte",
+    "description": "Работа со скина",
+    "version": "0.35",
+    "singleton": true
+  },
+  "components": []
+}

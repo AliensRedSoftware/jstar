@@ -1,0 +1,62 @@
+{
+  "props": {
+    "singleton": true,
+    "version": "0.3",
+    "author": "Меркус",
+    "description": "Ядро"
+  },
+  "components": {
+    "jsoup": {
+      "type": "script\\JsoupScript",
+      "x": 240,
+      "y": 528,
+      "props": {
+        "method": "GET",
+        "proxyType": "DIRECT"
+      }
+    },
+    "ini": {
+      "type": "script\\storage\\IniStorage",
+      "x": 192,
+      "y": 464,
+      "props": {
+        "path": "config.ini",
+        "autoSave": "1",
+        "trimValues": true,
+        "multiLineValues": "1"
+      }
+    },
+    "bdini": {
+      "type": "script\\storage\\IniStorage",
+      "x": 240,
+      "y": 464,
+      "props": {
+        "path": "bd.ini",
+        "autoSave": true,
+        "trimValues": true,
+        "multiLineValues": "1"
+      }
+    },
+    "fileChooserimg": {
+      "type": "script\\FileChooserScript",
+      "x": 48,
+      "y": 96,
+      "props": {
+        "filterName": "Все файлы",
+        "filterExtensions": "*.*",
+        "filterAny": "0",
+        "inputNode": "",
+        "actionNode": ""
+      }
+    },
+    "dirChooser": {
+      "type": "script\\DirectoryChooserScript",
+      "x": 48,
+      "y": 32,
+      "props": {
+        "inputNode": "",
+        "actionNode": ""
+      }
+    }
+  }
+}

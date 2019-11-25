@@ -1,0 +1,9 @@
+{
+  "props": {
+    "singleton": true,
+    "version": "0.25",
+    "author": "Меркус",
+    "description": "Вк дополнительный модуль"
+  },
+  "components": []
+}

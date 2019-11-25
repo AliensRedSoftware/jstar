@@ -1,0 +1,9 @@
+{
+  "props": {
+    "version": "0.1",
+    "author": "uxredbyte",
+    "description": "Тема",
+    "singleton": true
+  },
+  "components": []
+}

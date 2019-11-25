@@ -1,0 +1,680 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?import javafx.scene.*?><?import javafx.collections.*?><?import javafx.scene.layout.*?><?import javafx.scene.control.*?><?import javafx.scene.text.*?><?import javafx.scene.image.*?><?import javafx.scene.shape.*?><?import javafx.scene.paint.*?><?import javafx.scene.web.*?><?import javafx.geometry.*?><?import java.lang.*?><?import org.develnext.jphp.ext.javafx.classes.data.*?><?import org.develnext.jphp.ext.javafx.support.*?><?import org.develnext.jphp.ext.javafx.support.control.*?><?import org.develnext.jphp.ext.game.support.*?><AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" focusTraversable="false" id="" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640" prefWidth="640" styleClass="">
+  <children>
+    <Panel AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="DASHED" borderWidth="1" focusTraversable="false" id="panelmoveform" layoutX="0" layoutY="0" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="640" prefWidth="640" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+      <children>
+        <Panel backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="leftmenu" layoutX="8" layoutY="8" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="36" prefWidth="168" styleClass="" titleColor="#333333" titleOffset="0" titlePosition="TOP_LEFT">
+          <children>
+            <ToggleButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="0" id="toggleButtonmodulesystem" layoutX="128" layoutY="5" prefHeight="24" prefWidth="24" styleClass="toggle-button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+              <font>
+                <Font name="System Regular" size="13"/>
+              </font>
+            </ToggleButton>
+            <Data cursor="HAND" enabled="1" graphic=".data/img/module.png" id="data-toggleButtonmodulesystem" tooltipText="Настройки модулей" visible="1"/>
+            <ToggleButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="0" id="effect" layoutX="88" layoutY="5" prefHeight="24" prefWidth="24" styleClass="toggle-button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+              <font>
+                <Font name="System Regular" size="13"/>
+              </font>
+            </ToggleButton>
+            <Data cursor="HAND" enabled="1" graphic=".data/img/addons.png" id="data-effect" tooltipText="Настройки скина (Эффекты)" visible="1"/>
+            <ToggleButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="0" id="Female" layoutX="48" layoutY="5" prefHeight="24" prefWidth="24" selected="true" styleClass="toggle-button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+              <font>
+                <Font name="System Regular" size="13"/>
+              </font>
+            </ToggleButton>
+            <Data cursor="HAND" enabled="1" graphic=".data/img/Female.png" id="data-Female" tooltipText="Настройки бота" visible="1"/>
+            <ToggleButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="0" id="Male" layoutX="8" layoutY="5" prefHeight="24" prefWidth="34" styleClass="toggle-button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+              <font>
+                <Font name="System Regular" size="13"/>
+              </font>
+            </ToggleButton>
+            <Data cursor="HAND" enabled="1" graphic=".data/img/parcel-pack-box-icon.png" id="data-Male" tooltipText="Настройки программы" visible="1"/>
+          </children>
+          <titleFont>
+            <Font name="System Regular" size="13"/>
+          </titleFont>
+        </Panel>
+        <Data cursor="DEFAULT" enabled="1" id="data-leftmenu" visible="1"/>
+        <Panel AnchorPane.rightAnchor="7" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="rightmenu" layoutX="424" layoutY="8" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="34" prefWidth="208" styleClass="" titleColor="#333333" titleOffset="0" titlePosition="TOP_LEFT">
+          <children>
+            <Button alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="info" layoutX="8" layoutY="4" prefHeight="26" prefWidth="16" styleClass="button " text="Кнопка" textAlignment="CENTER" underline="false" wrapText="false">
+              <font>
+                <Font name="System Regular" size="13"/>
+              </font>
+            </Button>
+            <Data cursor="HAND" enabled="1" graphic=".data/img/info.png" id="data-info" tooltipText="Об авторе" visible="1"/>
+            <ToggleButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="0" id="mod" layoutX="48" layoutY="4" prefHeight="24" prefWidth="34" styleClass="toggle-button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+              <font>
+                <Font name="System Regular" size="13"/>
+              </font>
+            </ToggleButton>
+            <Data cursor="HAND" enabled="1" graphic=".data/img/view.png" id="data-mod" tooltipText="Скины" visible="1"/>
+            <ToggleButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="0" id="telegram" layoutX="88" layoutY="4" prefHeight="24" prefWidth="24" styleClass="toggle-button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+              <font>
+                <Font name="System Regular" size="13"/>
+              </font>
+            </ToggleButton>
+            <Data cursor="HAND" enabled="1" graphic=".data/img/telegram.png" id="data-telegram" tooltipText="Настройки бота телеграм" visible="1"/>
+            <ToggleButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="0" id="vk" layoutX="128" layoutY="4" prefHeight="24" prefWidth="34" styleClass="toggle-button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+              <font>
+                <Font name="System Regular" size="13"/>
+              </font>
+            </ToggleButton>
+            <Data cursor="HAND" enabled="1" graphic=".data/img/vk.png" id="data-vk" tooltipText="Настройки бота вк" visible="1"/>
+            <ToggleButton alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="widgetgirl" layoutX="168" layoutY="4" prefHeight="24" prefWidth="34" styleClass="toggle-button " text="" textAlignment="LEFT" underline="false" wrapText="false">
+              <font>
+                <Font name="System Regular" size="13"/>
+              </font>
+            </ToggleButton>
+            <Data cursor="HAND" enabled="1" graphic=".data/img/widget.png" id="data-widgetgirl" tooltipText="Настройки виджета расположение бота" visible="1"/>
+          </children>
+          <titleFont>
+            <Font name="System Regular" size="13"/>
+          </titleFont>
+        </Panel>
+        <Data cursor="DEFAULT" enabled="1" id="data-rightmenu" visible="1"/>
+      </children>
+      <titleFont>
+        <Font name="System Regular" size="13"/>
+      </titleFont>
+    </Panel>
+    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="leafaddons" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="584" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+      <children>
+        <TitledPane AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" alignment="CENTER_LEFT" animated="true" collapsible="true" contentDisplay="LEFT" ellipsisString="..." expanded="false" focusTraversable="true" graphicTextGap="4" id="spoiler" layoutX="8" layoutY="8" prefHeight="280" prefWidth="608" styleClass="titled-pane " text="Отбрасываемая тень" textAlignment="LEFT" underline="false" wrapText="false">
+          <font>
+            <Font name="SansSerif Regular" size="13"/>
+          </font>
+          <content>
+            <AnchorPane focusTraversable="false" id="" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="263" prefWidth="606" styleClass="">
+              <padding>
+                <Insets bottom="10.4" left="10.4" right="10.4" top="10.4"/>
+              </padding>
+              <children>
+                <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="0" id="labelAlt" layoutX="24" layoutY="80" prefHeight="10.4765625" prefWidth="31.3857421875" styleClass="label " text="Радиус:" textAlignment="LEFT" underline="false" wrapText="false">
+                  <font>
+                    <Font name="SansSerif Regular" size="9"/>
+                  </font>
+                </LabelEx>
+                <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="0" id="label3" layoutX="7" layoutY="-18" prefHeight="15.1328125" prefWidth="51.77783203125" styleClass="label " text="Яркость:" textAlignment="LEFT" underline="false" wrapText="false">
+                  <font>
+                    <Font name="System Regular" size="13"/>
+                  </font>
+                </LabelEx>
+                <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="0" id="label4" layoutX="24" layoutY="112" prefHeight="10.4765625" prefWidth="67.552734375" styleClass="label " text="Интенсивность:" textAlignment="LEFT" underline="false" wrapText="false">
+                  <font>
+                    <Font name="SansSerif Regular" size="9"/>
+                  </font>
+                </LabelEx>
+                <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="0" id="label5" layoutX="24" layoutY="144" prefHeight="10.4765625" prefWidth="52.611328125" styleClass="label " text="СмещениеX:" textAlignment="LEFT" underline="false" wrapText="false">
+                  <font>
+                    <Font name="SansSerif Regular" size="9"/>
+                  </font>
+                </LabelEx>
+                <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="0" id="label6" layoutX="24" layoutY="176" prefHeight="10.4765625" prefWidth="52.43115234375" styleClass="label " text="СмещениеY:" textAlignment="LEFT" underline="false" wrapText="false">
+                  <font>
+                    <Font name="SansSerif Regular" size="9"/>
+                  </font>
+                </LabelEx>
+                <Button AnchorPane.leftAnchor="21.60000038147" AnchorPane.rightAnchor="19.600011825562" alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="resetShadow" layoutX="32.00000038147" layoutY="216" prefHeight="26" prefWidth="544" styleClass="button " text="Восстановить эффект" textAlignment="CENTER" underline="false" wrapText="false">
+                  <font>
+                    <Font name="SansSerif Regular" size="13"/>
+                  </font>
+                </Button>
+                <Data cursor="DEFAULT" enabled="1" id="data-labelAlt" visible="1"/>
+                <Data cursor="DEFAULT" enabled="1" graphic=".data/img/addons.png" id="data-selectedShadow" visible="1"/>
+                <Data cursor="DEFAULT" enabled="1" id="data-label3" visible="1"/>
+                <Data cursor="DEFAULT" enabled="1" id="data-label4" visible="1"/>
+                <Data cursor="DEFAULT" enabled="1" id="data-label5" visible="1"/>
+                <Data cursor="DEFAULT" enabled="1" id="data-label6" visible="1"/>
+                <Data cursor="DEFAULT" enabled="1" graphic=".data/img/action.png" id="data-resetShadow" visible="1"/>
+                <Data cursor="DEFAULT" enabled="1" id="data-transetY" visible="1"/>
+                <Data cursor="DEFAULT" enabled="1" id="data-transetX" visible="1"/>
+                <Data cursor="DEFAULT" enabled="1" id="data-Intensity" visible="1"/>
+                <Data cursor="DEFAULT" enabled="1" id="data-radiusShadow" visible="1"/>
+                <Data cursor="DEFAULT" enabled="1" id="data-colorPicker" visible="1"/>
+                <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="0" id="label7" layoutX="24" layoutY="32" prefHeight="10.4765625" prefWidth="44.771484375" styleClass="label " text="Цвет тени:" textAlignment="LEFT" underline="false" wrapText="false">
+                  <font>
+                    <Font name="SansSerif Regular" size="9"/>
+                  </font>
+                </LabelEx>
+                <Data cursor="DEFAULT" enabled="1" id="data-label7" visible="1"/>
+                <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="selectedShadow" layoutX="8" layoutY="8" prefHeight="16" prefWidth="112" styleClass="check-box " text="Вкл/Выкл" textAlignment="LEFT" underline="false" wrapText="false">
+                  <font>
+                    <Font name="SansSerif Regular" size="9"/>
+                  </font>
+                </CheckBox>
+                <ColorPicker AnchorPane.leftAnchor="13.60000038147" AnchorPane.rightAnchor="12.39999961853" focusTraversable="true" id="colorPicker" layoutX="24.00000038147" layoutY="48" prefHeight="24" prefWidth="560" styleClass="combo-box-base color-picker ">
+                  <value>
+                    <Color blue="0.70196080207825" green="0.70196080207825" opacity="1" red="0.70196080207825"/>
+                  </value>
+                </ColorPicker>
+                <Slider AnchorPane.leftAnchor="13.60000038147" AnchorPane.rightAnchor="11.600011825562" blockIncrement="0.1" focusTraversable="true" id="radiusShadow" layoutX="24.00000038147" layoutY="96" majorTickUnit="25" max="40" min="0" orientation="HORIZONTAL" prefHeight="11" prefWidth="560" showTickLabels="false" showTickMarks="false" snapToTicks="false" styleClass="slider " value="12.5"/>
+                <Slider AnchorPane.leftAnchor="11.10000038147" AnchorPane.rightAnchor="16.600011825562" blockIncrement="0.1" focusTraversable="true" id="Intensity" layoutX="21.50000038147" layoutY="128" majorTickUnit="25" max="1" min="0" orientation="HORIZONTAL" prefHeight="11" prefWidth="560" showTickLabels="false" showTickMarks="false" snapToTicks="false" styleClass="slider " value="0"/>
+                <Slider AnchorPane.leftAnchor="13.60000038147" AnchorPane.rightAnchor="11.600011825562" blockIncrement="0.1" focusTraversable="true" id="transetX" layoutX="24.00000038147" layoutY="160" majorTickUnit="25" max="50" min="-50" orientation="HORIZONTAL" prefHeight="11" prefWidth="560" showTickLabels="false" showTickMarks="false" snapToTicks="false" styleClass="slider " value="0"/>
+                <Slider AnchorPane.leftAnchor="13.60000038147" AnchorPane.rightAnchor="11.600011825562" blockIncrement="0.1" focusTraversable="true" id="transetY" layoutX="24.00000038147" layoutY="192" majorTickUnit="25" max="50" min="-50" orientation="HORIZONTAL" prefHeight="11" prefWidth="560" showTickLabels="false" showTickMarks="false" snapToTicks="false" styleClass="slider " value="0"/>
+              </children>
+            </AnchorPane>
+          </content>
+        </TitledPane>
+        <Data cursor="DEFAULT" enabled="1" graphic=".data/img/addons.png" id="data-spoilerAlt" visible="1"/>
+        <Data cursor="DEFAULT" enabled="1" graphic=".data/img/addons.png" id="data-spoiler" visible="1"/>
+        <TitledPane AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" alignment="CENTER_LEFT" animated="true" collapsible="true" contentDisplay="LEFT" ellipsisString="..." expanded="false" focusTraversable="true" graphicTextGap="4" id="spoilerAlt" layoutX="8" layoutY="40" prefHeight="224" prefWidth="608" styleClass="titled-pane " text="Цветовая коррекция" textAlignment="LEFT" underline="false" wrapText="false">
+          <font>
+            <Font name="SansSerif Regular" size="13"/>
+          </font>
+          <content>
+            <AnchorPane focusTraversable="false" id="" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="207" prefWidth="606" styleClass="">
+              <padding>
+                <Insets bottom="10.4" left="10.4" right="10.4" top="10.4"/>
+              </padding>
+              <children>
+                <Data cursor="DEFAULT" enabled="1" id="data-brightness" visible="1"/>
+                <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="0" id="lb0" layoutX="24" layoutY="32" prefHeight="10.4765625" prefWidth="35.84619140625" styleClass="label " text="Яркость:" textAlignment="LEFT" underline="false" wrapText="false">
+                  <font>
+                    <Font name="SansSerif Regular" size="9"/>
+                  </font>
+                </LabelEx>
+                <Data cursor="DEFAULT" enabled="1" id="data-lb0" visible="1"/>
+                <Data cursor="DEFAULT" enabled="1" graphic=".data/img/addons.png" id="data-colorcorrection" visible="1"/>
+                <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="colorcorrection" layoutX="8" layoutY="8" prefHeight="16" prefWidth="88" styleClass="check-box " text="Вкл/Выкл" textAlignment="LEFT" underline="false" wrapText="false">
+                  <font>
+                    <Font name="SansSerif Regular" size="9"/>
+                  </font>
+                </CheckBox>
+                <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="0" id="label" layoutX="7" layoutY="-18" prefHeight="15.1328125" prefWidth="51.77783203125" styleClass="label " text="Яркость:" textAlignment="LEFT" underline="false" wrapText="false">
+                  <font>
+                    <Font name="System Regular" size="13"/>
+                  </font>
+                </LabelEx>
+                <Data cursor="DEFAULT" enabled="1" id="data-label" visible="1"/>
+                <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="0" id="lb1" layoutX="24" layoutY="64" prefHeight="10.4765625" prefWidth="64.4501953125" styleClass="label " text="Контрастность:" textAlignment="LEFT" underline="false" wrapText="false">
+                  <font>
+                    <Font name="SansSerif Regular" size="9"/>
+                  </font>
+                </LabelEx>
+                <Data cursor="DEFAULT" enabled="1" id="data-lb1" visible="1"/>
+                <Data cursor="DEFAULT" enabled="1" id="data-contrast" visible="1"/>
+                <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="0" id="lb2" layoutX="24" layoutY="96" prefHeight="10.4765625" prefWidth="36.984375" styleClass="label " text="Оттенок:" textAlignment="LEFT" underline="false" wrapText="false">
+                  <font>
+                    <Font name="SansSerif Regular" size="9"/>
+                  </font>
+                </LabelEx>
+                <Data cursor="DEFAULT" enabled="1" id="data-lb2" visible="1"/>
+                <Data cursor="DEFAULT" enabled="1" id="data-hue" visible="1"/>
+                <Data cursor="DEFAULT" enabled="1" id="data-saturation" visible="1"/>
+                <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="0" id="lb3" layoutX="24" layoutY="128" prefHeight="10.4765625" prefWidth="66.5947265625" styleClass="label " text="Насыщенность:" textAlignment="LEFT" underline="false" wrapText="false">
+                  <font>
+                    <Font name="SansSerif Regular" size="9"/>
+                  </font>
+                </LabelEx>
+                <Data cursor="DEFAULT" enabled="1" id="data-lb3" visible="1"/>
+                <Button AnchorPane.leftAnchor="21.60000038147" AnchorPane.rightAnchor="20.600011825562" alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="reloadcolorcorrection" layoutX="32.00000038147" layoutY="160" prefHeight="24" prefWidth="543" styleClass="button " text="Восстановить эффект" textAlignment="CENTER" underline="false" wrapText="false">
+                  <font>
+                    <Font name="SansSerif Regular" size="13"/>
+                  </font>
+                </Button>
+                <Data cursor="DEFAULT" enabled="1" graphic=".data/img/action.png" id="data-reloadcolorcorrection" visible="1"/>
+                <Slider AnchorPane.leftAnchor="13.60000038147" AnchorPane.rightAnchor="11.600011825562" blockIncrement="0.1" focusTraversable="true" id="saturation" layoutX="24.00000038147" layoutY="144" majorTickUnit="25" max="1" min="-1" orientation="HORIZONTAL" prefHeight="10" prefWidth="560" showTickLabels="false" showTickMarks="false" snapToTicks="false" styleClass="slider " value="0"/>
+                <Slider AnchorPane.leftAnchor="13.60000038147" AnchorPane.rightAnchor="11.600011825562" blockIncrement="0.1" focusTraversable="true" id="hue" layoutX="24.00000038147" layoutY="112" majorTickUnit="25" max="1" min="-1" orientation="HORIZONTAL" prefHeight="10" prefWidth="560" showTickLabels="false" showTickMarks="false" snapToTicks="false" styleClass="slider " value="0"/>
+                <Slider AnchorPane.leftAnchor="13.60000038147" AnchorPane.rightAnchor="11.600011825562" blockIncrement="0.1" focusTraversable="true" id="contrast" layoutX="24.00000038147" layoutY="80" majorTickUnit="25" max="1" min="-1" orientation="HORIZONTAL" prefHeight="10" prefWidth="560" showTickLabels="false" showTickMarks="false" snapToTicks="false" styleClass="slider " value="0"/>
+                <Slider AnchorPane.leftAnchor="13.60000038147" AnchorPane.rightAnchor="11.600011825562" blockIncrement="10" focusTraversable="true" id="brightness" layoutX="24.00000038147" layoutY="48" majorTickUnit="25" max="1" min="-1" orientation="HORIZONTAL" prefHeight="16" prefWidth="560" showTickLabels="false" showTickMarks="false" snapToTicks="false" styleClass="slider " value="0"/>
+              </children>
+            </AnchorPane>
+          </content>
+        </TitledPane>
+        <ImageViewEx AnchorPane.bottomAnchor="-1" AnchorPane.rightAnchor="-1" autoSize="false" centered="false" focusTraversable="false" height="128" id="previewimage_leafeffect" layoutX="496" layoutY="456" mosaic="false" mosaicGap="0" proportional="false" stretch="true" styleClass="" textFill="#000000" width="128">
+          <font>
+            <Font name="System Regular" size="12"/>
+          </font>
+        </ImageViewEx>
+        <Data cursor="DEFAULT" enabled="1" id="data-previewimage_leafeffect" image="" visible="1"/>
+      </children>
+      <titleFont>
+        <Font name="SansSerif Regular" size="9"/>
+      </titleFont>
+    </Panel>
+    <Data cursor="DEFAULT" enabled="1" id="data-Femalepanel" visible="1"/>
+    <Data cursor="DEFAULT" enabled="1" id="data-Malepanel" visible="1"/>
+    <Data cursor="DEFAULT" enabled="1" id="data-leafaddons" visible="1"/>
+    <Data cursor="DEFAULT" enabled="1" id="data-panelwidget" visible=""/>
+    <Data cursor="DEFAULT" enabled="1" id="data-skinpanel" visible=""/>
+    <Data cursor="DEFAULT" enabled="1" id="data-panelvk" visible=""/>
+    <Data cursor="DEFAULT" enabled="1" id="data-paneltelegram" visible=""/>
+    <Data cursor="DEFAULT" enabled="1" id="data-panelmoveform" visible="1"/>
+    <Data cursor="DEFAULT" enabled="1" id="data-modulesystem" visible="1"/>
+    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="Malepanel" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="584" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+      <children>
+        <ComboBox editable="false" focusTraversable="true" id="icotype" layoutX="8" layoutY="8" prefHeight="26" prefWidth="208" promptText="" styleClass="combo-box-base combo-box " value="Обычное" visibleRowCount="10">
+          <items xmlns:fx="http://javafx.com/fxml">
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Обычное"/>
+              <String fx:value="Трей"/>
+            </FXCollections>
+          </items>
+        </ComboBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-icotype" visible="1"/>
+        <ComboBox editable="false" focusTraversable="true" id="icoselected" layoutX="8" layoutY="72" prefHeight="26" prefWidth="208" promptText="" styleClass="combo-box-base combo-box " value="" visibleRowCount="10">
+          <items xmlns:fx="http://javafx.com/fxml">
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Выход"/>
+              <String fx:value="Поддержка"/>
+              <String fx:value="Чат"/>
+              <String fx:value="Настройки"/>
+              <String fx:value="Магазин"/>
+              <String fx:value="Поверх всех окон"/>
+              <String fx:value="Проверка обновление"/>
+              <String fx:value="Блокнот"/>
+            </FXCollections>
+          </items>
+        </ComboBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-icoselected" visible="1"/>
+        <ComboBox editable="false" focusTraversable="true" id="icopackselected" layoutX="8" layoutY="40" prefHeight="26" prefWidth="208" promptText="" styleClass="combo-box-base combo-box " value="" visibleRowCount="10">
+          <items xmlns:fx="http://javafx.com/fxml">
+            <FXCollections fx:factory="observableArrayList"/>
+          </items>
+        </ComboBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-icopackselected" visible="1"/>
+        <Panel backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="icoviewpanel" layoutX="224" layoutY="8" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="96" prefWidth="144" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+          <children>
+            <ImageViewEx autoSize="false" centered="true" focusTraversable="false" height="80" id="icoview" layoutX="8" layoutY="8" mosaic="false" mosaicGap="0" proportional="true" stretch="false" styleClass="" textFill="#000000" width="128">
+              <font>
+                <Font name="System Regular" size="12"/>
+              </font>
+            </ImageViewEx>
+            <Data cursor="DEFAULT" enabled="1" id="data-icoview" visible="1"/>
+          </children>
+          <titleFont>
+            <Font name="System Regular" size="13"/>
+          </titleFont>
+        </Panel>
+        <Data cursor="DEFAULT" enabled="1" id="data-icoviewpanel" visible="1"/>
+        <LabelEx alignment="CENTER" autoSize="false" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="labelicoselected" layoutX="224" layoutY="112" prefHeight="16" prefWidth="144" styleClass="label " text="не Выбран пак :(" textAlignment="CENTER" textFill="#ff9999" underline="false" wrapText="false">
+          <font>
+            <Font name="SansSerif Regular" size="13"/>
+          </font>
+        </LabelEx>
+        <Data cursor="DEFAULT" enabled="1" id="data-labelicoselected" visible="1"/>
+        <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="installpackico" layoutX="8" layoutY="104" prefHeight="32" prefWidth="208" styleClass="button " text="Выбрать пак" textAlignment="CENTER" underline="false" wrapText="false">
+          <font>
+            <Font name="SansSerif Regular" size="13"/>
+          </font>
+        </Button>
+        <Data cursor="DEFAULT" enabled="1" graphic="" id="data-installpackico" visible="1"/>
+        <ColorPicker focusTraversable="true" id="colorPicker_background" layoutX="8" layoutY="184" prefHeight="32" prefWidth="144" styleClass="combo-box-base color-picker "/>
+        <Data cursor="DEFAULT" enabled="1" id="data-colorPicker_background" visible="1"/>
+        <LabelEx alignment="CENTER_LEFT" autoSize="false" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="label9" layoutX="8" layoutY="160" prefHeight="16" prefWidth="80" styleClass="label " text="Цвет фона:" textAlignment="LEFT" underline="false" wrapText="false">
+          <font>
+            <Font name="System Regular" size="12"/>
+          </font>
+        </LabelEx>
+        <Data cursor="DEFAULT" enabled="1" id="data-label9" visible="1"/>
+        <ColorPicker focusTraversable="true" id="colorPicker_panel" layoutX="160" layoutY="184" prefHeight="32" prefWidth="144" styleClass="combo-box-base color-picker "/>
+        <Data cursor="DEFAULT" enabled="1" id="data-colorPicker_panel" visible="1"/>
+        <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="label10" layoutX="160" layoutY="160" prefHeight="13.96875" prefWidth="93.1875" styleClass="label " text="Цвет элементов:" textAlignment="LEFT" underline="false" wrapText="false">
+          <font>
+            <Font name="System Regular" size="12"/>
+          </font>
+        </LabelEx>
+        <Data cursor="DEFAULT" enabled="1" id="data-label10" visible="1"/>
+        <ImageViewEx AnchorPane.bottomAnchor="-1" AnchorPane.rightAnchor="-1" autoSize="false" centered="false" focusTraversable="false" height="128" id="previewimage_male" layoutX="496" layoutY="456" mosaic="false" mosaicGap="0" proportional="false" stretch="true" styleClass="" textFill="#000000" width="128">
+          <font>
+            <Font name="System Regular" size="12"/>
+          </font>
+        </ImageViewEx>
+        <Data cursor="DEFAULT" enabled="1" id="data-previewimage_male" image="" visible="1"/>
+      </children>
+      <titleFont>
+        <Font name="SansSerif Regular" size="9"/>
+      </titleFont>
+    </Panel>
+    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="modulesystem" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="584" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+      <children>
+        <ComboBox AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="9" editable="false" focusTraversable="true" id="typemodules" layoutX="8" layoutY="48" prefHeight="26" prefWidth="608" promptText="" styleClass="combo-box-base combo-box " value="Telegram_api" visibleRowCount="10">
+          <items xmlns:fx="http://javafx.com/fxml">
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Telegram_api"/>
+              <String fx:value="vk"/>
+            </FXCollections>
+          </items>
+        </ComboBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-typemodules" visible="1"/>
+        <TextField AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="87" alignment="CENTER" editable="true" focusTraversable="true" id="namemodules" layoutX="8" layoutY="8" prefColumnCount="12" prefHeight="32" prefWidth="528" promptText="Имя модуля" styleClass="text-input text-field " text="">
+          <font>
+            <Font name="SansSerif Regular" size="13"/>
+          </font>
+        </TextField>
+        <Data cursor="DEFAULT" enabled="1" id="data-namemodules" visible="1"/>
+        <Button AnchorPane.rightAnchor="7" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="addmodules" layoutX="582" layoutY="8" prefHeight="32" prefWidth="32" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+          <font>
+            <Font name="System Regular" size="13"/>
+          </font>
+        </Button>
+        <Data cursor="DEFAULT" enabled="1" graphic=".data/img/add.png" id="data-addmodules" visible="1"/>
+        <ComboBox AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="9" editable="false" focusTraversable="true" id="type" layoutX="8" layoutY="80" prefHeight="26" prefWidth="608" promptText="" styleClass="combo-box-base combo-box " value="Общее" visibleRowCount="10">
+          <items xmlns:fx="http://javafx.com/fxml">
+            <FXCollections fx:factory="observableArrayList">
+              <String fx:value="Общее"/>
+              <String fx:value="Основные"/>
+            </FXCollections>
+          </items>
+        </ComboBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-type" visible="1"/>
+        <ImageViewEx AnchorPane.bottomAnchor="-1" AnchorPane.rightAnchor="-1" autoSize="false" centered="false" focusTraversable="false" height="128" id="previwimage_module" layoutX="496" layoutY="456" mosaic="false" mosaicGap="0" proportional="false" stretch="true" styleClass="" textFill="#000000" width="128">
+          <font>
+            <Font name="System Regular" size="12"/>
+          </font>
+        </ImageViewEx>
+        <Data cursor="DEFAULT" enabled="1" id="data-previwimage_module" image="" visible="1"/>
+        <TextArea AnchorPane.bottomAnchor="239" AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" AnchorPane.topAnchor="143" editable="true" focusTraversable="true" id="descriptionmodules" layoutX="8" layoutY="144" prefColumnCount="40" prefHeight="200" prefWidth="608" promptText="Описание модуля..." styleClass="text-input text-area " text="" wrapText="false">
+          <font>
+            <Font name="System Regular" size="13"/>
+          </font>
+        </TextArea>
+        <Data cursor="DEFAULT" enabled="1" id="data-descriptionmodules" visible="1"/>
+        <ComboBox AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" editable="false" focusTraversable="true" id="listmodules" layoutX="8" layoutY="112" prefHeight="26" prefWidth="608" promptText="" styleClass="combo-box-base combo-box " value="" visibleRowCount="10">
+          <items xmlns:fx="http://javafx.com/fxml">
+            <FXCollections fx:factory="observableArrayList"/>
+          </items>
+        </ComboBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-listmodules" visible="1"/>
+        <Button AnchorPane.rightAnchor="44" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="deletemodules" layoutX="545" layoutY="8" prefHeight="32" prefWidth="32" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+          <font>
+            <Font name="System Regular" size="13"/>
+          </font>
+        </Button>
+        <Data cursor="DEFAULT" enabled="1" graphic=".data/img/minus.png" id="data-deletemodules" tooltipText="Удалить модуль" visible="1"/>
+      </children>
+      <titleFont>
+        <Font name="SansSerif Regular" size="9"/>
+      </titleFont>
+    </Panel>
+    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="Femalepanel" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="584" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+      <children>
+        <ImageViewEx AnchorPane.bottomAnchor="-1" AnchorPane.rightAnchor="-1" autoSize="false" centered="false" focusTraversable="false" height="128" id="previwimage_female" layoutX="496" layoutY="456" mosaic="false" mosaicGap="0" proportional="false" stretch="true" styleClass="" textFill="#000000" width="128">
+          <font>
+            <Font name="System Regular" size="12"/>
+          </font>
+        </ImageViewEx>
+        <TextField AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" AnchorPane.topAnchor="7" alignment="CENTER" editable="true" focusTraversable="true" id="NameFemale" layoutX="8" layoutY="8" prefColumnCount="12" prefHeight="16" prefWidth="608" promptText="Имя бота." styleClass="text-input text-field " text="">
+          <font>
+            <Font name="SansSerif Regular" size="13"/>
+          </font>
+        </TextField>
+        <Data cursor="DEFAULT" enabled="1" id="data-NameFemale" tooltipText="Имя тянки" visible="1"/>
+        <ListViewEx AnchorPane.bottomAnchor="111" AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" AnchorPane.topAnchor="103" editable="false" fixedCellSize="-1" focusTraversable="true" id="list" layoutX="8" layoutY="104" prefHeight="272" prefWidth="608" styleClass="list-view ">
+          <items xmlns:fx="http://javafx.com/fxml">
+            <FXCollections fx:factory="observableArrayList"/>
+          </items>
+        </ListViewEx>
+        <Data cursor="DEFAULT" enabled="1" id="data-list" visible="1"/>
+        <TextField AnchorPane.bottomAnchor="77" AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" alignment="CENTER" editable="true" focusTraversable="true" id="text" layoutX="8" layoutY="480" prefColumnCount="12" prefHeight="16" prefWidth="608" promptText="Ответ на вопрос..." styleClass="text-input text-field " text="">
+          <font>
+            <Font name="SansSerif Regular" size="13"/>
+          </font>
+        </TextField>
+        <Data cursor="DEFAULT" enabled="1" id="data-text" visible="1"/>
+        <ComboBox AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="47" editable="false" focusTraversable="true" id="bd" layoutX="8" layoutY="40" prefHeight="24" prefWidth="568" promptText="База данных не выбрана = (" styleClass="combo-box-base combo-box " value="" visibleRowCount="10">
+          <items xmlns:fx="http://javafx.com/fxml">
+            <FXCollections fx:factory="observableArrayList"/>
+          </items>
+        </ComboBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-bd" visible="1"/>
+        <TextField AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" alignment="CENTER" editable="true" focusTraversable="true" id="addbd" layoutX="8" layoutY="72" prefColumnCount="12" prefHeight="16" prefWidth="608" promptText="Добавить новую базу данных" styleClass="text-input text-field " text="">
+          <font>
+            <Font name="SansSerif Regular" size="13"/>
+          </font>
+        </TextField>
+        <Data cursor="DEFAULT" enabled="1" id="data-addbd" visible="1"/>
+        <Button AnchorPane.rightAnchor="7" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="0" id="editsection" layoutX="584" layoutY="41" prefHeight="24" prefWidth="32" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+          <font>
+            <Font name="SansSerif Regular" size="9"/>
+          </font>
+        </Button>
+        <Data cursor="HAND" enabled="1" graphic=".data/img/replace.png" id="data-editsection" visible="1"/>
+        <Panel AnchorPane.bottomAnchor="7" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="paneldown" layoutX="8" layoutY="536" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="40" prefWidth="168" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+          <children>
+            <Button alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="selectedmoduleindex" layoutX="88" layoutY="8" prefHeight="26" prefWidth="24" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+              <font>
+                <Font name="System Regular" size="13"/>
+              </font>
+            </Button>
+            <Data cursor="HAND" enabled="1" graphic=".data/img/module.png" id="data-selectedmoduleindex" tooltipText="Выбрать модуль" visible="1"/>
+            <Button alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="0" id="replacelist" layoutX="48" layoutY="7" prefHeight="26" prefWidth="24" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+              <font>
+                <Font name="System Regular" size="13"/>
+              </font>
+            </Button>
+            <Data cursor="HAND" enabled="1" graphic=".data/img/replace.png" id="data-replacelist" tooltipText="Редактировать ответ" visible="1"/>
+            <Button alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="0" id="openfile" layoutX="8" layoutY="7" prefHeight="26" prefWidth="24" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+              <font>
+                <Font name="System Regular" size="13"/>
+              </font>
+            </Button>
+            <Data cursor="HAND" enabled="1" graphic=".data/img/view.png" id="data-openfile" tooltipText="Открыть текстовый файл ascii или выбрать папку с картинками" visible="1"/>
+            <Button alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="packconstruct" layoutX="128" layoutY="8" prefHeight="26" prefWidth="24" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+              <font>
+                <Font name="System Regular" size="13"/>
+              </font>
+            </Button>
+            <Data cursor="HAND" enabled="1" graphic=".data/img/parcel-pack-box-icon.png" id="data-packconstruct" tooltipText="Дополнительный функционал&#10;" visible="1"/>
+          </children>
+          <titleFont>
+            <Font name="System Regular" size="13"/>
+          </titleFont>
+        </Panel>
+        <Data cursor="DEFAULT" enabled="1" id="data-paneldown" visible="1"/>
+        <CheckBox AnchorPane.bottomAnchor="56" alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="magicmodules" layoutX="8" layoutY="509" prefHeight="18" prefWidth="144" styleClass="check-box " text="Модульный режим" textAlignment="LEFT" underline="false" wrapText="false">
+          <font>
+            <Font name="SansSerif Regular" size="13"/>
+          </font>
+        </CheckBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-magicmodules" tooltipText="Переход в модульный режим" visible="1"/>
+        <Data cursor="DEFAULT" enabled="1" id="data-previwimage_female" image="" visible="1"/>
+        <CheckBox AnchorPane.bottomAnchor="54" alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="autostart" layoutX="160" layoutY="511" prefHeight="18" prefWidth="96" styleClass="check-box " text="Автостарт" textAlignment="LEFT" underline="false" wrapText="false">
+          <font>
+            <Font name="SansSerif Regular" size="13"/>
+          </font>
+        </CheckBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-autostart" tooltipText="Переход в модульный режим" visible="1"/>
+      </children>
+      <titleFont>
+        <Font name="System Regular" size="13"/>
+      </titleFont>
+    </Panel>
+    <Panel AnchorPane.rightAnchor="96" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="paneltelegram" layoutX="328" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" opacity="0" prefHeight="440" prefWidth="216" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_CENTER">
+      <children>
+        <ToggleButton alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="Asynx_token" layoutX="8" layoutY="8" prefHeight="24" prefWidth="200" styleClass="toggle-button " text="Синхранизация" textAlignment="LEFT" underline="false" wrapText="false">
+          <font>
+            <Font name="SansSerif Regular" size="13"/>
+          </font>
+        </ToggleButton>
+        <Data cursor="HAND" enabled="1" graphic=".data/img/action.png" id="data-Asynx_token" visible="1"/>
+        <VBox AnchorPane.bottomAnchor="7" AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" AnchorPane.topAnchor="39" alignment="TOP_LEFT" focusTraversable="false" id="vbox" layoutX="8" layoutY="40" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="392" prefWidth="200" spacing="5" styleClass="">
+          <children>
+            <TextField alignment="CENTER_LEFT" editable="true" focusTraversable="true" id="token" layoutX="0" layoutY="0" prefColumnCount="12" prefHeight="32" prefWidth="200" promptText="token" styleClass="text-input text-field " text="">
+              <font>
+                <Font name="SansSerif Regular" size="13"/>
+              </font>
+            </TextField>
+            <TextField alignment="CENTER" editable="true" focusTraversable="true" id="chatid" layoutX="0" layoutY="37" prefColumnCount="12" prefHeight="32" prefWidth="200" promptText="Chatid" styleClass="text-input text-field " text="">
+              <font>
+                <Font name="SansSerif Regular" size="13"/>
+              </font>
+            </TextField>
+            <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="chatid_look" layoutX="0" layoutY="74" prefHeight="24" prefWidth="144" styleClass="check-box " text="Закрепить chatid" textAlignment="LEFT" underline="false" wrapText="false">
+              <font>
+                <Font name="SansSerif Regular" size="13"/>
+              </font>
+            </CheckBox>
+            <Separator focusTraversable="false" id="separatorAlt" layoutX="0" layoutY="103" orientation="HORIZONTAL" prefHeight="8" prefWidth="144" styleClass="separator "/>
+            <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="notificationtelegram" layoutX="0" layoutY="116" prefHeight="24" prefWidth="128" styleClass="check-box " text="Уведомление" textAlignment="LEFT" underline="false" wrapText="false">
+              <font>
+                <Font name="SansSerif Regular" size="13"/>
+              </font>
+            </CheckBox>
+            <ComboBox editable="false" focusTraversable="true" id="positionnotificationtelegram" layoutX="0" layoutY="145" prefHeight="26" prefWidth="152" promptText="" styleClass="combo-box-base combo-box " value="BOTTOM_RIGHT" visibleRowCount="10">
+              <items xmlns:fx="http://javafx.com/fxml">
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="BOTTOM_RIGHT"/>
+                  <String fx:value="BOTTOM_LEFT"/>
+                  <String fx:value="TOP_LEFT"/>
+                  <String fx:value="TOP_RIGHT"/>
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <ComboBox editable="false" focusTraversable="true" id="typetelegramnotification" layoutX="0" layoutY="176" prefHeight="26" prefWidth="152" promptText="" styleClass="combo-box-base combo-box " value="NOTICE" visibleRowCount="10">
+              <items xmlns:fx="http://javafx.com/fxml">
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="NOTICE"/>
+                  <String fx:value="SUCCESS"/>
+                  <String fx:value="ERROR"/>
+                  <String fx:value="WARNING"/>
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <ComboBox editable="false" focusTraversable="true" id="animationnotificationtelegram" layoutX="0" layoutY="207" prefHeight="23" prefWidth="152" promptText="" styleClass="combo-box-base combo-box " value="FADE" visibleRowCount="10">
+              <items xmlns:fx="http://javafx.com/fxml">
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="SLIDE"/>
+                  <String fx:value="FADE"/>
+                  <String fx:value="POPUP"/>
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Separator focusTraversable="false" id="separator" layoutX="0" layoutY="238" orientation="HORIZONTAL" prefHeight="8" prefWidth="144" styleClass="separator "/>
+            <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="label8" layoutX="0" layoutY="251" prefHeight="15.1328125" prefWidth="152.4453125" styleClass="label " text="Необычный функционал" textAlignment="LEFT" underline="false" wrapText="false">
+              <font>
+                <Font name="SansSerif Regular" size="13"/>
+              </font>
+            </LabelEx>
+            <ComboBox editable="false" focusTraversable="true" id="prefixtelegram" layoutX="0" layoutY="272" prefHeight="26" prefWidth="72" promptText="Префикс" styleClass="combo-box-base combo-box " value="null" visibleRowCount="10">
+              <items xmlns:fx="http://javafx.com/fxml">
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="null"/>
+                  <String fx:value="$"/>
+                  <String fx:value="!"/>
+                  <String fx:value="*"/>
+                  <String fx:value="&amp;"/>
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Data cursor="DEFAULT" enabled="1" id="data-token" tooltipText="Токен бота" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-chatid" tooltipText="Чат id" visible="1"/>
+            <Separator focusTraversable="false" id="separator4" layoutX="0" layoutY="303" orientation="HORIZONTAL" prefHeight="8" prefWidth="144" styleClass="separator "/>
+            <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="checkboxproxytelegram" layoutX="0" layoutY="316" prefHeight="24" prefWidth="160" styleClass="check-box " text="Вкл/выкл (Прокси)" textAlignment="LEFT" underline="false" wrapText="false">
+              <font>
+                <Font name="SansSerif Regular" size="13"/>
+              </font>
+            </CheckBox>
+            <Data cursor="DEFAULT" enabled="1" id="data-checkboxproxytelegram" tooltipText="Вкл / выкл прокси" visible="1"/>
+            <TextField alignment="CENTER" editable="true" focusTraversable="true" id="proxyTelegram" layoutX="0" layoutY="345" prefColumnCount="12" prefHeight="26" prefWidth="200" promptText="Прокси" styleClass="text-input text-field " text="185.12.177.209:80">
+              <font>
+                <Font name="SansSerif Regular" size="13"/>
+              </font>
+            </TextField>
+            <Data cursor="DEFAULT" enabled="1" id="data-proxyTelegram" tooltipText="Прокси [ip:port]" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-prefixtelegram" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-notificationtelegram" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-positionnotificationtelegram" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-typetelegramnotification" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-animationnotificationtelegram" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-separator" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-separatorAlt" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-separator4" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-label8" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-chatid_look" visible="1"/>
+          </children>
+        </VBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-vbox" visible="1"/>
+      </children>
+      <titleFont>
+        <Font name="System Regular" size="13"/>
+      </titleFont>
+    </Panel>
+    <Panel AnchorPane.rightAnchor="14" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="panelwidget" layoutX="472" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" opacity="0" prefHeight="82" prefWidth="154" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+      <children>
+        <VBox alignment="CENTER" focusTraversable="false" id="vbox3" layoutX="0" layoutY="0" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="80" prefWidth="152" spacing="5" styleClass="">
+          <children>
+            <org.develnext.jphp.ext.javafx.support.control.NumberSpinner alignment="CENTER" arrowsStyle="RIGHT_VERTICAL" editable="true" focusTraversable="true" id="valueX" initial="0" layoutX="4" layoutY="6" max="2147483647" min="-99999999" prefHeight="32" prefWidth="144" step="1" styleClass="spinner "/>
+            <Data cursor="DEFAULT" enabled="1" id="data-valueX" tooltipText="Смещение по X" visible="1"/>
+            <org.develnext.jphp.ext.javafx.support.control.NumberSpinner alignment="CENTER" arrowsStyle="RIGHT_VERTICAL" editable="true" focusTraversable="true" id="valueY" initial="0" layoutX="4" layoutY="43" max="2147483647" min="-99999999" prefHeight="32" prefWidth="144" step="1" styleClass="spinner "/>
+            <Data cursor="DEFAULT" enabled="1" id="data-valueY" tooltipText="Смещение по Y" visible="1"/>
+          </children>
+        </VBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-vbox3" visible="1"/>
+      </children>
+      <titleFont>
+        <Font name="System Regular" size="13"/>
+      </titleFont>
+    </Panel>
+    <Panel AnchorPane.rightAnchor="54" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="panelvk" layoutX="376" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" opacity="0" prefHeight="138" prefWidth="210" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+      <children>
+        <VBox alignment="CENTER" focusTraversable="false" id="vboxAlt" layoutX="0" layoutY="0" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="96" prefWidth="208" spacing="5" styleClass="">
+          <children>
+            <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="loginvk" layoutX="4" layoutY="2" prefHeight="16" prefWidth="200" styleClass="button " text="Синхранизация" textAlignment="CENTER" underline="false" wrapText="false">
+              <font>
+                <Font name="SansSerif Regular" size="13"/>
+              </font>
+            </Button>
+            <Data cursor="HAND" enabled="1" graphic=".data/img/action.png" id="data-loginvk" visible="1"/>
+            <ToggleButton alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="longpoll" layoutX="4" layoutY="33" prefHeight="16" prefWidth="200" styleClass="toggle-button " text="Подключиться long-poll" textAlignment="LEFT" underline="false" wrapText="false">
+              <font>
+                <Font name="SansSerif Regular" size="13"/>
+              </font>
+            </ToggleButton>
+            <Data cursor="HAND" enabled="" graphic=".data/img/action.png" id="data-longpoll" visible="1"/>
+            <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="idgroup" layoutX="4" layoutY="64" prefHeight="18" prefWidth="200" styleClass="check-box " text="Группа / челу" textAlignment="LEFT" underline="false" wrapText="false">
+              <font>
+                <Font name="SansSerif Regular" size="13"/>
+              </font>
+            </CheckBox>
+            <Data cursor="DEFAULT" enabled="1" id="data-idgroup" visible="1"/>
+            <Separator focusTraversable="false" id="separator3" layoutX="0" layoutY="87" orientation="HORIZONTAL" prefHeight="8" prefWidth="144" styleClass="separator "/>
+            <Data cursor="DEFAULT" enabled="1" id="data-separator3" visible="1"/>
+          </children>
+        </VBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-vboxAlt" visible="1"/>
+        <HBox alignment="TOP_LEFT" focusTraversable="false" id="hbox" layoutX="0" layoutY="96" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="40" prefWidth="208" spacing="5" styleClass="">
+          <padding>
+            <Insets bottom="0" left="5" right="0" top="0"/>
+          </padding>
+          <children>
+            <TextField alignment="CENTER" editable="true" focusTraversable="true" id="prefix" layoutX="5" layoutY="0" prefColumnCount="12" prefHeight="32" prefWidth="32" promptText="prefix" styleClass="text-input text-field " text="\$">
+              <font>
+                <Font name="SansSerif Regular" size="13"/>
+              </font>
+            </TextField>
+            <org.develnext.jphp.ext.javafx.support.control.NumberSpinner alignment="CENTER" arrowsStyle="RIGHT_VERTICAL" editable="true" focusTraversable="true" id="groupandid" initial="0" layoutX="42" layoutY="0" max="2147483647" min="0" prefHeight="32" prefWidth="160" step="1" styleClass="spinner "/>
+            <Data cursor="DEFAULT" enabled="1" id="data-groupandid" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-prefix" visible="1"/>
+          </children>
+        </HBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-hbox" visible="1"/>
+      </children>
+      <titleFont>
+        <Font name="System Regular" size="13"/>
+      </titleFont>
+    </Panel>
+    <Panel AnchorPane.rightAnchor="136" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="skinpanel" layoutX="248" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" opacity="0" prefHeight="96" prefWidth="256" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+      <children>
+        <ComboBox editable="false" focusTraversable="true" id="skin" layoutX="8" layoutY="40" prefHeight="16" prefWidth="240" promptText="Скин" styleClass="combo-box-base combo-box " value="" visibleRowCount="10">
+          <items xmlns:fx="http://javafx.com/fxml">
+            <FXCollections fx:factory="observableArrayList"/>
+          </items>
+        </ComboBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-skin" visible="1"/>
+        <ComboBox editable="false" focusTraversable="true" id="Category_skin" layoutX="8" layoutY="7" prefHeight="24" prefWidth="240" promptText="Категория скина" styleClass="combo-box-base combo-box " value="" visibleRowCount="10">
+          <items xmlns:fx="http://javafx.com/fxml">
+            <FXCollections fx:factory="observableArrayList"/>
+          </items>
+        </ComboBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-Category_skin" visible="1"/>
+        <Slider blockIncrement="1" focusTraversable="true" id="sizeimage" layoutX="8" layoutY="72" majorTickUnit="25" max="1024" min="0" orientation="HORIZONTAL" prefHeight="16" prefWidth="240" showTickLabels="false" showTickMarks="false" snapToTicks="false" styleClass="slider " value="0"/>
+        <Data cursor="DEFAULT" enabled="1" id="data-sizeimage" visible="1"/>
+      </children>
+      <titleFont>
+        <Font name="System Regular" size="13"/>
+      </titleFont>
+    </Panel>
+  </children>
+</AnchorPane>

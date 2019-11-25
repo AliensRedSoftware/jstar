@@ -1,0 +1,26 @@
+{
+  "props": {
+    "version": "0.25",
+    "author": "Меркус",
+    "description": "Магазин"
+  },
+  "components": {
+    "jdownloader": {
+      "type": "bundle\\jurl\\jURLDownloader",
+      "x": 352,
+      "y": 304,
+      "props": {
+        "threadCount": 4
+      }
+    },
+    "zipFile": {
+      "type": "bundle\\zip\\ZipFileScript",
+      "x": 432,
+      "y": 304,
+      "props": {
+        "path": "skin/example.zip",
+        "autoCreate": "1"
+      }
+    }
+  }
+}

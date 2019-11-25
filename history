@@ -1,0 +1,131 @@
+/
+/balance@jtest_bot
+/ver
+бот - хуеглот
+/yande random
+/url clck ya.ru
+/balance add 3432
+Язык утилита ммм
+/help
+/modules get
+/help get
+/modules get help
+/modules help
+/modules sdfsdf
+/modules get 0
+/spam off
+/str length ghbdfgdfg
+/str random 14 Привет
+/str random 14 01
+/str random 34 1234567890
+/str random 340 1234567890
+/str reverse Тест
+/str reverse тсеТ
+@mumu2qua Что ты хотел сделать ну тип командой этой м ?
+/ba
+dfgdfg
+/echo test
+
+/echo msg test
+/echo msg Окно 
+Кто-то добавил еще ?
+/screenshot blue
+/screenshot white
+/screenshot new uxbutton('test');
+/screenshot new UXButton('test');
+/screenshot new UXButton('test')
+/screenshot <?php function startx () { alert('test'); }
+/screenshot <?php UXApplication::runLater(function () { alert('gg'); });
+/screenshot [0,1]
+@mumu2qua Как ты думаешь что можно разместить в этом окне ?)
+/screenshot 0,1
+/screenshot 0, 1
+/screenshot 'content'=>0,1, 1
+/screenshot 'content'=>0,1
+/screenshot ['content'=>0,1]
+/screenshot {['content'=>0,1]}
+/screenshot {'content':'s'}
+/screenshot {'content':['s']}
+/screenshot {'content':['button']}
+hm
+chago blyat))
+/screenshot {'content':['button': {'value': 'test'}]}
+/screenshot {'content':['button': {"value": "test"}]}
+/screenshot {"content":["button": {"value": "test"}]}
+Все хорошо ?
+Из массива типа создать эти виджеты
+/screenshot {
+  "content":{
+    "button": {
+      "value": "test"
+    }
+  }
+}
+/screenshot { "content":{ "button": { "value": "test" } }}
+/screenshot [{ "content":{ "button": { "value": "test" } }}]
+/screenshot [{ "content":[ "button": { "value": "test" } ]}]
+/screenshot {'content':['button'],['button'] }
+/screenshot {'content':['button', 'button'] }
+/screenshot {"content":[{"button": {"value": "test"}}, "button"] }
+/screenshot {"content":[{"button": {"value": "test","x": 50}}, "button"] }
+/screenshot {
+  "content": [
+    {
+      "button": {
+        "value": "test",
+        "x": 50
+      }
+    },
+    {
+      "button": {
+        "value": "test2"
+      }
+    }
+  ]
+}
+/screenshot {
+"content": [
+{
+"button": {
+"value": "test",
+"x": 50
+}
+},
+{
+"button": {
+"value": "test2"
+}
+}
+]
+}
+/screenshot {
+  "content": [
+    {
+      "button": {
+        "value": "test",
+        "x": 50
+      },
+      "button": {
+        "value": "test2"
+      }
+    }
+
+  ]
+}
+/screenshsot {
+  "content": [
+    {
+      "button": {
+        "value": "test",
+        "x": 50
+      }
+    },
+    {
+      "button": {
+        "value": "test2"
+      }
+    }
+  ]
+}
+/screenshot {"content": [{"button": {"value": "test","x": 50}},{"button": {"value": "test2"}}]}
+Как дела ?

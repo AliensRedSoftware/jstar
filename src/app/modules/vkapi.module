@@ -1,0 +1,9 @@
+{
+  "props": {
+    "singleton": true,
+    "author": "uxredbyte",
+    "description": "Vk api",
+    "version": "0.5 beta"
+  },
+  "components": []
+}

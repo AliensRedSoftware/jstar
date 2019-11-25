@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?import javafx.scene.*?><?import javafx.collections.*?><?import javafx.scene.layout.*?><?import javafx.scene.control.*?><?import javafx.scene.text.*?><?import javafx.scene.image.*?><?import javafx.scene.shape.*?><?import javafx.scene.paint.*?><?import javafx.scene.web.*?><?import javafx.geometry.*?><?import java.lang.*?><?import org.develnext.jphp.ext.javafx.classes.data.*?><?import org.develnext.jphp.ext.javafx.support.*?><?import org.develnext.jphp.ext.javafx.support.control.*?><?import org.develnext.jphp.ext.game.support.*?><AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" focusTraversable="false" id="" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="136" prefWidth="216" styleClass="">
+  <children>
+    <Panel AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="panel" layoutX="0" layoutY="0" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="136" prefWidth="216" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+      <children>
+        <org.develnext.jphp.ext.javafx.support.control.NumberSpinner AnchorPane.leftAnchor="39" AnchorPane.rightAnchor="39" alignment="CENTER" arrowsStyle="RIGHT_VERTICAL" editable="true" focusTraversable="true" id="waitsend" initial="10000" layoutX="40" layoutY="8" max="10000" min="0" prefHeight="24" prefWidth="88" step="1" styleClass="spinner "/>
+        <Data cursor="DEFAULT" enabled="1" id="data-waitsend" tooltipText="Время ожидание отправки текста" visible="1"/>
+        <ImageViewEx autoSize="false" centered="false" focusTraversable="false" height="24" id="wait" layoutX="8" layoutY="8" mosaic="false" mosaicGap="0" proportional="false" stretch="true" styleClass="" textFill="#000000" width="24">
+          <font>
+            <Font name="System Regular" size="12"/>
+          </font>
+        </ImageViewEx>
+        <Data cursor="DEFAULT" enabled="1" id="data-wait" image=".data/img/wait.png" visible="1"/>
+        <org.develnext.jphp.ext.javafx.support.control.NumberSpinner AnchorPane.leftAnchor="143" AnchorPane.rightAnchor="7" alignment="CENTER_LEFT" arrowsStyle="RIGHT_VERTICAL" editable="true" focusTraversable="true" id="intervaltext" initial="4" layoutX="144" layoutY="40" max="50" min="0" prefHeight="24" prefWidth="64" step="2" styleClass="spinner "/>
+        <Data cursor="DEFAULT" enabled="1" id="data-intervaltext" visible="1"/>
+        <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="clearchatauto" layoutX="8" layoutY="40" prefHeight="24" prefWidth="128" styleClass="check-box " text="Авто-удаление" textAlignment="LEFT" underline="false" wrapText="false">
+          <font>
+            <Font name="SansSerif Regular" size="13"/>
+          </font>
+        </CheckBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-clearchatauto" tooltipText="Авто-удаление" visible="1"/>
+        <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="datamessage" layoutX="8" layoutY="72" prefHeight="24" prefWidth="200" styleClass="check-box " text="Дата и время отправки" textAlignment="LEFT" underline="false" wrapText="false">
+          <font>
+            <Font name="SansSerif Regular" size="13"/>
+          </font>
+        </CheckBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-datamessage" visible="1"/>
+        <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="typesa" layoutX="8" layoutY="104" prefHeight="24" prefWidth="128" styleClass="check-box " text="Тип отправки" textAlignment="LEFT" underline="false" wrapText="false">
+          <font>
+            <Font name="System Regular" size="13"/>
+          </font>
+        </CheckBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-typesa" visible="1"/>
+      </children>
+      <titleFont>
+        <Font name="System Regular" size="13"/>
+      </titleFont>
+    </Panel>
+    <Data cursor="DEFAULT" enabled="1" id="data-panel" visible="1"/>
+  </children>
+</AnchorPane>

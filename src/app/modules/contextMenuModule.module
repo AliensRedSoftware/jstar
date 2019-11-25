@@ -1,0 +1,10 @@
+{
+  "props": {
+    "description": "Модуль контекстное меню",
+    "author": "uxredbyte",
+    "singleton": true,
+    "version": "0.3",
+    "disabled": false
+  },
+  "components": []
+}

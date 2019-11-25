@@ -1,0 +1,8 @@
+{
+  "props": {
+    "version": "0.25",
+    "author": "Меркус",
+    "description": "Загрузчик"
+  },
+  "components": []
+}

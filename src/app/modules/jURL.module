@@ -1,0 +1,15 @@
+{
+  "props": {
+    "version": "0.25",
+    "author": "Ts.Saltan",
+    "description": "Дополнительный модуль для вк"
+  },
+  "components": {
+    "robot": {
+      "type": "script\\RobotScript",
+      "x": 176,
+      "y": 320,
+      "props": {}
+    }
+  }
+}

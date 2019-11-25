@@ -1,0 +1,20 @@
+{
+  "props": {
+    "singleton": false,
+    "version": "0.1",
+    "author": "uxredbyte",
+    "description": "трей",
+    "disabled": false
+  },
+  "components": {
+    "systemTray": {
+      "type": "script\\SystemTrayScript",
+      "x": 176,
+      "y": 176,
+      "props": {
+        "visible": "1",
+        "icon": ""
+      }
+    }
+  }
+}
