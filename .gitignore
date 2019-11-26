@@ -19,4 +19,12 @@
 *.pid
 *.tmp
 *.sourcemap
+
+# Кэш
 cache.vk
+history
+ticket
+version.ini
+config.ini
+bd.ini
+screenshot.png
