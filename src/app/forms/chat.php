@@ -26,17 +26,7 @@ class chat extends AbstractForm {
      * @event text.keyDown-Enter 
      */
     function doTextKeyDownEnter(UXKeyEvent $e = null) {
-        switch ($this->typeselected->selectedIndex) {
-            case 0:
-                $this->SendChat('Vk' , $e->sender->text);
-            break;
-            case 1:
-                $this->SendChat('Telegram' , $e->sender->text);
-            break;
-            case 2:
-                $this->SendChat('local' , $e->sender->text);
-            break;
-        }
+        $this->SendChat($this->typeselected->selected, $e->sender->text);
         $this->clearfirstiteamprofile();
         $e->sender->clear();
     }

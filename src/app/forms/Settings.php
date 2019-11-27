@@ -698,7 +698,7 @@ class Settings extends AbstractForm {
      * @event info.action 
      */
     function doInfoAction(UXEvent $e = null) {
-        $this->toast('Автор:->UxRedByte');
+        $this->toast('Автор:->Merkus622');
     }
 
     /**
@@ -957,12 +957,6 @@ class Settings extends AbstractForm {
         app()->getForm(ultimate)->showAndWait();
     }
 
-    /**
-     * @event previwimage_female.construct 
-     */
-    function doPreviwimage_femaleConstruct(UXEvent $e = null) {    
-        $e->sender->image = new UXImage('ico/logo.png');
-    }
 
     /**
      * @event previewimage_male.construct 

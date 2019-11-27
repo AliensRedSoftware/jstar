@@ -17,13 +17,13 @@
           </titleFont>
         </Panel>
         <Data cursor="DEFAULT" enabled="1" id="data-panelAlt" visible="1"/>
-        <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="Login" layoutX="88" layoutY="8" prefHeight="18.625" prefWidth="51.0859375" styleClass="label " text="Логин" textAlignment="LEFT" underline="false" wrapText="false">
+        <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="Login" layoutX="88" layoutY="8" prefHeight="18.625" prefWidth="45.9765625" styleClass="label " text="Логин" textAlignment="LEFT" underline="false" wrapText="false">
           <font>
             <Font name="SansSerif Regular" size="16"/>
           </font>
         </LabelEx>
         <Data cursor="DEFAULT" enabled="1" id="data-Login" visible="1"/>
-        <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="type" layoutX="88" layoutY="32" prefHeight="13.96875" prefWidth="23.923828125" styleClass="label " text="free" textAlignment="LEFT" underline="false" wrapText="false">
+        <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="type" layoutX="88" layoutY="32" prefHeight="13.96875" prefWidth="21.580078125" styleClass="label " text="free" textAlignment="LEFT" underline="false" wrapText="false">
           <font>
             <Font name="SansSerif Regular" size="12"/>
           </font>

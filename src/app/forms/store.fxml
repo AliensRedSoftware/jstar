@@ -50,7 +50,7 @@
             </TextArea>
             <PaginationEx alignment="CENTER" columnHalignment="LEFT" focusTraversable="false" hgap="5" hintText="miku_default" id="pagination" layoutX="8" layoutY="424" maxHeight="-1" maxPageCount="3" maxWidth="-1" minHeight="-1" minWidth="-1" orientation="HORIZONTAL" pageSize="1" prefHeight="32" prefWidth="408" rowValignment="CENTER" selectedPage="0" showPrevNext="false" showTotal="false" styleClass="nav " textColor="#000000" total="5" vgap="5">
               <children>
-                <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="" layoutX="87" layoutY="3" prefHeight="-1" prefWidth="-1" text="1" textAlignment="LEFT" textFill="#000000" underline="false" wrapText="false">
+                <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="" layoutX="86" layoutY="2" prefHeight="-1" prefWidth="-1" text="1" textAlignment="LEFT" textFill="#000000" underline="false" wrapText="false">
                   <font>
                     <Font name="System Bold" size="13"/>
                   </font>
@@ -60,17 +60,17 @@
                     <String fx:value="selected"/>
                   </styleClass>
                 </Button>
-                <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="" layoutX="122" layoutY="4" prefHeight="-1" prefWidth="-1" styleClass="button nav-item " text="2" textAlignment="LEFT" textFill="#000000" underline="false" wrapText="false">
+                <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="" layoutX="121" layoutY="3" prefHeight="-1" prefWidth="-1" styleClass="button nav-item " text="2" textAlignment="LEFT" textFill="#000000" underline="false" wrapText="false">
                   <font>
                     <Font name="System Regular" size="13"/>
                   </font>
                 </Button>
-                <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="" layoutX="155" layoutY="4" prefHeight="-1" prefWidth="-1" styleClass="button nav-item " text="3" textAlignment="LEFT" textFill="#000000" underline="false" wrapText="false">
+                <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="" layoutX="154" layoutY="3" prefHeight="-1" prefWidth="-1" styleClass="button nav-item " text="3" textAlignment="LEFT" textFill="#000000" underline="false" wrapText="false">
                   <font>
                     <Font name="System Regular" size="13"/>
                   </font>
                 </Button>
-                <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="" layoutX="204" layoutY="4" prefHeight="-1" prefWidth="-1" text="5" textAlignment="LEFT" textFill="#000000" underline="false" wrapText="false">
+                <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="" layoutX="203" layoutY="3" prefHeight="-1" prefWidth="-1" text="5" textAlignment="LEFT" textFill="#000000" underline="false" wrapText="false">
                   <font>
                     <Font name="System Regular" size="13"/>
                   </font>

@@ -316,7 +316,7 @@ class MainModule extends AbstractModule {
         if ($this->request == true) {
             waitAsync($this->ini->get('waitsend' , 'SettingsFemale') , function () use ($Settings , $chat , $settingschat , $Name , $type , $ultimate) {//Отправка блять с ожиданием плюс юзается Сеттингс форма потом чат форма и модх
                 switch ($type) {
-                    case 'Telegram':
+                    case 'Телеграмм':
                         if (!$Settings->Asynx_token->selected) {
                             $chat->textArea->appendText($this->genMODX($settingschat , 'Пожалуйста авторизуйтесь или выбрать тип => Локальный!' , 'Бот' , $type) . "\n");
                             return ;
@@ -346,7 +346,7 @@ class MainModule extends AbstractModule {
                             }
                         }
                     break;
-                    case 'local':
+                    case 'Локальный':
                         if ($Settings->magicmodules->selected) {
                             //Вызов модуля
                             $namemodule = $Settings->list->items[0];
@@ -365,7 +365,7 @@ class MainModule extends AbstractModule {
                             }
                         }                                  
                     break;
-                    case 'Vk':
+                    case 'Вконтакте':
                         if (!$Settings->loginvk->selected) {
                             $chat->textArea->appendText($this->genMODX($settingschat , 'Пожалуйста авторизуйтесь или выбрать тип => Локальный!' , 'Бот' , $type) . "\n");
                             return ;

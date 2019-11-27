@@ -390,11 +390,6 @@
     </Panel>
     <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="Femalepanel" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="584" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
       <children>
-        <ImageViewEx AnchorPane.bottomAnchor="-1" AnchorPane.rightAnchor="-1" autoSize="false" centered="false" focusTraversable="false" height="128" id="previwimage_female" layoutX="496" layoutY="456" mosaic="false" mosaicGap="0" proportional="false" stretch="true" styleClass="" textFill="#000000" width="128">
-          <font>
-            <Font name="System Regular" size="12"/>
-          </font>
-        </ImageViewEx>
         <TextField AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" AnchorPane.topAnchor="7" alignment="CENTER" editable="true" focusTraversable="true" id="NameFemale" layoutX="8" layoutY="8" prefColumnCount="12" prefHeight="16" prefWidth="608" promptText="Имя бота." styleClass="text-input text-field " text="">
           <font>
             <Font name="SansSerif Regular" size="13"/>
@@ -407,7 +402,7 @@
           </items>
         </ListViewEx>
         <Data cursor="DEFAULT" enabled="1" id="data-list" visible="1"/>
-        <TextField AnchorPane.bottomAnchor="77" AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" alignment="CENTER" editable="true" focusTraversable="true" id="text" layoutX="8" layoutY="480" prefColumnCount="12" prefHeight="16" prefWidth="608" promptText="Ответ на вопрос..." styleClass="text-input text-field " text="">
+        <TextField AnchorPane.bottomAnchor="77" AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" alignment="CENTER" editable="true" focusTraversable="true" id="text" layoutX="8" layoutY="480" prefColumnCount="12" prefHeight="16" prefWidth="608" promptText="Ответ..." styleClass="text-input text-field " text="">
           <font>
             <Font name="SansSerif Regular" size="13"/>
           </font>
@@ -469,7 +464,6 @@
           </font>
         </CheckBox>
         <Data cursor="DEFAULT" enabled="1" id="data-magicmodules" tooltipText="Переход в модульный режим" visible="1"/>
-        <Data cursor="DEFAULT" enabled="1" id="data-previwimage_female" image="" visible="1"/>
         <CheckBox AnchorPane.bottomAnchor="54" alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="autostart" layoutX="160" layoutY="511" prefHeight="18" prefWidth="96" styleClass="check-box " text="Автостарт" textAlignment="LEFT" underline="false" wrapText="false">
           <font>
             <Font name="SansSerif Regular" size="13"/>
