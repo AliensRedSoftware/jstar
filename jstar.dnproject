@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project author="root" authorOS="Linux" createdAt="1545970959257" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="jstar" packageName="app" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1574838047818">
+<project author="root" authorOS="Linux" createdAt="1545970959257" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="jstar" packageName="app" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1574838326236">
   <tree>
     <expanded>
     <path src=""/>
