@@ -1,21 +1,22 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project author="root" authorOS="Linux" createdAt="1545970959257" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="jstar" packageName="app" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1574838326236">
+<project author="root" authorOS="Linux" createdAt="1545970959257" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="jstar" packageName="app" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1574841226377">
   <tree>
     <expanded>
     <path src=""/>
-      <path src="/build"/>
       <path src="/data"/>
       <path src="/src"/>
       <path src="/src/app"/>
       <path src="/src/app/modules"/>
       <path src="/src/app/forms"/>
       <path src="/src/.data"/>
+      <path src="/ico"/>
     </expanded>
   </tree>
   <openedFiles>
   <file src="jstar.dnproject"/>
     <file src=".gitignore"/>
     <file selected="1" src="src/app/forms/Settings.php"/>
+    <file src="src/app/forms/chat.php"/>
   </openedFiles>
   <files/>
   <behaviours>
