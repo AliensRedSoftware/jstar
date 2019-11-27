@@ -36,11 +36,4 @@ class ultimate extends AbstractForm {
     function doImageurlClickLeft(UXMouseEvent $e = null) {    
         $this->alllist->enabled = !$e->sender->selected;
     }
-
-    /**
-     * @event image.construct 
-     */
-    function doImageConstruct(UXEvent $e = null) {    
-        $e->sender->image = new UXImage('ico/logo.png');
-    }
 }

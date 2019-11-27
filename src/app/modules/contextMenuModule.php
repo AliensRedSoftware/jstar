@@ -102,7 +102,7 @@ class contextMenuModule extends AbstractModule {
             //-------------------------------------------------------------------------------
                 $contextMenu->items->add(UXMenuItem::createSeparator());//Создаем сеппаратор
             ///-------------------------------------------------------------------------------
-            $menuStore = new UXMenuItem('Открыть Магазин' , new UXImageView (new UXImage('ico' . fs::separator() . 'default' . fs::separator() . $icopack->getDefault() . fs::separator() . 'store.png')));//Создаем item + иконка
+            $menuStore = new UXMenuItem('Магазин' , new UXImageView (new UXImage('ico' . fs::separator() . 'default' . fs::separator() . $icopack->getDefault() . fs::separator() . 'store.png')));//Создаем item + иконка
             //Событие при нажатие
             $menuStore->on('action', function () {//Событие
                 $Store = app()->getForm(store);//Получаем форму store
@@ -114,7 +114,7 @@ class contextMenuModule extends AbstractModule {
             });
             $contextMenu->items->add($menuStore);//Добавляем menuStore в меню
             //Событие при нажатие
-            $menuSettings = new UXMenuItem('Открыть настройки' , new UXImageView (new UXImage('ico' . fs::separator() . 'default' . fs::separator() . $icopack->getDefault() . fs::separator() . 'settings.png')));//Создаем item + иконка
+            $menuSettings = new UXMenuItem('Настройки' , new UXImageView (new UXImage('ico' . fs::separator() . 'default' . fs::separator() . $icopack->getDefault() . fs::separator() . 'settings.png')));//Создаем item + иконка
             //Событие при нажатие
             $menuSettings->on('action', function () {//Событие
                 $Settings = app()->getForm(Settings);//Получаем форму clocktime
@@ -125,7 +125,7 @@ class contextMenuModule extends AbstractModule {
                 $this->Menu(true);//Включаем запрет на показывание menu ;)
             });
             $contextMenu->items->add($menuSettings);//Добавляем menuSettings в меню
-            $menuchat = new UXMenuItem('Открыть чат' , new UXImageView (new UXImage('ico' . fs::separator() . 'default' . fs::separator() . $icopack->getDefault() . fs::separator() . 'chat.png')));//Создаем item + иконка
+            $menuchat = new UXMenuItem('Чат' , new UXImageView (new UXImage('ico' . fs::separator() . 'default' . fs::separator() . $icopack->getDefault() . fs::separator() . 'chat.png')));//Создаем item + иконка
             //Событие при нажатие
             $menuchat->on('action', function () {//Событие
                 $Chat = app()->getForm(chat);//Получаем форму chat

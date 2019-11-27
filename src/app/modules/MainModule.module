@@ -2,7 +2,7 @@
   "props": {
     "singleton": true,
     "version": "0.3",
-    "author": "Меркус",
+    "author": "Меркус622",
     "description": "Ядро"
   },
   "components": {

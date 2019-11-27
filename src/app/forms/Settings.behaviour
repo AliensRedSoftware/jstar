@@ -15,13 +15,4 @@
   <target id="prefix">
     <behaviour allowedSymbols="$;:?#@*" matchCase="" maxLength="0" type="behaviour\custom\KeyInputRuleBehaviour"/>
   </target>
-  <target id="previwimage_module">
-    <behaviour color="#b3b3b3" offsetX="0" offsetY="0" radius="10" spread="0" type="behaviour\custom\DropShadowEffectBehaviour" when="ALWAYS"/>
-  </target>
-  <target id="previewimage_male">
-    <behaviour color="#b3b3b3" offsetX="0" offsetY="0" radius="10" spread="0" type="behaviour\custom\DropShadowEffectBehaviour" when="ALWAYS"/>
-  </target>
-  <target id="previewimage_leafeffect">
-    <behaviour color="#b3b3b3" offsetX="0" offsetY="0" radius="10" spread="0" type="behaviour\custom\DropShadowEffectBehaviour" when="ALWAYS"/>
-  </target>
 </behaviours>

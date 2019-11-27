@@ -308,17 +308,17 @@ class MainModule extends AbstractModule {
         $ultimate = app()->getForm(ultimate);//Доп фичи
         $Name = System::getProperty('user.name');
         $FemaleName = $this->ini->get('FemaleName' , 'SettingsFemale');
-        if ($type == 'Telegram' || $type == 'Vk' || $type == 'local') {
-            $this->checkbd($type , $txt , $Settings);//Проверка бд
+        if ($type == 'Телеграмм' || $type == 'Вконтакте' || $type == 'Локальный') {
+            $this->checkbd($type, $txt, $Settings);//Проверка бд
         }
-        $chat->textArea->appendText($this->genMODX($settingschat , $txt , $Name , $type)  . "\n");//Добавляем блять карл эту модх а не мод-икс так просто правильно читается и была задумно ну короче это в этой переменной этот исходный результат вроде тут понятно 
+        $chat->textArea->appendText($this->genMODX($settingschat, $txt, $Name, $type)  . "\n");//Добавляем блять карл эту модх а не мод-икс так просто правильно читается и была задумно ну короче это в этой переменной этот исходный результат вроде тут понятно 
         $counterror = $chat->counterrorlist->text;
         if ($this->request == true) {
-            waitAsync($this->ini->get('waitsend' , 'SettingsFemale') , function () use ($Settings , $chat , $settingschat , $Name , $type , $ultimate) {//Отправка блять с ожиданием плюс юзается Сеттингс форма потом чат форма и модх
+            waitAsync($this->ini->get('waitsend' , 'SettingsFemale') , function () use ($Settings, $chat, $settingschat, $Name, $type, $ultimate, $txt) {//Отправка блять с ожиданием плюс юзается Сеттингс форма потом чат форма и модх
                 switch ($type) {
                     case 'Телеграмм':
                         if (!$Settings->Asynx_token->selected) {
-                            $chat->textArea->appendText($this->genMODX($settingschat , 'Пожалуйста авторизуйтесь или выбрать тип => Локальный!' , 'Бот' , $type) . "\n");
+                            $chat->textArea->appendText($this->genMODX($settingschat, 'Пожалуйста авторизуйтесь или выбрать тип => Локальный!', 'Бот', $type) . "\n");
                             return ;
                         }
                         if ($Settings->magicmodules->selected) {
@@ -326,28 +326,28 @@ class MainModule extends AbstractModule {
                             $namemodule = $Settings->list->items[0];
                             $module = new Module($namemodule);
                             $module->call();
-                            $chat->textArea->appendText($this->genMODX($settingschat , "Был выполнен модуль ->$namemodule" , 'Бот' , $type) . "\n");
+                            $chat->textArea->appendText($this->genMODX($settingschat, "Был выполнен модуль ->$namemodule" , 'Бот', $type) . "\n");
                             Logger::info("Был выполнен модуль ->$namemodule");
                             $GLOBALS['execute_modules'] = $Settings->list->items[0];
                         } else {
                             if ($ultimate->alllist->selected) {
                                 $jTelegramApi = new jTelegramApi();
-                                $jTelegramApi->sendEachText_id($jTelegramApi->getChatid() , $Settings->list->itemsText , $Settings->list->items->count() - 1);
-                                $chat->textArea->appendText($this->genMODX($settingschat , "\n" . $Settings->list->itemsText , 'Бот' , $type) . "\n");
+                                $jTelegramApi->sendEachText_id($jTelegramApi->getChatid() , $Settings->list->itemsText, $Settings->list->items->count() - 1);
+                                $chat->textArea->appendText($this->genMODX($settingschat, "\n" . $Settings->list->itemsText, 'Бот', $type) . "\n");
                             } elseif ($ultimate->imageurl->selected) {
                                 $jTelegramApi = new jTelegramApi();
                                 $content = $Settings->list->items[rand(0 ,$Settings->list->items->count() - 1)];
-                                $jTelegramApi->sendPhotoByUrl($jTelegramApi->getChatid() , $content);
+                                $jTelegramApi->sendPhotoByUrl($jTelegramApi->getChatid(), $content);
                             } else {
                                 $jTelegramApi = new jTelegramApi();
                                 $content = $Settings->list->items[rand(0 ,$Settings->list->items->count() - 1)];
-                                $jTelegramApi->sendMessage_id($jTelegramApi->getChatid() , urlencode($content));
-                                $chat->textArea->appendText($this->genMODX($settingschat , $content , 'Бот' , $type) . "\n");
+                                $jTelegramApi->sendMessage_id($jTelegramApi->getChatid(), urlencode($content));
+                                $chat->textArea->appendText($this->genMODX($settingschat, $content, 'Бот', $type) . "\n");
                             }
                         }
                     break;
                     case 'Локальный':
-                        if ($Settings->magicmodules->selected) {
+                        if ($Settings->magicmodules->selected && !$Settings->isFree()) {
                             //Вызов модуля
                             $namemodule = $Settings->list->items[0];
                             $module = new Module($namemodule);
@@ -360,8 +360,10 @@ class MainModule extends AbstractModule {
                             } elseif ($ultimate->imageurl->selected) {
                                 //$content = $Settings->list->items[rand(0 ,$Settings->list->items->count() - 1)];
                             } else {
-                                $content = $Settings->list->items[rand(0 ,$Settings->list->items->count() - 1)];
-                                $chat->textArea->appendText($this->genMODX($settingschat , $content , 'Бот' , $type) . "\n");
+                                $item = new UXListView();
+                                $item->itemsText = $this->bdini->get('key', $txt);
+                                $txt = $item->items[rand(0, $item->items->count) - 1];
+                                $chat->textArea->appendText($this->genMODX($settingschat , $txt , 'Бот' , $type) . "\n");
                             }
                         }                                  
                     break;
@@ -447,6 +449,7 @@ class MainModule extends AbstractModule {
         $modx .= "[$Name]->$text";//Типа блять в последнию очередь эту хуйню пишем так как в последнию очередь надо Имя вывести и ебанный текст отправителя наверное :)
         return $modx;
      }
+     
     /**
      * Авто-удаление
      */

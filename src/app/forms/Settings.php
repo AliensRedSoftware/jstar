@@ -958,26 +958,8 @@ class Settings extends AbstractForm {
     }
 
 
-    /**
-     * @event previewimage_male.construct 
-     */
-    function doPreviewimage_maleConstruct(UXEvent $e = null) {    
-        $e->sender->image = new UXImage('ico/logo.png');
-    }
 
-    /**
-     * @event previwimage_module.construct 
-     */
-    function doPreviwimage_moduleConstruct(UXEvent $e = null) {    
-        $e->sender->image = new UXImage('ico/logo.png');
-    }
 
-    /**
-     * @event previewimage_leafeffect.construct 
-     */
-    function doPreviewimage_leafeffectConstruct(UXEvent $e = null) {    
-        $e->sender->image = new UXImage('ico/logo.png');
-    }
 
     /**
      * @event keyDown-Ctrl+S 
@@ -990,7 +972,7 @@ class Settings extends AbstractForm {
      * @event show 
      */
     function doShow(UXWindowEvent $e = null) {
-        $this->updatebd($this->list , $this->bd->selected);   
+        //$this->updatebd($this->list , $this->bd->selected);   
     }
 
     /**
