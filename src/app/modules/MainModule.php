@@ -22,7 +22,6 @@ class MainModule extends AbstractModule {
             $img = str::replace($val, $e->sender->file . '/', "");//А тут замена короче не ебу чт за код ну он не в функционале
             $form->list->items->add($img);//Ну тут тупа короче добавлеие в лист iteams $img конент
             $s = new MainModule ();//s вара типа модуль этот хз зах
-            
         }//ковычка
     }//ковычка
 

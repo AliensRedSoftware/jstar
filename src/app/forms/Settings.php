@@ -4,9 +4,6 @@ namespace app\forms;
 use facade\Json;
 use std, gui, framework, app;
 use app\modules\vkModule as VK;
-use php\gui\event\UXEvent;
-use php\gui\event\UXKeyEvent;
-use php\gui\event\UXMouseEvent;
 
 class Settings extends AbstractForm {
 
@@ -15,8 +12,8 @@ class Settings extends AbstractForm {
      */
     function doHide(UXWindowEvent $e = null) {
         $this->Menu(false);
-        $this->Save();
-        $this->Load();
+        //$this->Save();
+        //$this->Load();
     }
 
     /**

@@ -3,7 +3,7 @@
   <children>
     <Panel backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="panel" layoutX="8" layoutY="8" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="186" prefWidth="378" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
       <children>
-        <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="alllist" layoutX="8" layoutY="8" prefHeight="24" prefWidth="320" styleClass="check-box " text="Показать полный список при вызове команды ?" textAlignment="LEFT" underline="false" wrapText="false">
+        <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="alllist" layoutX="8" layoutY="8" prefHeight="24" prefWidth="184" styleClass="check-box " text="Показать полный список" textAlignment="LEFT" underline="false" wrapText="false">
           <font>
             <Font name="SansSerif Regular" size="13"/>
           </font>
