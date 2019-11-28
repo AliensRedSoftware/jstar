@@ -18,6 +18,7 @@ class contextMenuModule extends AbstractModule {
         $this->menu = $bool;
         $GLOBALS['menu'] = $bool;
     }
+    
     function getMenu() {
         return $GLOBALS['menu'];
     }
@@ -36,6 +37,7 @@ class contextMenuModule extends AbstractModule {
             $menuUpdate->on('action', function () use ($updateModule){ //Событие
                 $updateModule->updatecheck();//Проверка обновление
             });
+            
             $contextMenu->items->add($menuUpdate);//Добавляем обновление в меню
             $menuAlwaysOnTop = new UXMenuItem('Поверх всех окон' , new UXImageView (new UXImage('ico' . fs::separator() . 'default' . fs::separator() . $icopack->getDefault() . fs::separator() . 'screen.png')));//Создаем item + иконка
             //Событие при нажатие

@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project author="root" authorOS="Linux" createdAt="1545970959257" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="jstar" packageName="app" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1574849998467">
+<project author="root" authorOS="Linux" createdAt="1545970959257" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="jstar" packageName="app" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1574943027940">
   <tree>
     <expanded>
     <path src=""/>
       <path src="/data"/>
       <path src="/src"/>
       <path src="/src/app"/>
+      <path src="/src/app/classes"/>
       <path src="/src/app/modules"/>
       <path src="/src/app/forms"/>
       <path src="/ico"/>
@@ -17,8 +18,9 @@
     <file src="src/app/forms/chat.php"/>
     <file src="src/app/modules/MainModule.php"/>
     <file src="src/app/forms/ultimate.php"/>
-    <file src="src/app/forms/MainForm.php"/>
-    <file selected="1" src=".gitignore"/>
+    <file src="src/app/forms/support.php"/>
+    <file src="src/app/modules/tray.php"/>
+    <file selected="1" src="src/app/forms/ticket.php"/>
   </openedFiles>
   <files/>
   <behaviours>

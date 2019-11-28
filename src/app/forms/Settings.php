@@ -1012,8 +1012,7 @@ class Settings extends AbstractForm {
     /**
      * @event deletemodules.action 
      */
-    function doDeletemodulesAction(UXEvent $e = null)
-    {
+    function doDeletemodulesAction(UXEvent $e = null) {
         $this->deletemodule($this->listmodules->selected , $this->type->selected);
     }
 }

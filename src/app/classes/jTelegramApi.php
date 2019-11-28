@@ -10,7 +10,7 @@ use std, gui, framework, app;
 
 class jTelegramApi {
 
-    public $chatid , $text;
+    public $chatid , $text, $connected;
     
     /**
      * Установка токена 
@@ -89,11 +89,13 @@ class jTelegramApi {
                 if ($response['ok'] == true) {
                     Logger::info('Аккаунт Telegram_api => OK');
                     $form->toast('Аккаунт Telegram_api => OK');
+                    $this->connected = true;
                     $MainForm->hidePreloader();
                     $this->requestTelegram($form);
                 } else {
                     Logger::error('Аккаунт Telegram_api => ERROR TOKEN!');
                     $form->toast('Аккаунт Telegram_api => ERROR TOKEN!');
+                    $this->connected = false;
                     $MainForm->hidePreloader();
                     $form->Asynx_token->selected = false;
                 }
@@ -102,6 +104,7 @@ class jTelegramApi {
         } else {
             Logger::info('Деактивация Telegram_api => OK');
             $form->toast('Деактивация Telegram_api => OK');
+            $this->connected = false;
             $MainForm->hidePreloader();
         }
     }
@@ -305,6 +308,13 @@ class jTelegramApi {
         }
         $request->asyncExec(function(){});
         $request->close();
+    }
+    
+    /**
+     * Возвращаем подключение 
+     */
+    public function getConnected () {
+        return $this->connected;
     }
     
     public function eachLine ($array , $int) {

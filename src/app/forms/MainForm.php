@@ -66,7 +66,7 @@ class MainForm extends AbstractForm {
      * @event construct 
      */
     function doConstruct(UXEvent $e = null){
-        $this->showtray($this , $this , $this , $this);
+        $this->showtray($this, $this, $this, $this);
     }
     
     /**

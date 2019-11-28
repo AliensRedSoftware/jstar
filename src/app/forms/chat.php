@@ -1,11 +1,13 @@
 <?php
 namespace app\forms;
+
 use std, gui, framework, app;
+use app\modules\vkModule as VK;
 
 class chat extends AbstractForm {
 
     /**
-     * @event hide 
+     * @event hide
      */
     function doHide(UXWindowEvent $e = null) {    
         $this->Menu(false);
@@ -13,17 +15,17 @@ class chat extends AbstractForm {
     }
     
     /**
-     * @event settings.action 
+     * @event settings.action
      */
     function doSettingsAction(UXEvent $e = null) {    
         $SettingsChat = app()->getForm(SettingsChat);
         $SettingsChat->opacity = 0;
-        Animation::fadeIn($SettingsChat , 1000);
+        Animation::fadeIn($SettingsChat, 1000);
         $SettingsChat->showAndWait();
     }
 
     /**
-     * @event text.keyDown-Enter 
+     * @event text.keyDown-Enter
      */
     function doTextKeyDownEnter(UXKeyEvent $e = null) {
         $this->SendChat($this->typeselected->selected, $e->sender->text);
@@ -37,9 +39,7 @@ class chat extends AbstractForm {
     function doClearchatAction(UXEvent $e = null) {    
         $this->textArea->clear();
         $this->toast('Успешно очистился чат!');
-        
     }
-
 
     /**
      * @event errorlist.action 
@@ -61,4 +61,19 @@ class chat extends AbstractForm {
         $e->sender->itemsText = file_get_contents('history');
     }
 
+    /**
+     * @event showing 
+     */
+    function doShowing(UXWindowEvent $e = null) {
+        $this->typeselected->items->clear();
+        $jTelegramApi = new jTelegramApi();
+        if ($jTelegramApi->getConnected()) {
+            $this->typeselected->items->add('Телеграмм');
+        }
+        if (VK::isAuth()) {
+            $this->typeselected->items->add('Вконтакте');
+        }
+        $this->typeselected->items->add('Локальный');
+        $this->typeselected->selectedIndex = $this->typeselected->items->count - 1;
+    }
 }

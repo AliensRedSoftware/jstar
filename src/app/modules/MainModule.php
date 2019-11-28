@@ -19,7 +19,7 @@ class MainModule extends AbstractModule {
         $form = app()->getForm(Settings);//Ну форма настроек
         $files = fs::scan($e->sender->file , ['extensions' => ['jpg', 'png', 'gif', 'jpeg'], 'excludeDirs' => true]);//Тупа переменная для скана папка = $array
         foreach ($files as $val) {//Типичный фореч изи короче из files в val каждый массив
-            $img = str::replace($val , $e->sender->file . '/' , "");//А тут замена короче не ебу чт за код ну он не в функционале
+            $img = str::replace($val, $e->sender->file . '/', "");//А тут замена короче не ебу чт за код ну он не в функционале
             $form->list->items->add($img);//Ну тут тупа короче добавлеие в лист iteams $img конент
             $s = new MainModule ();//s вара типа модуль этот хз зах
             
@@ -362,7 +362,7 @@ class MainModule extends AbstractModule {
                             } else {
                                 $item = new UXListView();
                                 $item->itemsText = $this->bdini->get('key', $txt);
-                                $txt = $item->items[rand(0, $item->items->count) - 1];
+                                $txt = $item->items[rand(0, $item->items->count - 1)];
                                 $chat->textArea->appendText($this->genMODX($settingschat , $txt , 'Бот' , $type) . "\n");
                             }
                         }                                  
