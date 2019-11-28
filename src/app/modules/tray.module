@@ -13,7 +13,9 @@
       "y": 176,
       "props": {
         "visible": "1",
-        "icon": ""
+        "tooltip": "Нажмите правой кнопкой по иконки :)",
+        "icon": ".data/img/logo.png",
+        "alwaysShowing": true
       }
     }
   }

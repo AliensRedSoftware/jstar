@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project author="root" authorOS="Linux" createdAt="1545970959257" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="jstar" packageName="app" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1574955864466">
+<project author="root" authorOS="Linux" createdAt="1545970959257" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="jstar" packageName="app" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1574956097471">
   <tree>
     <expanded>
     <path src=""/>
@@ -19,7 +19,8 @@
     <file src="src/app/modules/MainModule.php"/>
     <file src="src/app/forms/ultimate.php"/>
     <file src="src/app/forms/support.php"/>
-    <file selected="1" src="src/app/forms/SettingsChat.php"/>
+    <file src="src/app/forms/SettingsChat.php"/>
+    <file selected="1" src="src/app/modules/tray.php"/>
   </openedFiles>
   <files/>
   <behaviours>
