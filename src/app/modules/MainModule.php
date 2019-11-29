@@ -60,7 +60,7 @@ class MainModule extends AbstractModule {
      * Сохранение бд 
      */
      function savebd ($txt , $bd) {
-         $this->bdini->set('key' , $txt , $bd);
+         $this->bdini->set('key', $txt, $bd);
      }
     
     /**
@@ -236,7 +236,7 @@ class MainModule extends AbstractModule {
      * Проверка есть ли такое в бд 
      */
      public function checkbd (string $type , string $txt , Settings $Settings) {
-         if ($type == 'Telegram') {//Проверка типа
+         if ($type == 'Телеграмм') {//Проверка типа
              if (!$Settings->Asynx_token->selected) {
                  $this->request = true;
                  return ;
@@ -278,7 +278,7 @@ class MainModule extends AbstractModule {
                     
                 }
             }
-        } elseif ($type == 'Vk') {
+        } elseif ($type == 'Вконтакте') {
              if (!$Settings->loginvk->selected) {
                  $this->request = true;
                  return ;
@@ -300,122 +300,130 @@ class MainModule extends AbstractModule {
      * Отправить сообщение боту
      * @return string 
      */
-    public function SendChat(string $type , string $txt) {
-        $chat = app()->getForm(chat);
-        $Settings = app()->getForm(Settings);
-        $settingschat = app()->getForm(SettingsChat);
-        $ultimate = app()->getForm(ultimate);//Доп фичи
-        $Name = System::getProperty('user.name');
-        $FemaleName = $this->ini->get('FemaleName' , 'SettingsFemale');
-        if ($type == 'Телеграмм' || $type == 'Вконтакте' || $type == 'Локальный') {
-            $this->checkbd($type, $txt, $Settings);//Проверка бд
-        }
-        $chat->textArea->appendText($this->genMODX($settingschat, $txt, $Name, $type)  . "\n");//Добавляем блять карл эту модх а не мод-икс так просто правильно читается и была задумно ну короче это в этой переменной этот исходный результат вроде тут понятно 
-        $counterror = $chat->counterrorlist->text;
-        if ($this->request == true) {
-            waitAsync($this->ini->get('waitsend' , 'SettingsFemale') , function () use ($Settings, $chat, $settingschat, $Name, $type, $ultimate, $txt) {//Отправка блять с ожиданием плюс юзается Сеттингс форма потом чат форма и модх
-                switch ($type) {
-                    case 'Телеграмм':
-                        if (!$Settings->Asynx_token->selected) {
-                            $chat->textArea->appendText($this->genMODX($settingschat, 'Пожалуйста авторизуйтесь или выбрать тип => Локальный!', 'Бот', $type) . "\n");
-                            return ;
+    public function SendChat(string $type, string $txt) {
+        (new Thread(function () use ($type, $txt) {
+            uiLater(function () use ($type, $txt) {
+                $chat = app()->getForm(chat);
+                $Settings = app()->getForm(Settings);
+                $settingschat = app()->getForm(SettingsChat);
+                $ultimate = app()->getForm(ultimate);//Доп фичи
+                $Name = System::getProperty('user.name');
+                $FemaleName = $this->ini->get('FemaleName' , 'SettingsFemale');
+                if ($type == 'Телеграмм' || $type == 'Вконтакте' || $type == 'Локальный') {
+                    $this->checkbd($type, $txt, $Settings);//Проверка бд
+                }
+                $chat->textArea->appendText($this->genMODX($settingschat, $txt, $Name, $type)  . "\n");//Добавляем блять карл эту модх а не мод-икс так просто правильно читается и была задумно ну короче это в этой переменной этот исходный результат вроде тут понятно 
+                $counterror = $chat->counterrorlist->text;
+                if ($this->request == true) {
+                    waitAsync($this->ini->get('waitsend' , 'SettingsFemale') , function () use ($Settings, $chat, $settingschat, $Name, $type, $ultimate, $txt) {//Отправка блять с ожиданием плюс юзается Сеттингс форма потом чат форма и модх
+                        if (str::startsWith($txt, '/')) {
+                            $txt = explode(' ', $txt)[0];
                         }
-                        if ($Settings->magicmodules->selected) {
-                            //Вызов модуля
-                            $namemodule = $Settings->list->items[0];
-                            $module = new Module($namemodule);
-                            $module->call();
-                            $chat->textArea->appendText($this->genMODX($settingschat, "Был выполнен модуль ->$namemodule" , 'Бот', $type) . "\n");
-                            Logger::info("Был выполнен модуль ->$namemodule");
-                            $GLOBALS['execute_modules'] = $Settings->list->items[0];
+                        $item = new UXListView();
+                        $item->itemsText = $this->bdini->get('key', $txt);
+                        $magicmodules = $this->bdini->get('magicmodules', $txt);
+                        switch ($type) {
+                            case 'Телеграмм':
+                                if (!$Settings->Asynx_token->selected) {
+                                    $chat->textArea->appendText($this->genMODX($settingschat, 'Пожалуйста авторизуйтесь или выбрать тип => Локальный!', 'Бот', $type) . "\n");
+                                    return ;
+                                }
+                                if ($magicmodules) {
+                                    //Вызов модуля
+                                    $namemodule = $item->items[0];
+                                    $module = new Module($namemodule);
+                                    $module->call();
+                                    $chat->textArea->appendText($this->genMODX($settingschat, "Был выполнен модуль ->$namemodule" , 'Бот', $type) . "\n");
+                                    Logger::info("Был выполнен модуль ->$namemodule");
+                                    $GLOBALS['execute_modules'] = $item->items[0];
+                                } else {
+                                    if ($ultimate->alllist->selected) {
+                                        $jTelegramApi = new jTelegramApi();
+                                        $jTelegramApi->sendEachText_id($jTelegramApi->getChatid() , $item->itemsText, $item->items->count() - 1);
+                                        $chat->textArea->appendText($this->genMODX($settingschat, "\n" . $item->itemsText, 'Бот', $type) . "\n");
+                                    } elseif ($ultimate->imageurl->selected) {
+                                        $jTelegramApi = new jTelegramApi();
+                                        $txt = $item->items[rand(0, $item->items->count - 1)];
+                                        $jTelegramApi->sendPhotoByUrl($jTelegramApi->getChatid(), $txt);
+                                    } else {
+                                        $jTelegramApi = new jTelegramApi();
+                                        $txt = $item->items[rand(0, $item->items->count - 1)];
+                                        $jTelegramApi->sendMessage_id($jTelegramApi->getChatid(), urlencode($txt));
+                                        $chat->textArea->appendText($this->genMODX($settingschat, $txt, 'Бот', $type) . "\n");
+                                    }
+                                }
+                            break;
+                            case 'Локальный':
+                                if ($magicmodules && !$Settings->isFree()) {
+                                    //Вызов модуля
+                                    $namemodule = $item->items[0];
+                                    $module = new Module($namemodule);
+                                    $module->call();
+                                    $chat->textArea->appendText($this->genMODX($settingschat , "Был выполнен модуль ->$namemodule" , 'Бот' , $type) . "\n");
+                                    Logger::info("Был выполнен модуль ->$namemodule");
+                                } else {
+                                    if ($ultimate->alllist->selected) {
+                                        $chat->textArea->appendText($this->genMODX($settingschat , "\n" . $item->itemsText , 'Бот' , $type) . "\n");
+                                    } elseif ($ultimate->imageurl->selected) {
+                                        //$content = $Settings->list->items[rand(0 ,$Settings->list->items->count() - 1)];
+                                    } else {
+                                        $txt = $item->items[rand(0, $item->items->count - 1)];
+                                        $chat->textArea->appendText($this->genMODX($settingschat, $txt, 'Бот', $type) . "\n");
+                                    }
+                                }                                  
+                            break;
+                            case 'Вконтакте':
+                                if (!$Settings->loginvk->selected) {
+                                    $chat->textArea->appendText($this->genMODX($settingschat , 'Пожалуйста авторизуйтесь или выбрать тип => Локальный!' , 'Бот' , $type) . "\n");
+                                    return ;
+                                }
+                            break;
+                        }
+                    });
+                }
+                if ($chat->Echeckerror->selected && $this->getcountbd($txt) < $chat->counterror->value) {
+                    if ($chat->errorlist->selectedIndex != -1 && $chat->Echeckbox_errorlist->selected) {
+                        if ($counterror >= 1) {
+                            foreach ($Settings->list->items->toArray() as $kss) {
+                                if ($kss == $txt) {
+                                    $chat->text->clear();
+                                    return ;
+                                }
+                            }
+                            $Settings->additeambd($chat->text->text , $chat->errorlist->selected);
                         } else {
-                            if ($ultimate->alllist->selected) {
-                                $jTelegramApi = new jTelegramApi();
-                                $jTelegramApi->sendEachText_id($jTelegramApi->getChatid() , $Settings->list->itemsText, $Settings->list->items->count() - 1);
-                                $chat->textArea->appendText($this->genMODX($settingschat, "\n" . $Settings->list->itemsText, 'Бот', $type) . "\n");
-                            } elseif ($ultimate->imageurl->selected) {
-                                $jTelegramApi = new jTelegramApi();
-                                $content = $Settings->list->items[rand(0 ,$Settings->list->items->count() - 1)];
-                                $jTelegramApi->sendPhotoByUrl($jTelegramApi->getChatid(), $content);
-                            } else {
-                                $jTelegramApi = new jTelegramApi();
-                                $content = $Settings->list->items[rand(0 ,$Settings->list->items->count() - 1)];
-                                $jTelegramApi->sendMessage_id($jTelegramApi->getChatid(), urlencode($content));
-                                $chat->textArea->appendText($this->genMODX($settingschat, $content, 'Бот', $type) . "\n");
+                            $Settings->addbd($chat->errorlist->selected , [$chat->text->text]);
+                        }
+                        $chat->errorlist->items->removeByIndex($chat->errorlist->selectedIndex);
+                    } else {
+                        foreach ($chat->errorlist->items->toArray() as $iteam) {
+                            if ($iteam == $txt) {
+                                $chat->errorlist->selected = $iteam;
+                                return ;
                             }
                         }
-                    break;
-                    case 'Локальный':
-                        if ($Settings->magicmodules->selected && !$Settings->isFree()) {
-                            //Вызов модуля
-                            $namemodule = $Settings->list->items[0];
-                            $module = new Module($namemodule);
+                        $chat->errorlist->items->add($txt);
+                    }
+                    //автостартскриптов
+                    foreach ($this->bdini->toArray() as $value) {
+                        if ($value['magicmodules'] == true && $value['start'] == true && $value['key'] == $GLOBALS['execute_modules']) {
+                            $GLOBALS['start'] = true;
+                            $php = $value['key'];
+                            Logger::info('[Modules] [Автозапуск] => ' . $php);
+                            $module = new Module($php);
                             $module->call();
-                            $chat->textArea->appendText($this->genMODX($settingschat , "Был выполнен модуль ->$namemodule" , 'Бот' , $type) . "\n");
-                            Logger::info("Был выполнен модуль ->$namemodule");
-                        } else {
-                            if ($ultimate->alllist->selected) {
-                                $chat->textArea->appendText($this->genMODX($settingschat , "\n" . $Settings->list->itemsText , 'Бот' , $type) . "\n");
-                            } elseif ($ultimate->imageurl->selected) {
-                                //$content = $Settings->list->items[rand(0 ,$Settings->list->items->count() - 1)];
-                            } else {
-                                $item = new UXListView();
-                                $item->itemsText = $this->bdini->get('key', $txt);
-                                $txt = $item->items[rand(0, $item->items->count - 1)];
-                                $chat->textArea->appendText($this->genMODX($settingschat , $txt , 'Бот' , $type) . "\n");
-                            }
-                        }                                  
-                    break;
-                    case 'Вконтакте':
-                        if (!$Settings->loginvk->selected) {
-                            $chat->textArea->appendText($this->genMODX($settingschat , 'Пожалуйста авторизуйтесь или выбрать тип => Локальный!' , 'Бот' , $type) . "\n");
-                            return ;
+                        } elseif($value['magicmodules'] == true && $value['start'] == true && $value['key'] != $GLOBALS['execute_modules']) {
+                            $GLOBALS['start'] = true;
+                            $php = $value['key'];
+                            Logger::info('[Modules] [Автозапуск] => ' . $php);
+                            $module = new Module($php);
+                            $module->call();
                         }
-                    break;
+                    }
+                    Logger::error('Ошибка такой бд нету!');//Бд нема епт
                 }
             });
-        }
-        if ($chat->Echeckerror->selected && $this->getcountbd($txt) < $chat->counterror->value) {
-            if ($chat->errorlist->selectedIndex != -1 && $chat->Echeckbox_errorlist->selected) {
-                if ($counterror >= 1) {
-                    foreach ($Settings->list->items->toArray() as $kss) {
-                        if ($kss == $txt) {
-                            $chat->text->clear();
-                            return ;
-                        }
-                    }
-                    $Settings->additeambd($chat->text->text , $chat->errorlist->selected);
-                } else {
-                    $Settings->addbd($chat->errorlist->selected , [$chat->text->text]);
-                }
-                $chat->errorlist->items->removeByIndex($chat->errorlist->selectedIndex);
-            } else {
-                foreach ($chat->errorlist->items->toArray() as $iteam) {
-                    if ($iteam == $txt) {
-                        $chat->errorlist->selected = $iteam;
-                        return ;
-                    }
-                }
-                $chat->errorlist->items->add($txt);
-            }
-            //автостартскриптов
-            foreach ($this->bdini->toArray() as $value) {
-                if ($value['magicmodules'] == true && $value['start'] == true && $value['key'] == $GLOBALS['execute_modules']) {
-                    $GLOBALS['start'] = true;
-                    $php = $value['key'];
-                    Logger::info('[Modules] [Автозапуск] => ' . $php);
-                    $module = new Module($php);
-                    $module->call();
-                } elseif($value['magicmodules'] == true && $value['start'] == true && $value['key'] != $GLOBALS['execute_modules']) {
-                    $GLOBALS['start'] = true;
-                    $php = $value['key'];
-                    Logger::info('[Modules] [Автозапуск] => ' . $php);
-                    $module = new Module($php);
-                    $module->call();
-                }
-            }
-            Logger::error('Ошибка такой бд нету!');//Бд нема епт
-        }
+        }))->start();
     }
     
     /**

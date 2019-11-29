@@ -46,11 +46,11 @@ class chat extends AbstractForm {
      */
     function doErrorlistAction(UXEvent $e = null) {    
         $Settings = app()->getForm(Settings);
-        if($this->bdini->get('key' , $e->sender->selected) == null) {
+        if($this->bdini->get('key', $e->sender->selected) == null) {
             Element::setText($this->counterrorlist , '0');
         } else {
             $Settings->bd->selected = $e->sender->selected;
-            Element::setText($this->counterrorlist , $Settings->list->items->count);
+            Element::setText($this->counterrorlist, $Settings->list->items->count);
         }
     }
 
@@ -67,7 +67,7 @@ class chat extends AbstractForm {
     function doShowing(UXWindowEvent $e = null) {
         $this->typeselected->items->clear();
         $jTelegramApi = new jTelegramApi();
-        if ($jTelegramApi->getConnected()) {
+        if ($jTelegramApi->getStatusConnected()) {
             $this->typeselected->items->add('Телеграмм');
         }
         if (VK::isAuth()) {

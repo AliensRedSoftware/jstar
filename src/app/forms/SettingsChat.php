@@ -2,7 +2,6 @@
 namespace app\forms;
 
 use std, gui, framework, app;
-use php\gui\event\UXMouseEvent; 
 
 class SettingsChat extends AbstractForm {
 

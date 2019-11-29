@@ -9,8 +9,8 @@
   "components": {
     "systemTray": {
       "type": "script\\SystemTrayScript",
-      "x": 176,
-      "y": 176,
+      "x": 16,
+      "y": 16,
       "props": {
         "visible": "1",
         "tooltip": "Нажмите правой кнопкой по иконки :)",

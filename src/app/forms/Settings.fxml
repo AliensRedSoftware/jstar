@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?import javafx.scene.*?><?import javafx.collections.*?><?import javafx.scene.layout.*?><?import javafx.scene.control.*?><?import javafx.scene.text.*?><?import javafx.scene.image.*?><?import javafx.scene.shape.*?><?import javafx.scene.paint.*?><?import javafx.scene.web.*?><?import javafx.geometry.*?><?import java.lang.*?><?import org.develnext.jphp.ext.javafx.classes.data.*?><?import org.develnext.jphp.ext.javafx.support.*?><?import org.develnext.jphp.ext.javafx.support.control.*?><?import org.develnext.jphp.ext.game.support.*?><AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" focusTraversable="false" id="" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640" prefWidth="640" styleClass="">
+<?import javafx.scene.*?><?import javafx.collections.*?><?import javafx.scene.layout.*?><?import javafx.scene.control.*?><?import javafx.scene.text.*?><?import javafx.scene.image.*?><?import javafx.scene.shape.*?><?import javafx.scene.paint.*?><?import javafx.scene.web.*?><?import javafx.geometry.*?><?import java.lang.*?><?import org.develnext.jphp.ext.javafx.classes.data.*?><?import org.develnext.jphp.ext.javafx.support.*?><?import org.develnext.jphp.ext.javafx.support.control.*?><?import org.develnext.jphp.ext.game.support.*?><AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" focusTraversable="false" id="" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480" prefWidth="640" styleClass="">
   <children>
-    <Panel AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="DASHED" borderWidth="1" focusTraversable="false" id="panelmoveform" layoutX="0" layoutY="0" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="640" prefWidth="640" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+    <Panel AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="DASHED" borderWidth="1" focusTraversable="false" id="panelmoveform" layoutX="0" layoutY="0" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="480" prefWidth="640" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
       <children>
         <Panel backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="leftmenu" layoutX="8" layoutY="8" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="36" prefWidth="168" styleClass="" titleColor="#333333" titleOffset="0" titlePosition="TOP_LEFT">
           <children>
@@ -78,7 +78,7 @@
         <Font name="System Regular" size="13"/>
       </titleFont>
     </Panel>
-    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="leafaddons" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="584" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="leafaddons" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="424" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
       <children>
         <TitledPane AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" alignment="CENTER_LEFT" animated="true" collapsible="true" contentDisplay="LEFT" ellipsisString="..." expanded="false" focusTraversable="true" graphicTextGap="4" id="spoiler" layoutX="8" layoutY="8" prefHeight="280" prefWidth="608" styleClass="titled-pane " text="Отбрасываемая тень" textAlignment="LEFT" underline="false" wrapText="false">
           <font>
@@ -236,7 +236,7 @@
     <Data cursor="DEFAULT" enabled="1" id="data-paneltelegram" visible=""/>
     <Data cursor="DEFAULT" enabled="1" id="data-panelmoveform" visible="1"/>
     <Data cursor="DEFAULT" enabled="1" id="data-modulesystem" visible="1"/>
-    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="Malepanel" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="584" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="Malepanel" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="424" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
       <children>
         <ComboBox editable="false" focusTraversable="true" id="icotype" layoutX="8" layoutY="8" prefHeight="26" prefWidth="208" promptText="" styleClass="combo-box-base combo-box " value="Обычное" visibleRowCount="10">
           <items xmlns:fx="http://javafx.com/fxml">
@@ -315,7 +315,7 @@
         <Font name="SansSerif Regular" size="9"/>
       </titleFont>
     </Panel>
-    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="modulesystem" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="584" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="modulesystem" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="424" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
       <children>
         <ComboBox AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="9" editable="false" focusTraversable="true" id="typemodules" layoutX="8" layoutY="48" prefHeight="26" prefWidth="608" promptText="" styleClass="combo-box-base combo-box " value="Telegram_api" visibleRowCount="10">
           <items xmlns:fx="http://javafx.com/fxml">
@@ -370,7 +370,7 @@
         <Font name="SansSerif Regular" size="9"/>
       </titleFont>
     </Panel>
-    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="Femalepanel" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="584" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="Femalepanel" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="424" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
       <children>
         <TextField AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" AnchorPane.topAnchor="7" alignment="CENTER" editable="true" focusTraversable="true" id="NameFemale" layoutX="8" layoutY="8" prefColumnCount="12" prefHeight="16" prefWidth="608" promptText="Имя бота." styleClass="text-input text-field " text="">
           <font>
@@ -384,7 +384,7 @@
           </items>
         </ListViewEx>
         <Data cursor="DEFAULT" enabled="1" id="data-list" visible="1"/>
-        <TextField AnchorPane.bottomAnchor="77" AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" alignment="CENTER" editable="true" focusTraversable="true" id="text" layoutX="8" layoutY="480" prefColumnCount="12" prefHeight="16" prefWidth="608" promptText="Ответ..." styleClass="text-input text-field " text="">
+        <TextField AnchorPane.bottomAnchor="77" AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" alignment="CENTER" editable="true" focusTraversable="true" id="text" layoutX="8" layoutY="320" prefColumnCount="12" prefHeight="16" prefWidth="608" promptText="Ответ..." styleClass="text-input text-field " text="">
           <font>
             <Font name="SansSerif Regular" size="13"/>
           </font>
@@ -408,7 +408,7 @@
           </font>
         </Button>
         <Data cursor="HAND" enabled="1" graphic=".data/img/replace.png" id="data-editsection" visible="1"/>
-        <Panel AnchorPane.bottomAnchor="7" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="paneldown" layoutX="8" layoutY="536" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="40" prefWidth="168" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+        <Panel AnchorPane.bottomAnchor="7" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="paneldown" layoutX="8" layoutY="376" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="40" prefWidth="168" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
           <children>
             <Button alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="selectedmoduleindex" layoutX="88" layoutY="8" prefHeight="26" prefWidth="24" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
               <font>
@@ -440,13 +440,13 @@
           </titleFont>
         </Panel>
         <Data cursor="DEFAULT" enabled="1" id="data-paneldown" visible="1"/>
-        <CheckBox AnchorPane.bottomAnchor="56" alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="magicmodules" layoutX="8" layoutY="509" prefHeight="18" prefWidth="144" styleClass="check-box " text="Модульный режим" textAlignment="LEFT" underline="false" wrapText="false">
+        <CheckBox AnchorPane.bottomAnchor="56" alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="magicmodules" layoutX="8" layoutY="349" prefHeight="18" prefWidth="144" styleClass="check-box " text="Модульный режим" textAlignment="LEFT" underline="false" wrapText="false">
           <font>
             <Font name="SansSerif Regular" size="13"/>
           </font>
         </CheckBox>
         <Data cursor="DEFAULT" enabled="1" id="data-magicmodules" tooltipText="Переход в модульный режим" visible="1"/>
-        <CheckBox AnchorPane.bottomAnchor="54" alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="autostart" layoutX="160" layoutY="511" prefHeight="18" prefWidth="96" styleClass="check-box " text="Автостарт" textAlignment="LEFT" underline="false" wrapText="false">
+        <CheckBox AnchorPane.bottomAnchor="54" alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="autostart" layoutX="160" layoutY="351" prefHeight="18" prefWidth="96" styleClass="check-box " text="Автостарт" textAlignment="LEFT" underline="false" wrapText="false">
           <font>
             <Font name="SansSerif Regular" size="13"/>
           </font>

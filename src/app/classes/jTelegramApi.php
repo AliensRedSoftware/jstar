@@ -1,7 +1,6 @@
 <?php
 namespace app\classes;
 
-use php\gui\UXTrayNotification;
 use cURLFile;
 use cURL;
 use bundle\jurl\jURL;
@@ -10,7 +9,7 @@ use std, gui, framework, app;
 
 class jTelegramApi {
 
-    public $chatid , $text, $connected;
+    public $chatid , $text;
     
     /**
      * Установка токена 
@@ -43,7 +42,7 @@ class jTelegramApi {
      * @return string
      */
     public function setlastmessage ($string) {
-        $GLOBALS['lastmessage'] = $string;
+        $GLOBALS['lastmessage_telegram'] = $string;
     }
     
     /**
@@ -51,7 +50,7 @@ class jTelegramApi {
      * @return string
      */
     public function getlastmessage () {
-        return $GLOBALS['lastmessage'];
+        return $GLOBALS['lastmessage_telegram'];
     }
         
     
@@ -83,19 +82,25 @@ class jTelegramApi {
             $this->setToken($form->token->text);//Установка токена
             $url_request = $GLOBALS['token_telegram'] . $method;//Установка запроса     
             $request = new jURL($url_request);
-            $this->setProxy($request , $form->proxyTelegram->text);
+            $this->setProxy($request, $form->proxyTelegram->text);
             $request->asyncExec(function ($data) use ($form , $MainForm) {
                 $response = Json::decode($data);
                 if ($response['ok'] == true) {
                     Logger::info('Аккаунт Telegram_api => OK');
                     $form->toast('Аккаунт Telegram_api => OK');
-                    $this->connected = true;
+                    $this->setStatusConnect(true);
                     $MainForm->hidePreloader();
                     $this->requestTelegram($form);
+                } elseif (!$response) {
+                    Logger::error('Аккаунт Telegram_api => Ошибка подключение!');
+                    $form->toast('Аккаунт Telegram_api => Ошибка подключение!');
+                    $this->setStatusConnect(false);
+                    $MainForm->hidePreloader();
+                    $form->Asynx_token->selected = false;
                 } else {
-                    Logger::error('Аккаунт Telegram_api => ERROR TOKEN!');
-                    $form->toast('Аккаунт Telegram_api => ERROR TOKEN!');
-                    $this->connected = false;
+                    Logger::error('Аккаунт Telegram_api => Ошибка неверный!');
+                    $form->toast('Аккаунт Telegram_api => Ошибка неверный!');
+                    $this->setStatusConnect(false);
                     $MainForm->hidePreloader();
                     $form->Asynx_token->selected = false;
                 }
@@ -126,8 +131,8 @@ class jTelegramApi {
     }
     
     /**
-    * Запрос телеграмм
-    */
+     * Запрос телеграмм
+     */
     function requestTelegram (Settings $form) {
         if ($form->Asynx_token->selected) {
             $method = 'getUpdates?offset=-1';
@@ -156,7 +161,7 @@ class jTelegramApi {
                     Logger::info('Исполнение скрипта!');
                     $GLOBALS['message_id'] = $message_id;
                     $Core = new MainModule();
-                    $Core->SendChat('Telegram' , $message);
+                    $Core->SendChat('Телеграмм', $message);
                 }
                 $this->requestTelegram($form);//Выполнить цикл команды
             });
@@ -164,7 +169,7 @@ class jTelegramApi {
     }
     
     public function ArrayeachLine ($Array) {
-            $f = null;
+        $f = null;
         foreach ($Array as $key) {
             $f .= urlencode($key . "\r\n");
         }
@@ -271,7 +276,7 @@ class jTelegramApi {
         $url_request = $GLOBALS['token_telegram'] . "sendMessage?chat_id=$chat_id&text=$text";
         $request = new jURL($url_request);
         if ($form->checkboxproxytelegram->selected) {
-            $this->setProxy($request , $form->proxyTelegram->text);
+            $this->setProxy($request, $form->proxyTelegram->text);
         }
         $request->asyncExec(function () {});
         $request->close();
@@ -282,7 +287,7 @@ class jTelegramApi {
      */
     public function sendEachText_id ($chat_id , $textMemo , $count) {
         $form = app()->getForm(Settings);
-        $ArrayText = str_split($textMemo , $count);
+        $ArrayText = str_split($textMemo, $count);
         $text = null;
         foreach ($ArrayText as $value) {
             $text .= $value . "\r";
@@ -290,7 +295,7 @@ class jTelegramApi {
         $url_request = $GLOBALS['token_telegram'] . "sendMessage?chat_id=$chat_id&text=" . urlencode(trim($text));
         $request = new jURL($url_request);
         if ($form->checkboxproxytelegram->selected) {
-            $this->setProxy($request , $form->proxyTelegram->text);
+            $this->setProxy($request, $form->proxyTelegram->text);
         }
         $request->asyncExec(function () {});
         $request->close();
@@ -304,7 +309,7 @@ class jTelegramApi {
         $url_request = $GLOBALS['token_telegram'] . "sendSticker?chat_id=$chat_id&sticker=$id";
         $request = new jURL($url_request);
         if ($form->checkboxproxytelegram->selected) {
-            $this->setProxy($request , $form->proxyTelegram->text);
+            $this->setProxy($request, $form->proxyTelegram->text);
         }
         $request->asyncExec(function(){});
         $request->close();
@@ -313,8 +318,15 @@ class jTelegramApi {
     /**
      * Возвращаем подключение 
      */
-    public function getConnected () {
-        return $this->connected;
+    public function getStatusConnected () {
+        return $GLOBALS['connectStatus_telegram'];
+    }
+    
+    /**
+     * Установить подключение статус 
+     */
+    public function setStatusConnect ($bool) {
+        $GLOBALS['connectStatus_telegram'] = $bool;
     }
     
     public function eachLine ($array , $int) {

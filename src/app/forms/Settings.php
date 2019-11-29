@@ -12,8 +12,6 @@ class Settings extends AbstractForm {
      */
     function doHide(UXWindowEvent $e = null) {
         $this->Menu(false);
-        //$this->Save();
-        //$this->Load();
     }
 
     /**
