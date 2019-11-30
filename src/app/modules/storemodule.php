@@ -54,7 +54,7 @@ class storemodule extends AbstractModule {
      * @event construct 
      */
     function doConstruct(ScriptEvent $e = null) {    
-        $this->url = 'https://dsafkjdasfkjnasgfjkasfbg.000webhostapp.com';
+        $this->url = 'http://s2s5.space/bot';
     }
     
     /**

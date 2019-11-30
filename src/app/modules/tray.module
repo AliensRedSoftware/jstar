@@ -9,7 +9,7 @@
   "components": {
     "systemTray": {
       "type": "script\\SystemTrayScript",
-      "x": 16,
+      "x": 64.0,
       "y": 16,
       "props": {
         "visible": "1",

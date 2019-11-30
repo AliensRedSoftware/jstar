@@ -37,41 +37,7 @@ class tray extends AbstractModule {
         $this->contextMenu->items->add($menuAlwaysOnTop);//Добавляем поверх окон в меню
         //-------------------------------------------------------------------------------
             $this->contextMenu->items->add(UXMenuItem::createSeparator());//Создаем сеппаратор
-        /*/-------------------------------------------------------------------------------
-        $menuurl = new UXMenuItem('Открыть URL' , new UXImageView (new UXImage('ico/url.png')));//Создаем item + иконка
-        //Событие при нажатие
-        $menuurl->on('action', function () { //Событие
-            $UrlForm = app()->getForm(urlform);//Получаем форму urlform
-            //Animation EFFECT FADEIN
-            $UrlForm->opacity = 0;//Прозрачность на 0
-            Animation::fadeIn($UrlForm , 1000);//Делаем плавное перемещение прозрачности на 1
-            $UrlForm->show();//Заведомо показываем саму форму
-            $menu(true);//Включаем запрет на показывание menu ;)
-        });
-        $this->contextMenu->items->add($menuurl);//Добавляем menuurl в меню
-        //Событие при нажатие
-        $menuformagic = new UXMenuItem('Открыть formagic' , new UXImageView (new UXImage('ico/formagic.png')));//Создаем item + иконка
-        $menuformagic->on('action', function () {//Событие
-            $formagic = app()->getForm(formagic);//Получаем форму formagic
-            //Animation EFFECT FADEIN
-            $formagic->opacity = 0;//Прозрачность на 0
-            Animation::fadeIn($formagic , 1000);//Делаем плавное перемещение прозрачности на 1
-            $formagic->show();//Заведомо показываем саму форму
-            $menu(true);//Включаем запрет на показывание menu ;)
-        });
-        $this->contextMenu->items->add($menuformagic);//Добавляем formagic в меню
-        $menukeymagic = new UXMenuItem('Открыть клавишный тренажер' , new UXImageView (new UXImage('ico/keyboard.png')));//Создаем item + иконка
-        //Событие при нажатие
-        $menukeymagic->on('action', function () {//Событие
-            $keymagic = app()->getForm(keytyping);//Получаем форму keytyping
-            //Animation EFFECT FADEIN
-            $keymagic->opacity = 0;//Прозрачность на 0
-            Animation::fadeIn($keymagic , 1000);//Делаем плавное перемещение прозрачности на 1
-            $keymagic->show();//Заведомо показываем саму форму
-            $menu(true);//Включаем запрет на показывание menu ;)
-        });
-        $this->contextMenu->items->add($menukeymagic);//Добавляем keymagic в меню
-        *///Событие при нажатие
+        //-------------------------------------------------------------------------------
         $notepadmenu = new UXMenuItem('Блокнот', new UXImageView (new UXImage('ico' . fs::separator() . 'tray' . fs::separator() . $icopack->getDefault() . fs::separator() . 'notepad.png')));//Создаем item + иконка
         $notepadmenu->on('action', function () {//Событие
             $notepad = app()->getForm(ticket);//Получаем форму clocktime

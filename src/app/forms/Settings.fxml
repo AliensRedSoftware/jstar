@@ -332,7 +332,7 @@
           </font>
         </TextField>
         <Data cursor="DEFAULT" enabled="1" id="data-namemodules" visible="1"/>
-        <Button AnchorPane.rightAnchor="7" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="addmodules" layoutX="582" layoutY="8" prefHeight="32" prefWidth="32" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+        <Button AnchorPane.rightAnchor="7" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="addmodules" layoutX="584" layoutY="8" prefHeight="32" prefWidth="32" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
           <font>
             <Font name="System Regular" size="13"/>
           </font>
@@ -359,7 +359,7 @@
           </items>
         </ComboBox>
         <Data cursor="DEFAULT" enabled="1" id="data-listmodules" visible="1"/>
-        <Button AnchorPane.rightAnchor="44" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="deletemodules" layoutX="545" layoutY="8" prefHeight="32" prefWidth="32" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+        <Button AnchorPane.rightAnchor="44" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="deletemodules" layoutX="547" layoutY="8" prefHeight="32" prefWidth="32" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
           <font>
             <Font name="System Regular" size="13"/>
           </font>
