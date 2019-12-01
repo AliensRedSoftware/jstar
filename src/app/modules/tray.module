@@ -9,13 +9,14 @@
   "components": {
     "systemTray": {
       "type": "script\\SystemTrayScript",
-      "x": 64.0,
+      "x": 64,
       "y": 16,
       "props": {
-        "visible": "1",
+        "visible": true,
         "tooltip": "Нажмите правой кнопкой по иконки :)",
         "icon": ".data/img/logo.png",
-        "alwaysShowing": true
+        "manualExit": false,
+        "alwaysShowing": false
       }
     }
   }

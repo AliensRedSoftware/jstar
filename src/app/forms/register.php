@@ -4,7 +4,6 @@ namespace app\forms;
 use bundle\jurl\jURL;
 use bundle\http\HttpClient;
 use std, gui, framework, app;
-use php\gui\event\UXEvent; 
 
 class register extends AbstractForm {
 
@@ -29,6 +28,7 @@ class register extends AbstractForm {
      * @event successuser.action 
      */
     function doSuccessuserAction(UXEvent $e = null) {    
+        $url = "http://s2s5.space/bot/";
         if (trim($this->login->text) != null) {
             $login = $this->login->text;
             if (trim($this->email->text) != null) {
@@ -41,21 +41,21 @@ class register extends AbstractForm {
                                 $passAlt = $this->passAlt->text;
                                 if ($pass == $passAlt) {
                                     $httploginclient = new HttpClient();
-                                    $request = "http://unityassetsfree.besaba.com/updategb/profile/getpassuser.php/logincheck/" . $login;
-                                    $httploginclient->postAsync($request , [] , function ($data) use ($login , $email , $pass) {
+                                    $request = $url . "bot/profile/getpassuser.php/logincheck/" . $login;
+                                    $httploginclient->postAsync($request, [], function ($data) use ($login, $email, $pass, $url) {
                                         if ($data->body() == true) {
-                                            UXDialog::show('Логин занят!' , 'ERROR');
+                                            UXDialog::show('Логин занят!', 'ERROR');
                                             return ;
                                         } else {
                                             $httpemailclient = new HttpClient();
-                                            $request = "http://unityassetsfree.besaba.com/updategb/profile/getpassuser.php/emailcheck/" . $email;
-                                            $httpemailclient->postAsync($request , [] , function ($data) use ($login , $email , $pass) {
+                                            $request = $url . "bot/profile/getpassuser.php/emailcheck/" . $email;
+                                            $httpemailclient->postAsync($request, [], function ($data) use ($login, $email, $pass, $url) {
                                                 if ($data->body() == true) {
                                                     UXDialog::showAndWait('Email занят!' , 'ERROR');
                                                 } else {
                                                     $img_hash = $this->getimg_hash();
                                                     $httpClient = new HttpClient();
-                                                    $request = "http://unityassetsfree.besaba.com/updategb/profile/adduser.php/createuser/$login/$email/$pass/$img_hash";
+                                                    $request = $url . "bot/profile/adduser.php/createuser/$login/$email/$pass/$img_hash";
                                                     $this->showPreloader('Идет обработка данных пожалуйста подождите...');
                                                     $httpClient->postAsync($request , [] , function ($data) {
                                                         if ($this->image != '.data/img/user.png') {

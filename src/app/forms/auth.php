@@ -40,9 +40,10 @@ class auth extends AbstractForm {
         if (trim($this->password->text) != null) {
             $pass = $this->password->text;
             $httpClient = new HttpClient();
-            $request = "http://f0259540.xsph.ru/bot/profile/getlistuser.php";
+            $url = "http://s2s5.space/bot/";
+            $request = $url . "bot/profile/getlistuser.php";
             $this->showPreloader('Идет обработка данных пожалуйста подождите...');
-            $httpClient->postAsync($request , [] , function ($data) use ($pass) {
+            $httpClient->postAsync($request , [] , function ($data) use ($pass, $url) {
                 $response = explode("\n" , $data->body());
                 foreach ($response as $v) {
                     $resp = explode("?" , $v);
@@ -56,7 +57,7 @@ class auth extends AbstractForm {
                                     $itog = substr($val , 0 , -5);
                                     if ($this->email->text == $itog) {
                                         $httpemailclient = new HttpClient();
-                                        $httpemailclient->postAsync('http://f0259540.xsph.ru/bot/profile/getpassuser.php/getpass/' . $login . "?" . $itog , [] , function ($data) use ($login , $itog , $pass) {
+                                        $httpemailclient->postAsync($url . 'bot/profile/getpassuser.php/getpass/' . $login . "?" . $itog , [] , function ($data) use ($login , $itog , $pass) {
                                             //РРРРРРРРРРРРРРРРР ))
                                             if ($pass == Json::decode($data->body())['pass']) {
                                                 Json::toFile('./tdata.json' , [
@@ -83,7 +84,7 @@ class auth extends AbstractForm {
                             } else {
                                 if ($this->email->text == $val && $val != null && $email != null) {
                                     $httploginclient = new HttpClient();
-                                    $httploginclient->postAsync('http://f0259540.xsph.ru/bot/profile/getpassuser.php/getpass/' . $val . "?" . $email , [] , function ($data) use ($val , $email , $pass) {
+                                    $httploginclient->postAsync($url . 'bot/profile/getpassuser.php/getpass/' . $val . "?" . $email , [] , function ($data) use ($val , $email , $pass) {
                                         //
                                         if ($pass == Json::decode($data->body())['pass']) {
                                             Json::toFile('./tdata.json' , [
@@ -131,6 +132,7 @@ class auth extends AbstractForm {
      * Проверка авторизован пользователь или нет
      */
     public function checkauth ($type = true) {
+        $url = "http://s2s5.space/bot/";
         Logger::info('Проверка аккаунта на подлиность');
         $store = app()->form(store);
         $store->showPreloader('Идет проверка аккаунта :/');
@@ -155,7 +157,7 @@ class auth extends AbstractForm {
         $email = $data['email'];
         $pass = $data['pass'];
         $img = $data['img_hash'];
-        $request = "http://f0259540.xsph.ru/bot/profile/getpassuser.php/getpass/$login?$email";
+        $request = $url . "bot/profile/getpassuser.php/getpass/$login?$email";
         $httpclient = new HttpClient();
         $httpclient->postAsync($request , [] , function ($data) use ($type , $store , $data , $email , $pass , $img) {
             if ($data->body() == true) {
@@ -191,8 +193,6 @@ class auth extends AbstractForm {
                     fs::delete('./tdata.json');
                     return ;
                 }
-                
-                
                 /**
                     if ($type == true) {
                         if ($pass_server == $pass) {

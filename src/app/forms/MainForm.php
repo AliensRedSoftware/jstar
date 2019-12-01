@@ -2,8 +2,6 @@
 namespace app\forms;
 
 use std, gui, framework, app;
-use php\gui\event\UXEvent; 
-use php\gui\event\UXWindowEvent;
 
 class MainForm extends AbstractForm {
 
@@ -22,9 +20,9 @@ class MainForm extends AbstractForm {
      * @event show 
      */
     function doShow(UXWindowEvent $e = null) {
-        if ($this->version->get('notification' , true , 'section')) {
-            $this->Menu(false);
-        }
+        //if ($this->version->get('notification', true, 'section')) {
+            $this->Menu($this->version->get('notification', true, 'section'));
+        //}
         $this->Load();//Загрузки ini + проверка на обновление
     }
 
@@ -73,7 +71,6 @@ class MainForm extends AbstractForm {
      * @event hide 
      */
     function doHide(UXWindowEvent $e = null) {
-        $this->Save();
-        $this->systemTray->hide();
+        $this->systemTray->free();
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project author="root" authorOS="Linux" createdAt="1545970959257" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="jstar" packageName="app" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1575119430075">
+<project author="root" authorOS="Linux" createdAt="1545970959257" ideName="DevelNext" ideVersion="16.7.0" ideVersionHash="2017103112" name="jstar" packageName="app" template="ide\project\templates\DefaultGuiProjectTemplate" updatedAt="1575206322410">
   <tree>
     <expanded>
     <path src=""/>
@@ -10,19 +10,18 @@
       <path src="/src/app/modules"/>
       <path src="/src/app/forms"/>
       <path src="/ico"/>
+      <path src="/skin"/>
     </expanded>
   </tree>
   <openedFiles>
   <file src="jstar.dnproject"/>
     <file src="src/app/forms/Settings.php"/>
-    <file src="src/app/forms/chat.php"/>
     <file src="src/app/modules/MainModule.php"/>
     <file src="src/app/forms/ultimate.php"/>
-    <file src="src/app/forms/support.php"/>
-    <file src="src/app/forms/SettingsChat.php"/>
-    <file src="src/app/classes/jTelegramApi.php"/>
-    <file src="src/app/forms/store.php"/>
-    <file selected="1" src="src/app/modules/storemodule.php"/>
+    <file src="src/app/forms/MainForm.php"/>
+    <file src="src/app/modules/tray.php"/>
+    <file src="src/app/forms/auth.php"/>
+    <file selected="1" src="src/app/forms/register.php"/>
   </openedFiles>
   <files/>
   <behaviours>

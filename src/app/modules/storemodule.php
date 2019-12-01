@@ -3,7 +3,6 @@ namespace app\modules;
 
 use facade\Json;
 use std, gui, framework, app;
-use php\gui\framework\ScriptEvent; 
 
 class storemodule extends AbstractModule {
     
