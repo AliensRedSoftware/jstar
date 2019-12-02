@@ -2,8 +2,6 @@
 namespace app\forms;
 
 use app\forms\profile;
-use php\util\LauncherClassLoader;
-use php\io\FileStream;
 use facade\Json;
 use bundle\http\HttpClient;
 use std, gui, framework, app;
@@ -60,10 +58,10 @@ class auth extends AbstractForm {
                                         $httpemailclient->postAsync($url . 'bot/profile/getpassuser.php/getpass/' . $login . "?" . $itog , [] , function ($data) use ($login , $itog , $pass) {
                                             //РРРРРРРРРРРРРРРРР ))
                                             if ($pass == Json::decode($data->body())['pass']) {
-                                                Json::toFile('./tdata.json' , [
-                                                    'login' => $login ,
-                                                    'email' => $itog ,
-                                                    'pass' => $pass ,
+                                                Json::toFile('./tdata.json', [
+                                                    'login' => $login,
+                                                    'email' => $itog,
+                                                    'pass' => $pass,
                                                     'img_hash' => md5_file('./data/avatar.png') ,
                                                 ]);
                                                 UXDialog::showAndWait('Успешно вошли!' , 'INFORMATION');

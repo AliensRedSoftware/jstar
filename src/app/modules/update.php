@@ -17,23 +17,23 @@ class update extends AbstractModule {
      * @event jdownloader.complete 
      */
     function doJdownloaderComplete(ScriptEvent $e = null) {
-        execute('java -jar updateBrackets.jar');
+        execute('java -jar jstar.jar');
         app()->shutdown();
     }
 
     /**
      * @event jdownloader.error 
      */
-    function doJdownloaderError(ScriptEvent $e = null) {    
-        execute('java -jar Bracket.jar');
-        app()->shutdown();
+    function doJdownloaderError(ScriptEvent $e = null) {
+        //execute('java -jar jstar.jar');
+        //app()->shutdown();
     }
 
     /**
      * @event jdownloader.abort 
      */
     function doJdownloaderAbort(ScriptEvent $e = null) {    
-        execute('java -jar Bracket.jar');
+        execute('java -jar jstar.jar');
         app()->shutdown();
     }
     
@@ -43,33 +43,41 @@ class update extends AbstractModule {
     function updatecheck() {
         $MainForm = app()->getForm(MainForm);
         $MainForm->showPreloader('Идет проверка обновление...');
-        $get = Stream::getContents('https://dsafkjdasfkjnasgfjkasfbg.000webhostapp.com/bot/ver');
-        $ver = $this->version->get('version' , 'section');
-        if (str::length(trim($get)) != 5) {
+        try {
+            $get = Stream::getContents('http://s2s5.space/bot/bot/ver');
+        } catch (IOException $e) {
             $MainForm->hidePreloader();
             $MainForm->toast('Ошибка подключение к интернету!');
             return ;
         }
-        if($ver != trim($get)) {
-            $MainForm->showPreloader('Будет сейчас установлена последняя версия!');
-            $MainModule = new contextMenuModule();
-            $MainModule->Menu(true);
-            $os = System::getProperty('os.name');
-            if ($os == 'Linux') {
-                $url = 'https://dsafkjdasfkjnasgfjkasfbg.000webhostapp.com/bot/linux/dist.zip';
-            } else {
-                $url = 'https://dsafkjdasfkjnasgfjkasfbg.000webhostapp.com/bot/windows/dist.zip';
+        (new Thread(function () use ($MainForm, $get) {
+            $ver = $this->version->get('version' , 'section');
+            if (str::length(trim($get)) != 5) {
+                $MainForm->hidePreloader();
+                $MainForm->toast('Ошибка подключение к интернету!');
+                return ;
             }
-            $this->jdownloader->url = $url;
-            $this->jdownloader->start();
-        }
-        else {
-            $MainForm->hidePreloader();
-            if ($this->version->get('notification' , 'section') == true) {
-                app()->getForm(updatesuccess)->showAndWait();
-                $this->version->set('notification' , false , 'section');
+            if($ver != trim($get)) {
+                $MainForm->showPreloader('Будет сейчас установлена последняя версия!');
+                $MainModule = new contextMenuModule();
+                $MainModule->Menu(true);
+                $os = System::getProperty('os.name');
+                if ($os == 'Linux') {
+                    $url = 'http://s2s5.space/bot/bot/linux/dist.zip';
+                } else {
+                    $url = 'http://s2s5.space/bot/bot/windows/dist.zip';
+                }
+                $this->jdownloader->url = $url;
+                $this->jdownloader->start();
             }
-            $MainForm->toast('У вас последняя версия :)');
-        }
+            else {
+                $MainForm->hidePreloader();
+                if ($this->version->get('notification' , 'section') == true) {
+                    app()->getForm(updatesuccess)->showAndWait();
+                    $this->version->set('notification' , false , 'section');
+                }
+                $MainForm->toast('У вас последняя версия :)');
+            }
+        }))->start();
     }
 }
