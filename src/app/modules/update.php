@@ -25,8 +25,8 @@ class update extends AbstractModule {
      * @event jdownloader.error 
      */
     function doJdownloaderError(ScriptEvent $e = null) {
-        //execute('java -jar jstar.jar');
-        //app()->shutdown();
+        execute('java -jar jstar.jar');
+        app()->shutdown();
     }
 
     /**
@@ -42,25 +42,26 @@ class update extends AbstractModule {
      */
     function updatecheck() {
         $MainForm = app()->getForm(MainForm);
+        $MainForm->Menu(true);
         $MainForm->showPreloader('Идет проверка обновление...');
         try {
             $get = Stream::getContents('http://s2s5.space/bot/bot/ver');
         } catch (IOException $e) {
             $MainForm->hidePreloader();
             $MainForm->toast('Ошибка подключение к интернету!');
+            $MainForm->Menu(false);
+            return ;
+        }
+        if (str::length(trim($get)) != 5) {
+            $MainForm->hidePreloader();
+            $MainForm->toast('Ошибка подключение к интернету!');
+            $MainForm->Menu(false);
             return ;
         }
         (new Thread(function () use ($MainForm, $get) {
-            $ver = $this->version->get('version' , 'section');
-            if (str::length(trim($get)) != 5) {
-                $MainForm->hidePreloader();
-                $MainForm->toast('Ошибка подключение к интернету!');
-                return ;
-            }
+            $ver = $this->version->get('version', 'section');
             if($ver != trim($get)) {
                 $MainForm->showPreloader('Будет сейчас установлена последняя версия!');
-                $MainModule = new contextMenuModule();
-                $MainModule->Menu(true);
                 $os = System::getProperty('os.name');
                 if ($os == 'Linux') {
                     $url = 'http://s2s5.space/bot/bot/linux/dist.zip';
@@ -72,11 +73,12 @@ class update extends AbstractModule {
             }
             else {
                 $MainForm->hidePreloader();
-                if ($this->version->get('notification' , 'section') == true) {
+                if ($this->version->get('notification', 'section') == true) {
                     app()->getForm(updatesuccess)->showAndWait();
-                    $this->version->set('notification' , false , 'section');
+                    $this->version->set('notification', false, 'section');
                 }
                 $MainForm->toast('У вас последняя версия :)');
+                $MainForm->Menu(true);
             }
         }))->start();
     }

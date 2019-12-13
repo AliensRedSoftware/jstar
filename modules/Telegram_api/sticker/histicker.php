@@ -1,9 +1,5 @@
 <?php
-use app , std , framework , gui;
-
-UXApplication::runLater(function () {
-    main();
-});
+use app, std, framework, gui;
 
 function main () {
     $api = new app\classes\jTelegramApi;
@@ -16,5 +12,5 @@ function main () {
             5 => 'CAADAgADSgADiiBhFEP0-vG6N29xAg' ,
             6 => 'CAADBAADRwADQOKfErdAa_S9Ra7AAg'
         ];
-    $api->sendSticker_id($api->getChatid() , $stickpack[rand(0,count($stickpack) - 1)]);
+    $api->sendSticker_id($api->getChatid(), $stickpack[rand(0,count($stickpack) - 1)]);
 }

@@ -1,12 +1,8 @@
 <?php
-use app , std , framework , gui;
+use app, std, framework, gui;
 
-UXApplication::runLater(function () {
+function main () {
     $ver = '0.0.2v';
-    main($ver);
-});
-
-function main ($ver) {
     $api = new app\classes\jTelegramApi;
     if (str::contains($GLOBALS['telegram_text'] , '@')) {
         $txt = explode('@' , $GLOBALS['telegram_text']);
@@ -17,9 +13,9 @@ function main ($ver) {
         if ($txt[1] == 'help') {
             help($api , $ver);
         } elseif (strlen($txt[1]) == 2) {
-        	langauto($api, $txt, $ver);
+            langauto($api, $txt, $ver);
         } elseif ($txt[1] == 'default' && strlen($txt[2]) == 2) {
-			setDefault($api, $txt[2]);
+            setDefault($api, $txt[2]);
         } else {
             help($api , $ver);
         }
@@ -29,7 +25,7 @@ function main ($ver) {
         }
         $yandex = new bundle\yandextranslate\YandexTranslate($api->getTokenYandex());
         $text = $yandex->translate($a, getDefault()); // Вернет переведенный текст или произойдет иключение
-        $api->sendMessage_id($api->getChatid() , $text);
+        $api->sendMessage_id($api->getChatid(), $text);
     }
 }
 
@@ -51,15 +47,15 @@ function langauto ($api, $txt, $ver) {
 /**
  * Установить стандартный язык перевода
  * -------------------------------------
- * api		-	jTelegram
- * default	-	Язык перевода
+ * api        -    jTelegram
+ * default    -    Язык перевода
  */
 function setDefault ($api, $default) {
-	if ($GLOBALS['__LANG_DEFAULT'] != $default) {
-    	$GLOBALS['__LANG_DEFAULT'] = $default;
-    	$api->sendMessage_id($api->getChatid() , "Успешно установлен стандартный язык перевода $default");
+    if ($GLOBALS['__LANG_DEFAULT'] != $default) {
+        $GLOBALS['__LANG_DEFAULT'] = $default;
+        $api->sendMessage_id($api->getChatid() , "Успешно установлен стандартный язык перевода $default");
     } else {
-    	$api->sendMessage_id($api->getChatid() , "Стандартный язык перевода уже установлен $default");
+        $api->sendMessage_id($api->getChatid() , "Стандартный язык перевода уже установлен $default");
     }
 }
 
@@ -68,21 +64,21 @@ function setDefault ($api, $default) {
  * -------------------------
  */
 function getDefault() {
-	if (!$GLOBALS['__LANG_DEFAULT']) {
-    	return 'ru';
+    if (!$GLOBALS['__LANG_DEFAULT']) {
+        return 'ru';
     } else {
-    	return $GLOBALS['__LANG_DEFAULT'];
+        return $GLOBALS['__LANG_DEFAULT'];
     }
 }
 
 /**
- * Возвращает подсказку 
+ * Возвращаем подсказку 
  */
 function help($api , $ver) {
     $api->sendArrayText_id($api->getChatid() , [
         0 => "[lang $ver] - Переводчик",
         1 => '/lang en | Перевод с en на стандартный',
-    	2 => '/lang default ru | Установить стандартный перевод',
+        2 => '/lang default ru | Установить стандартный перевод',
         3 => '/lang help | Список команд',
     ]);
 }

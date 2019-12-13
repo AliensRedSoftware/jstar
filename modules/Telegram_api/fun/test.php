@@ -1,9 +1,5 @@
 <?php
-use app , std , framework , gui;
-
-UXApplication::runLater(function () {
-    main();
-});
+use app, std, framework, gui;
 
 function main () {
     $api = new app\classes\jTelegramApi;

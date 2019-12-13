@@ -3,7 +3,7 @@
     "singleton": true,
     "author": "uxredbyte",
     "description": "Обновление",
-    "version": "0.25"
+    "version": "0.3"
   },
   "components": {
     "jdownloader": {

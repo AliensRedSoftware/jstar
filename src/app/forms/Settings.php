@@ -11,6 +11,7 @@ class Settings extends AbstractForm {
      * @event hide 
      */
     function doHide(UXWindowEvent $e = null) {
+        $this->Save();
         $this->Menu(false);
     }
 
@@ -116,15 +117,14 @@ class Settings extends AbstractForm {
      */
     function doSelectedShadowClickLeft(UXMouseEvent $e = null) {
         $MainForm = app()->getForm(MainForm);
-        if($e->sender->selected) {
+        if ($e->sender->selected) {
             $MainForm->image->dropShadowEffect->enable();
             $MainForm->image->dropShadowEffect->radius = $this->radiusShadow->value;
             $MainForm->image->dropShadowEffect->spread = $this->Intensity->value;
             $MainForm->image->dropShadowEffect->offsetX = $this->transetX->value;
             $MainForm->image->dropShadowEffect->offsetY = $this->transetY->value;
             $MainForm->toast('Отбрасываемая тень->Вкл');
-        }
-        else {
+        } else {
             $MainForm->image->dropShadowEffect->disable();
             $MainForm->toast('Отбрасываемая тень->Выкл');
         }
@@ -246,7 +246,7 @@ class Settings extends AbstractForm {
      * @event addbd.keyDown-Enter 
      */
     function doAddbdKeyDownEnter(UXKeyEvent $e = null) {    
-        $this->addbd($e->sender->text , []);
+        $this->addbd($e->sender->text, []);
         $e->sender->clear();
     }
 
@@ -263,8 +263,8 @@ class Settings extends AbstractForm {
      */
     function selectedbd () {
         $selected = $this->bd->selected;
-        $this->magicmodules->selected = $this->bdini->get('magicmodules' , $selected);
-        $this->autostart->selected = $this->bdini->get('start' , $selected);
+        $this->magicmodules->selected = $this->bdini->get('magicmodules', $selected);
+        $this->autostart->selected = $this->bdini->get('start', $selected);
         $magicmodule = $this->magicmodules->selected;
         if ($magicmodule == true) {
             $this->text->enabled = false;
@@ -275,43 +275,43 @@ class Settings extends AbstractForm {
             $this->packconstruct->enabled = true;
             $this->autostart->enabled = false;
         }
-        $this->list->itemsText = $this->bdini->get('key' , $selected);
-        $this->form('ultimate')->alllist->selected = $this->bdini->get('all' , $selected);
-        $this->form('ultimate')->imageurl->selected = $this->bdini->get('imageurl' , $selected);
+        $this->list->itemsText = $this->bdini->get('key', $selected);
+        $this->form('ultimate')->alllist->selected = $this->bdini->get('all', $selected);
+        $this->form('ultimate')->imageurl->selected = $this->bdini->get('imageurl', $selected);
         $this->addbd->text = $selected;
         $this->checkmodule(false);
     }
 
     function checkmodule ($checkmode) {
-        if ($this->magicmodules->selected && $checkmode == true && str::startsWith($this->bd->selected , '/')) {
+        if ($this->magicmodules->selected && $checkmode == true && str::startsWith($this->bd->selected, '/')) {
             if(uiConfirm('Внимание вы точно хотите перейти в модульный режим ?')) {
                 $this->toast('Успешно перешли в новый режим');
                 $this->magicmodules->selected = true;
                 $this->list->items->clear();
-                $this->bdini->set('key' , $this->list->itemsText , $this->bd->selected);
+                $this->bdini->set('key', $this->list->itemsText, $this->bd->selected);
                 app()->getForm(moduleslist)->showAndWait();
             } else {
                 $this->toast('Успешно не перешли в новый режим');
                 $this->magicmodules->selected = false;
             }
-            $this->bdini->set('magicmodules' , $this->magicmodules->selected , $this->bd->selected);
+            $this->bdini->set('magicmodules', $this->magicmodules->selected, $this->bd->selected);
             $this->text->enabled = !$this->magicmodules->selected;
         } else if (!$this->magicmodules->selected && $checkmode == true) {
             if(uiConfirm('Внимание вы точно хотите уйти от этого режима ?')) {
                 $this->toast('Успешно ушли от этого режима');
                 $this->magicmodules->selected = false;
                 $this->list->items->clear();
-                $this->bdini->set('key' , $this->list->itemsText , $this->bd->selected);
+                $this->bdini->set('key', $this->list->itemsText, $this->bd->selected);
             } else {
                 $this->toast('Успешно перешли в новый режим');
                 $this->magicmodules->selected = true;
             }
-            $this->bdini->set('magicmodules' , $this->magicmodules->selected , $this->bd->selected);
+            $this->bdini->set('magicmodules', $this->magicmodules->selected, $this->bd->selected);
             $this->text->enabled = !$this->magicmodules->selected;
         } else if ($checkmode == true) {
-            UXDialog::showAndWait('Ошибка отсуствует символ / , он должен быть первым' , 'ERROR');
+            UXDialog::showAndWait('Ошибка отсуствует символ /, он должен быть первым', 'ERROR');
             $this->magicmodules->selected = false;
-            $this->bdini->set('key' , $this->list->itemsText , $this->bd->selected);
+            $this->bdini->set('key', $this->list->itemsText, $this->bd->selected);
         } else {
             //pre('test');
             //$this->savebd();
@@ -323,7 +323,7 @@ class Settings extends AbstractForm {
      * @event text.keyDown-Enter 
      */
     function doTextKeyDownEnter(UXKeyEvent $e = null) {    
-        $this->additeambd($this->text->text , $this->bd->selected);
+        $this->additeambd($this->text->text, $this->bd->selected);
         $e->sender->clear();
     }
 
@@ -346,9 +346,8 @@ class Settings extends AbstractForm {
             $this->toast('Уничтожена->' . $this->list->selectedItem);
             $this->bdini->removeSection($this->list->selectedItem);
             $this->list->items->removeByIndex($this->list->selectedIndex);
-            $this->savebd($this->list->itemsText , $this->bd->selected);
-        }
-        else {
+            $this->savebd($this->list->itemsText, $this->bd->selected);
+        } else {
             if ($this->magicmodules->selected) {
                 $this->toast('Невозможно удалить в режиме модуля');
             } else {
@@ -360,7 +359,7 @@ class Settings extends AbstractForm {
     /**
      * Добавление новой бд 
      */
-    function addbd ($bd , array $list) {
+    function addbd ($bd, array $list) {
         if($bd != null) {
             foreach ($this->bd->items as $val) {
                 if($val == $bd) {
@@ -372,17 +371,17 @@ class Settings extends AbstractForm {
             foreach ($list as $kiss_list) {
                 $kus .= $kiss_list . "\n";
             }
-            if (!str::startsWith($bd , '/')) {
+            if (!str::startsWith($bd, '/')) {
                 $this->bd->items->add($bd);
-                $this->bdini->set('key' , $this->bd->itemsText , 'section');
-                $this->bdini->set('key' , trim($kus) , $bd);
+                $this->bdini->set('key', $this->bd->itemsText, 'section');
+                $this->bdini->set('key', trim($kus), $bd);
                 $this->bd->selected = $bd;
             } 
             else {
                 $text = str::lower($bd);
                 $this->bd->items->add($text);
-                $this->bdini->set('key' , $this->bd->itemsText , 'section');
-                $this->bdini->set('key' , trim($kus) , $text);
+                $this->bdini->set('key', $this->bd->itemsText, 'section');
+                $this->bdini->set('key', trim($kus), $text);
                 $this->bd->selected = $text;
             } 
         } else {
@@ -394,7 +393,7 @@ class Settings extends AbstractForm {
         $this->bdini->removeSection($this->bd->selected);
         $this->toast('Уничтожена->' . $this->bd->selected);
         $this->bd->items->removeByIndex($this->bd->selectedIndex);
-        $this->bdini->set('key' , $this->bd->itemsText , 'section');
+        $this->bdini->set('key', $this->bd->itemsText, 'section');
         if($this->bd->selected == null) {
             $this->bd->selectedIndex = 0;
         }
@@ -414,7 +413,7 @@ class Settings extends AbstractForm {
         if ($this->Category_skin->selected != null && $e->sender->selected != null) {
             $this->form('MainForm')->showPreloader('Идет установка скина...');
             $path = 'skin' . fs::separator() . $this->Category_skin->selected . fs::separator() . $e->sender->selected;
-            Element::loadContentAsync($this->form('MainForm')->image , $path , function () {
+            Element::loadContentAsync($this->form('MainForm')->image, $path, function () {
                 $this->form('MainForm')->hidePreloader();
             });
         }
@@ -449,18 +448,18 @@ class Settings extends AbstractForm {
         $MainForm->image->height = $MainForm->height;  
     }
 
-    function smoothAnimation (UXToggleButton $e = null , UXPanel $panel = null , $time) {
+    function smoothAnimation (UXToggleButton $e = null, UXPanel $panel = null, $time) {
         if ($e->selected) {
             $e->enabled = false;
             $panel->visible = true;
-            Animation::fadeIn($panel , $time);
-            Animation::fadeIn($panel , $time , function () use ($e) {
+            Animation::fadeIn($panel, $time);
+            Animation::fadeIn($panel, $time, function () use ($e) {
                 $e->enabled = true;
             });
         } else {
             $e->enabled = false;
-            Animation::fadeOut($panel , $time);
-            Animation::fadeOut($panel , $time , function () use ($e , $panel) {
+            Animation::fadeOut($panel, $time);
+            Animation::fadeOut($panel, $time, function () use ($e, $panel) {
                 $e->enabled = true;
                 $panel->visible = false;
             });
@@ -488,9 +487,9 @@ class Settings extends AbstractForm {
         if ($this->bd->selected && trim($this->addbd->text) != null) {
             $this->bdini->removeSection($this->bd->selected);
             $this->toast($this->bd->selected . " => " . trim($this->addbd->text));
-            $this->bd->items->set($this->bd->selectedIndex , $this->addbd->text);
-            $this->bdini->set('key' , $this->bd->itemsText , 'section');
-            $this->bdini->set('key' , $this->list->itemsText , $this->bd->selected);
+            $this->bd->items->set($this->bd->selectedIndex, $this->addbd->text);
+            $this->bdini->set('key', $this->bd->itemsText, 'section');
+            $this->bdini->set('key', $this->list->itemsText, $this->bd->selected);
         } else {
             $this->toast("");
         }
@@ -506,7 +505,7 @@ class Settings extends AbstractForm {
                 }
             }
             $this->toast('Ответ->' . $this->list->selectedItem . ' | заменен на ->' . $this->text->text);
-            $this->list->items->replace($this->list->selectedItem , $this->text->text);
+            $this->list->items->replace($this->list->selectedItem, $this->text->text);
         }
         else {
             if ($this->magicmodules->selected) {
@@ -525,7 +524,7 @@ class Settings extends AbstractForm {
             if($this->list->items->isEmpty() == true) {
                 $this->list->items->add($this->text->text);
                 $this->toast('Дабавлен ответ->' . $txt . ' | на этот вопрос->' . $bd);
-                $this->bdini->set('key' , $this->list->itemsText , $bd);
+                $this->bdini->set('key', $this->list->itemsText, $bd);
             }
             else {
                 foreach ($this->list->items as $item) {
@@ -536,7 +535,7 @@ class Settings extends AbstractForm {
                 }
                 $this->list->items->add($txt);
                 $this->toast('Дабавлен ответ->' . $txt . ' | на этот вопрос->' . $bd);
-                $this->bdini->set('key' , $this->list->itemsText , $bd);
+                $this->bdini->set('key', $this->list->itemsText, $bd);
             }
         }
         else {
@@ -566,12 +565,6 @@ class Settings extends AbstractForm {
         }
     }
     
-    /**
-     * @event loginvk.action 
-     */
-    function doLoginvkAction(UXEvent $e = null) {
-        VK::checkAuth();
-    }
 
     /**
      * @event longpoll.action 
@@ -580,7 +573,7 @@ class Settings extends AbstractForm {
         $MainForm = app()->getForm(MainForm);
         if($e->sender->selected) {
             $e->sender->text = 'Отключить long-Poll';
-            $e->sender->graphic = new UXImageView (new UXImage('res://.data/img/Exit.png'));
+            $e->sender->graphic = new UXImageView (new UXImage('res://.data/img/action.png'));
             VK::longPollConnect(function($updates) use ($MainForm) {
                 foreach($updates as $update) {
                     switch($update[0]) {
@@ -619,7 +612,7 @@ class Settings extends AbstractForm {
         else {
             $e->sender->text = 'Подключиться к long-poll';
             VK::longPollDisconnect();
-            $e->sender->graphic = new UXImageView (new UXImage('res://.data/img/action.png'));
+            $e->sender->graphic = new UXImageView (new UXImage('res://.data/img/Exit.png'));
             $MainForm->toast('long-poll отключился успешно!');
         }
     }
@@ -679,14 +672,14 @@ class Settings extends AbstractForm {
      * @event colorPicker_background.action 
      */
     function doColorPicker_backgroundAction(UXEvent $e = null) {    
-        $this->EsetTheme($e->sender->value , $this->colorPicker_panel->value);
+        $this->EsetTheme($e->sender->value, $this->colorPicker_panel->value);
     }
 
     /**
      * @event colorPicker_panel.action 
      */
     function doColorPicker_panelAction(UXEvent $e = null) {    
-        $this->EsetTheme($this->colorPicker_background->value , $e->sender->value);
+        $this->EsetTheme($this->colorPicker_background->value, $e->sender->value);
     }
 
     /**
@@ -705,7 +698,7 @@ class Settings extends AbstractForm {
             $this->vk ,
             $this->widgetgirl
         ] , false);
-        $this->smoothAnimation($e->sender , $this->skinpanel , 1000);
+        $this->smoothAnimation($e->sender, $this->skinpanel, 1000);
     }
 
     /**
@@ -952,15 +945,11 @@ class Settings extends AbstractForm {
         app()->getForm(ultimate)->showAndWait();
     }
 
-
-
-
-
     /**
      * @event keyDown-Ctrl+S 
      */
     function doKeyDownCtrlS(UXKeyEvent $e = null) {    
-        $this->savebd($this->list->itemsText , $this->bd->selected);
+        $this->savebd($this->list->itemsText, $this->bd->selected);
     }
 
     /**
@@ -979,35 +968,46 @@ class Settings extends AbstractForm {
         } else {
            $this->toast('Успешно выключен автостарт модуля!');
         }
-        $this->bdini->set('start' , $e->sender->selected , $this->bd->selected);
+        $this->bdini->set('start', $e->sender->selected, $this->bd->selected);
     }
 
     /**
      * @event addmodules.action 
      */
     function doAddmodulesAction(UXEvent $e = null) {    
-        $this->newmodule(trim($this->namemodules->text) , trim($this->descriptionmodules->text) , trim($this->type->selected) , trim($this->typemodules->selected));
+        $this->newmodule(trim($this->namemodules->text), trim($this->descriptionmodules->text), trim($this->type->selected), trim($this->typemodules->selected));
     }
 
     /**
      * @event type.action 
      */
     function doTypeAction(UXEvent $e = null) {    
-        $this->updatelist($e->sender->selected , $this->typemodules->selected);
+        $this->updatelist($e->sender->selected, $this->typemodules->selected);
     }
 
     /**
      * @event typemodules.action 
      */
     function doTypemodulesAction(UXEvent $e = null) {    
-        $this->updatelist($this->type->selected , $e->sender->selected);
+        $this->updatelist($this->type->selected, $e->sender->selected);
     }
-
 
     /**
      * @event deletemodules.action 
      */
     function doDeletemodulesAction(UXEvent $e = null) {
-        $this->deletemodule($this->listmodules->selected , $this->type->selected);
+        $this->deletemodule($this->listmodules->selected, $this->type->selected);
+    }
+
+    /**
+     * @event loginvk.action 
+     */
+    function doLoginvkAction(UXEvent $e = null) {
+        if (VK::isAuth()) {
+            VK::logout();
+            $this->vklogin();
+        } else {
+            VK::checkAuth();
+        }
     }
 }

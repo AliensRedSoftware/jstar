@@ -29,11 +29,12 @@ class jTelegramApi {
      * Установка прокси
      * @return string
      */
-    public function setProxy (jURL $ch , $proxy) {
+    public function setProxy (jURL $ch, $proxy, $type) {
         $form = app()->getForm(Settings);
-        if ($form->checkboxproxytelegram->selected) { 
+        if ($form->proxyTelegramEnable->selected) { 
             Logger::info("Установлен прокси ->$proxy");
             $ch->setProxy($proxy);
+            $ch->setProxyType($type);
         }
     }
 
@@ -82,24 +83,27 @@ class jTelegramApi {
             $this->setToken($form->token->text);//Установка токена
             $url_request = $GLOBALS['token_telegram'] . $method;//Установка запроса     
             $request = new jURL($url_request);
-            $this->setProxy($request, $form->proxyTelegram->text);
-            $request->asyncExec(function ($data) use ($form , $MainForm) {
+            $this->setProxy($request, $form->proxyTelegram->text, $form->typeProxyTelegram->selected);
+            $request->asyncExec(function ($data) use ($form, $MainForm) {
                 $response = Json::decode($data);
                 if ($response['ok'] == true) {
                     Logger::info('Аккаунт Telegram_api => OK');
                     $form->toast('Аккаунт Telegram_api => OK');
+                    $form->Asynx_token->graphic = new UXImageView(new UXImage('res://.data/img/action.png'));
                     $this->setStatusConnect(true);
                     $MainForm->hidePreloader();
                     $this->requestTelegram($form);
                 } elseif (!$response) {
                     Logger::error('Аккаунт Telegram_api => Ошибка подключение!');
                     $form->toast('Аккаунт Telegram_api => Ошибка подключение!');
+                    $form->Asynx_token->graphic = new UXImageView(new UXImage('res://.data/img/Exit.png'));
                     $this->setStatusConnect(false);
                     $MainForm->hidePreloader();
                     $form->Asynx_token->selected = false;
                 } else {
                     Logger::error('Аккаунт Telegram_api => Ошибка неверный!');
                     $form->toast('Аккаунт Telegram_api => Ошибка неверный!');
+                    $form->Asynx_token->graphic = new UXImageView(new UXImage('res://.data/img/Exit.png'));
                     $this->setStatusConnect(false);
                     $MainForm->hidePreloader();
                     $form->Asynx_token->selected = false;
@@ -109,7 +113,8 @@ class jTelegramApi {
         } else {
             Logger::info('Деактивация Telegram_api => OK');
             $form->toast('Деактивация Telegram_api => OK');
-            $this->connected = false;
+            $form->Asynx_token->graphic = new UXImageView(new UXImage('res://.data/img/Exit.png'));
+            $this->setStatusConnect(false);
             $MainForm->hidePreloader();
         }
     }
@@ -138,7 +143,7 @@ class jTelegramApi {
             $method = 'getUpdates?offset=-1';
             $url_request = $GLOBALS['token_telegram'] . $method;
             $request = new jURL($url_request);
-            $this->setProxy($request , $form->proxyTelegram->text);
+            $this->setProxy($request, $form->proxyTelegram->text, $form->typeProxyTelegram->selected);
             $request->asyncExec(function ($data) use ($form) {
                 $response = Json::decode($data);
                 $message_id = $response['result'][0]['message']['message_id'];
@@ -152,6 +157,16 @@ class jTelegramApi {
                     return ;
                 } else {
                     $this->setChatid($response['result'][0]['message']['chat']['id']);
+                    /*/Уведомление
+                    if ($form->notificationtelegram->selected) {
+                        $notification = new UXTrayNotification();
+                        $notification->notificationType = $form->typetelegramnotification->selected;
+                        $notification->animationType = $form->animationnotificationtelegram->selected;
+                        $notification->title = $GLOBALS['name'];
+                        $notification->message = urldecode($message);
+                        $notification->location = $form->positionnotificationtelegram->selected;
+                        $notification->show();
+                    }*/
                 }
                 if ($stickid != null && $stickid != $this->getstickerid()) {
                     Logger::info('Установка id стикера =>' . $stickid);
@@ -192,17 +207,17 @@ class jTelegramApi {
     }
     
     /**
-     * Отправить текст
+     * Отправить текст именно id
      * @return string
      */
-    public function sendMessage_id ($chat_id , $text) {
+    public function sendMessage_id ($chat_id, $text) {
         $form = app()->getForm(Settings);
         $url_request = $GLOBALS['token_telegram'] . "sendMessage?chat_id=$chat_id&text=$text";
         $request = new jURL($url_request);
-        if ($form->checkboxproxytelegram->selected) {
-            $this->setProxy($request , $form->proxyTelegram->text);
+        if ($form->proxyTelegramEnable->selected) {
+            $this->setProxy($request, $form->proxyTelegram->text, $form->typeProxyTelegram->selected);
         }
-        if ($form->notificationtelegram->selected) {
+        /*if ($form->notificationtelegram->selected) {
             $notification = new UXTrayNotification();
             $notification->notificationType = $form->typetelegramnotification->selected;
             $notification->animationType = $form->animationnotificationtelegram->selected;
@@ -210,7 +225,7 @@ class jTelegramApi {
             $notification->message = urldecode($text);
             $notification->location = $form->positionnotificationtelegram->selected;
             $notification->show();
-        }
+        }*/
         $request->asyncExec(function(){});
         $request->close();
     }
@@ -219,12 +234,12 @@ class jTelegramApi {
      * Отправить фото
      * @return string
      */
-    public function sendPhoto_id ($chat_id , $photo) {
+    public function sendPhoto_id ($chat_id, $photo) {
         $form = app()->getForm(Settings);
         $url = $GLOBALS['token_telegram'] . "sendPhoto";
         $ch = new jURL($url);
-        if ($form->checkboxproxytelegram->selected) {
-            $this->setProxy($ch , $form->proxyTelegram->text);
+        if ($form->proxyTelegramEnable->selected) {
+            $this->setProxy($ch , $form->proxyTelegram->text, $form->typeProxyTelegram->selected);
         }
         $ch->addPostFile('photo', fs::abs($photo));
         $ch->setPostData(['chat_id' => $chat_id]);
@@ -240,8 +255,8 @@ class jTelegramApi {
         $form = app()->getForm(Settings);
         $url_request = $GLOBALS['token_telegram'] . "sendPhoto?chat_id=$chat_id&photo=$url";
         $request = new jURL($url_request);
-        if ($form->checkboxproxytelegram->selected) {
-            $this->setProxy($request , $form->proxyTelegram->text);
+        if ($form->proxyTelegramEnable->selected) {
+            $this->setProxy($request, $form->proxyTelegram->text, $form->typeProxyTelegram->selected);
         }
         $request->asyncExec(function(){});
         $request->close();
@@ -255,8 +270,8 @@ class jTelegramApi {
         $form = app()->getForm(Settings);
         $url = $GLOBALS['token_telegram'] . "sendDocument";
         $ch = new jURL($url);
-        if ($form->checkboxproxytelegram->selected) {
-            $this->setProxy($ch , $form->proxyTelegram->text);
+        if ($form->proxyTelegramEnable->selected) {
+            $this->setProxy($ch, $form->proxyTelegram->text, $form->typeProxyTelegram->selected);
         }
         $ch->addPostFile('document', fs::abs($Document));
         $ch->setPostData(['chat_id' => $chat_id]);
@@ -275,8 +290,8 @@ class jTelegramApi {
         }
         $url_request = $GLOBALS['token_telegram'] . "sendMessage?chat_id=$chat_id&text=$text";
         $request = new jURL($url_request);
-        if ($form->checkboxproxytelegram->selected) {
-            $this->setProxy($request, $form->proxyTelegram->text);
+        if ($form->proxyTelegramEnable->selected) {
+            $this->setProxy($request, $form->proxyTelegram->text, $form->typeProxyTelegram->selected);
         }
         $request->asyncExec(function () {});
         $request->close();
@@ -294,8 +309,8 @@ class jTelegramApi {
         }
         $url_request = $GLOBALS['token_telegram'] . "sendMessage?chat_id=$chat_id&text=" . urlencode(trim($text));
         $request = new jURL($url_request);
-        if ($form->checkboxproxytelegram->selected) {
-            $this->setProxy($request, $form->proxyTelegram->text);
+        if ($form->proxyTelegramEnable->selected) {
+            $this->setProxy($request, $form->proxyTelegram->text, $form->typeProxyTelegram->selected);
         }
         $request->asyncExec(function () {});
         $request->close();
@@ -308,8 +323,8 @@ class jTelegramApi {
         $form = app()->getForm(Settings);
         $url_request = $GLOBALS['token_telegram'] . "sendSticker?chat_id=$chat_id&sticker=$id";
         $request = new jURL($url_request);
-        if ($form->checkboxproxytelegram->selected) {
-            $this->setProxy($request, $form->proxyTelegram->text);
+        if ($form->proxyTelegramEnable->selected) {
+            $this->setProxy($request, $form->proxyTelegram->text, $form->typeProxyTelegram->selected);
         }
         $request->asyncExec(function(){});
         $request->close();

@@ -1,28 +1,24 @@
 <?php
-use app , std , framework , gui;
+use app, std, framework, gui;
 
-UXApplication::runLater(function () {
+function main () {
     $ver = '0.0.5v';//Версия модуля
-    main($ver);
-});
-
-function main ($ver) {
     $api = new app\classes\jTelegramApi;
     $txt = explode(' ' , $GLOBALS['telegram_text']);
     if ($txt[1] == 'help') {
         $api->sendArrayText_id($api->getChatid() , getHelp($ver));
     } elseif (str::startsWith($txt[1],'l') || $txt[1] == 'length'){
-        StrLength($api , $txt , $ver);
+        StrLength($api, $txt, $ver);
     } elseif ($txt[1] == 'random') {
-        StrRandom($api , $txt , $ver);
+        StrRandom($api, $txt, $ver);
     } elseif ($txt[1] == 'reverse') {
-        StrReverse($api , $txt , $ver);
+        StrReverse($api, $txt, $ver);
     } elseif (str::startsWith($txt[1],'u') || $txt[1] == 'uuid') {
-        StrUUID($api , $txt , $ver);
+        StrUUID($api, $txt, $ver);
     } elseif (str::startsWith($txt[1],'r') || $txt[1] == 'rand') {
-        StrRand($api , $txt , $ver);
+        StrRand($api, $txt, $ver);
     } else {
-        $api->sendArrayText_id($api->getChatid() , getHelp($ver));
+        $api->sendArrayText_id($api->getChatid(), getHelp($ver));
     }
 }
 

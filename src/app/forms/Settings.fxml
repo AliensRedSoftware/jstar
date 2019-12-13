@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?import javafx.scene.*?><?import javafx.collections.*?><?import javafx.scene.layout.*?><?import javafx.scene.control.*?><?import javafx.scene.text.*?><?import javafx.scene.image.*?><?import javafx.scene.shape.*?><?import javafx.scene.paint.*?><?import javafx.scene.web.*?><?import javafx.geometry.*?><?import java.lang.*?><?import org.develnext.jphp.ext.javafx.classes.data.*?><?import org.develnext.jphp.ext.javafx.support.*?><?import org.develnext.jphp.ext.javafx.support.control.*?><?import org.develnext.jphp.ext.game.support.*?><AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" focusTraversable="false" id="" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480" prefWidth="640" styleClass="">
+<?import javafx.scene.*?><?import javafx.collections.*?><?import javafx.scene.layout.*?><?import javafx.scene.control.*?><?import javafx.scene.text.*?><?import javafx.scene.image.*?><?import javafx.scene.shape.*?><?import javafx.scene.paint.*?><?import javafx.scene.web.*?><?import javafx.geometry.*?><?import java.lang.*?><?import org.develnext.jphp.ext.javafx.classes.data.*?><?import org.develnext.jphp.ext.javafx.support.*?><?import org.develnext.jphp.ext.javafx.support.control.*?><?import org.develnext.jphp.ext.game.support.*?><AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" focusTraversable="false" id="" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640" prefWidth="640" styleClass="">
   <children>
-    <Panel AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="DASHED" borderWidth="1" focusTraversable="false" id="panelmoveform" layoutX="0" layoutY="0" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="480" prefWidth="640" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+    <Panel AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="DASHED" borderWidth="1" focusTraversable="false" id="panelmoveform" layoutX="0" layoutY="0" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="640" prefWidth="640" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
       <children>
         <Panel backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="leftmenu" layoutX="8" layoutY="8" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="36" prefWidth="168" styleClass="" titleColor="#333333" titleOffset="0" titlePosition="TOP_LEFT">
           <children>
@@ -78,7 +78,7 @@
         <Font name="System Regular" size="13"/>
       </titleFont>
     </Panel>
-    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="leafaddons" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="424" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="leafaddons" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="584" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
       <children>
         <TitledPane AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" alignment="CENTER_LEFT" animated="true" collapsible="true" contentDisplay="LEFT" ellipsisString="..." expanded="false" focusTraversable="true" graphicTextGap="4" id="spoiler" layoutX="8" layoutY="8" prefHeight="280" prefWidth="608" styleClass="titled-pane " text="Отбрасываемая тень" textAlignment="LEFT" underline="false" wrapText="false">
           <font>
@@ -236,7 +236,7 @@
     <Data cursor="DEFAULT" enabled="1" id="data-paneltelegram" visible=""/>
     <Data cursor="DEFAULT" enabled="1" id="data-panelmoveform" visible="1"/>
     <Data cursor="DEFAULT" enabled="1" id="data-modulesystem" visible="1"/>
-    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="Malepanel" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="424" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="Malepanel" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="584" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
       <children>
         <ComboBox editable="false" focusTraversable="true" id="icotype" layoutX="8" layoutY="8" prefHeight="26" prefWidth="208" promptText="" styleClass="combo-box-base combo-box " value="Обычное" visibleRowCount="10">
           <items xmlns:fx="http://javafx.com/fxml">
@@ -315,7 +315,7 @@
         <Font name="SansSerif Regular" size="9"/>
       </titleFont>
     </Panel>
-    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="modulesystem" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="424" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="modulesystem" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="584" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
       <children>
         <ComboBox AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="9" editable="false" focusTraversable="true" id="typemodules" layoutX="8" layoutY="48" prefHeight="26" prefWidth="608" promptText="" styleClass="combo-box-base combo-box " value="Telegram_api" visibleRowCount="10">
           <items xmlns:fx="http://javafx.com/fxml">
@@ -332,7 +332,7 @@
           </font>
         </TextField>
         <Data cursor="DEFAULT" enabled="1" id="data-namemodules" visible="1"/>
-        <Button AnchorPane.rightAnchor="7" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="addmodules" layoutX="584" layoutY="8" prefHeight="32" prefWidth="32" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+        <Button AnchorPane.rightAnchor="7" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="addmodules" layoutX="582" layoutY="8" prefHeight="32" prefWidth="32" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
           <font>
             <Font name="System Regular" size="13"/>
           </font>
@@ -359,7 +359,7 @@
           </items>
         </ComboBox>
         <Data cursor="DEFAULT" enabled="1" id="data-listmodules" visible="1"/>
-        <Button AnchorPane.rightAnchor="44" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="deletemodules" layoutX="547" layoutY="8" prefHeight="32" prefWidth="32" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
+        <Button AnchorPane.rightAnchor="44" alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="deletemodules" layoutX="545" layoutY="8" prefHeight="32" prefWidth="32" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
           <font>
             <Font name="System Regular" size="13"/>
           </font>
@@ -370,7 +370,7 @@
         <Font name="SansSerif Regular" size="9"/>
       </titleFont>
     </Panel>
-    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="Femalepanel" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="424" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+    <Panel AnchorPane.bottomAnchor="8" AnchorPane.leftAnchor="8" AnchorPane.rightAnchor="8" AnchorPane.topAnchor="48" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="Femalepanel" layoutX="8" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="584" prefWidth="624" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
       <children>
         <TextField AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" AnchorPane.topAnchor="7" alignment="CENTER" editable="true" focusTraversable="true" id="NameFemale" layoutX="8" layoutY="8" prefColumnCount="12" prefHeight="16" prefWidth="608" promptText="Имя бота." styleClass="text-input text-field " text="">
           <font>
@@ -384,7 +384,7 @@
           </items>
         </ListViewEx>
         <Data cursor="DEFAULT" enabled="1" id="data-list" visible="1"/>
-        <TextField AnchorPane.bottomAnchor="77" AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" alignment="CENTER" editable="true" focusTraversable="true" id="text" layoutX="8" layoutY="320" prefColumnCount="12" prefHeight="16" prefWidth="608" promptText="Ответ..." styleClass="text-input text-field " text="">
+        <TextField AnchorPane.bottomAnchor="77" AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" alignment="CENTER" editable="true" focusTraversable="true" id="text" layoutX="8" layoutY="480" prefColumnCount="12" prefHeight="16" prefWidth="608" promptText="Ответ..." styleClass="text-input text-field " text="">
           <font>
             <Font name="SansSerif Regular" size="13"/>
           </font>
@@ -408,7 +408,7 @@
           </font>
         </Button>
         <Data cursor="HAND" enabled="1" graphic=".data/img/replace.png" id="data-editsection" visible="1"/>
-        <Panel AnchorPane.bottomAnchor="7" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="paneldown" layoutX="8" layoutY="376" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="40" prefWidth="168" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+        <Panel AnchorPane.bottomAnchor="7" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="paneldown" layoutX="8" layoutY="536" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="40" prefWidth="168" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
           <children>
             <Button alignment="CENTER" contentDisplay="GRAPHIC_ONLY" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="selectedmoduleindex" layoutX="88" layoutY="8" prefHeight="26" prefWidth="24" styleClass="button " text="" textAlignment="CENTER" underline="false" wrapText="false">
               <font>
@@ -440,13 +440,13 @@
           </titleFont>
         </Panel>
         <Data cursor="DEFAULT" enabled="1" id="data-paneldown" visible="1"/>
-        <CheckBox AnchorPane.bottomAnchor="56" alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="magicmodules" layoutX="8" layoutY="349" prefHeight="18" prefWidth="144" styleClass="check-box " text="Модульный режим" textAlignment="LEFT" underline="false" wrapText="false">
+        <CheckBox AnchorPane.bottomAnchor="56" alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="magicmodules" layoutX="8" layoutY="509" prefHeight="18" prefWidth="144" styleClass="check-box " text="Модульный режим" textAlignment="LEFT" underline="false" wrapText="false">
           <font>
             <Font name="SansSerif Regular" size="13"/>
           </font>
         </CheckBox>
         <Data cursor="DEFAULT" enabled="1" id="data-magicmodules" tooltipText="Переход в модульный режим" visible="1"/>
-        <CheckBox AnchorPane.bottomAnchor="54" alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="autostart" layoutX="160" layoutY="351" prefHeight="18" prefWidth="96" styleClass="check-box " text="Автостарт" textAlignment="LEFT" underline="false" wrapText="false">
+        <CheckBox AnchorPane.bottomAnchor="54" alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="autostart" layoutX="160" layoutY="511" prefHeight="18" prefWidth="96" styleClass="check-box " text="Автостарт" textAlignment="LEFT" underline="false" wrapText="false">
           <font>
             <Font name="SansSerif Regular" size="13"/>
           </font>
@@ -457,15 +457,15 @@
         <Font name="System Regular" size="13"/>
       </titleFont>
     </Panel>
-    <Panel AnchorPane.rightAnchor="96" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="paneltelegram" layoutX="328" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" opacity="0" prefHeight="440" prefWidth="216" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_CENTER">
+    <Panel AnchorPane.rightAnchor="96" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="paneltelegram" layoutX="328" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" opacity="0" prefHeight="472" prefWidth="216" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_CENTER">
       <children>
         <ToggleButton alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="Asynx_token" layoutX="8" layoutY="8" prefHeight="24" prefWidth="200" styleClass="toggle-button " text="Синхранизация" textAlignment="LEFT" underline="false" wrapText="false">
           <font>
             <Font name="SansSerif Regular" size="13"/>
           </font>
         </ToggleButton>
-        <Data cursor="HAND" enabled="1" graphic=".data/img/action.png" id="data-Asynx_token" visible="1"/>
-        <VBox AnchorPane.bottomAnchor="7" AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" AnchorPane.topAnchor="39" alignment="TOP_LEFT" focusTraversable="false" id="vbox" layoutX="8" layoutY="40" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="392" prefWidth="200" spacing="5" styleClass="">
+        <Data cursor="HAND" enabled="1" graphic=".data/img/Exit.png" id="data-Asynx_token" visible="1"/>
+        <VBox AnchorPane.bottomAnchor="7" AnchorPane.leftAnchor="7" AnchorPane.rightAnchor="7" AnchorPane.topAnchor="39" alignment="TOP_LEFT" focusTraversable="false" id="vbox" layoutX="8" layoutY="40" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="424" prefWidth="200" spacing="5" styleClass="">
           <children>
             <TextField alignment="CENTER_LEFT" editable="true" focusTraversable="true" id="token" layoutX="0" layoutY="0" prefColumnCount="12" prefHeight="32" prefWidth="200" promptText="token" styleClass="text-input text-field " text="">
               <font>
@@ -518,7 +518,7 @@
               </items>
             </ComboBox>
             <Separator focusTraversable="false" id="separator" layoutX="0" layoutY="238" orientation="HORIZONTAL" prefHeight="8" prefWidth="144" styleClass="separator "/>
-            <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="label8" layoutX="0" layoutY="251" prefHeight="15.1328125" prefWidth="152.4453125" styleClass="label " text="Необычный функционал" textAlignment="LEFT" underline="false" wrapText="false">
+            <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="label8" layoutX="0" layoutY="251" prefHeight="15.1328125" prefWidth="52.99658203125" styleClass="label " text="Префикс" textAlignment="LEFT" underline="false" wrapText="false">
               <font>
                 <Font name="SansSerif Regular" size="13"/>
               </font>
@@ -537,13 +537,13 @@
             <Data cursor="DEFAULT" enabled="1" id="data-token" tooltipText="Токен бота" visible="1"/>
             <Data cursor="DEFAULT" enabled="1" id="data-chatid" tooltipText="Чат id" visible="1"/>
             <Separator focusTraversable="false" id="separator4" layoutX="0" layoutY="303" orientation="HORIZONTAL" prefHeight="8" prefWidth="144" styleClass="separator "/>
-            <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="checkboxproxytelegram" layoutX="0" layoutY="316" prefHeight="24" prefWidth="160" styleClass="check-box " text="Вкл/выкл (Прокси)" textAlignment="LEFT" underline="false" wrapText="false">
+            <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="proxyTelegramEnable" layoutX="0" layoutY="316" prefHeight="24" prefWidth="160" styleClass="check-box " text="Вкл/выкл (Прокси)" textAlignment="LEFT" underline="false" wrapText="false">
               <font>
                 <Font name="SansSerif Regular" size="13"/>
               </font>
             </CheckBox>
-            <Data cursor="DEFAULT" enabled="1" id="data-checkboxproxytelegram" tooltipText="Вкл / выкл прокси" visible="1"/>
-            <TextField alignment="CENTER" editable="true" focusTraversable="true" id="proxyTelegram" layoutX="0" layoutY="345" prefColumnCount="12" prefHeight="26" prefWidth="200" promptText="Прокси" styleClass="text-input text-field " text="185.12.177.209:80">
+            <Data cursor="DEFAULT" enabled="1" id="data-proxyTelegramEnable" tooltipText="Вкл / выкл прокси" visible="1"/>
+            <TextField alignment="CENTER" editable="true" focusTraversable="true" id="proxyTelegram" layoutX="0" layoutY="345" prefColumnCount="12" prefHeight="26" prefWidth="200" promptText="Прокси" styleClass="text-input text-field " text="127.0.0.1:9050">
               <font>
                 <Font name="SansSerif Regular" size="13"/>
               </font>
@@ -559,6 +559,21 @@
             <Data cursor="DEFAULT" enabled="1" id="data-separator4" visible="1"/>
             <Data cursor="DEFAULT" enabled="1" id="data-label8" visible="1"/>
             <Data cursor="DEFAULT" enabled="1" id="data-chatid_look" visible="1"/>
+            <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="label11" layoutX="0" layoutY="376" prefHeight="15.1328125" prefWidth="69.05615234375" styleClass="label " text="Тип прокси" textAlignment="LEFT" underline="false" wrapText="false">
+              <font>
+                <Font name="SansSerif Regular" size="13"/>
+              </font>
+            </LabelEx>
+            <Data cursor="DEFAULT" enabled="1" id="data-label11" visible="1"/>
+            <ComboBox editable="false" focusTraversable="true" id="typeProxyTelegram" layoutX="0" layoutY="397" prefHeight="26" prefWidth="96" promptText="Префикс" styleClass="combo-box-base combo-box " value="SOCKS" visibleRowCount="10">
+              <items xmlns:fx="http://javafx.com/fxml">
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="HTTP"/>
+                  <String fx:value="SOCKS"/>
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Data cursor="DEFAULT" enabled="1" id="data-typeProxyTelegram" visible="1"/>
           </children>
         </VBox>
         <Data cursor="DEFAULT" enabled="1" id="data-vbox" visible="1"/>
@@ -583,49 +598,110 @@
         <Font name="System Regular" size="13"/>
       </titleFont>
     </Panel>
-    <Panel AnchorPane.rightAnchor="54" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="panelvk" layoutX="376" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" opacity="0" prefHeight="138" prefWidth="210" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
+    <Panel AnchorPane.rightAnchor="54" backgroundColor="#ffffff" borderColor="#c0c0c0" borderRadius="0" borderStyle="SOLID" borderWidth="1" focusTraversable="false" id="panelvk" layoutX="376" layoutY="48" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" opacity="0" prefHeight="376" prefWidth="210" styleClass="" titleColor="#333333" titleOffset="15" titlePosition="TOP_LEFT">
       <children>
-        <VBox alignment="CENTER" focusTraversable="false" id="vboxAlt" layoutX="0" layoutY="0" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="96" prefWidth="208" spacing="5" styleClass="">
+        <VBox alignment="CENTER_LEFT" focusTraversable="false" id="vboxAlt" layoutX="0" layoutY="0" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="368" prefWidth="208" spacing="5" styleClass="">
+          <padding>
+            <Insets bottom="0" left="5" right="0" top="5"/>
+          </padding>
           <children>
-            <Button alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="loginvk" layoutX="4" layoutY="2" prefHeight="16" prefWidth="200" styleClass="button " text="Синхранизация" textAlignment="CENTER" underline="false" wrapText="false">
-              <font>
-                <Font name="SansSerif Regular" size="13"/>
-              </font>
-            </Button>
-            <Data cursor="HAND" enabled="1" graphic=".data/img/action.png" id="data-loginvk" visible="1"/>
-            <ToggleButton alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="longpoll" layoutX="4" layoutY="33" prefHeight="16" prefWidth="200" styleClass="toggle-button " text="Подключиться long-poll" textAlignment="LEFT" underline="false" wrapText="false">
+            <ToggleButton alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="loginvk" layoutX="5" layoutY="5" prefHeight="16" prefWidth="200" styleClass="toggle-button " text="Синхранизация" textAlignment="LEFT" underline="false" wrapText="false">
               <font>
                 <Font name="SansSerif Regular" size="13"/>
               </font>
             </ToggleButton>
-            <Data cursor="HAND" enabled="" graphic=".data/img/action.png" id="data-longpoll" visible="1"/>
-            <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="idgroup" layoutX="4" layoutY="64" prefHeight="18" prefWidth="200" styleClass="check-box " text="Группа / челу" textAlignment="LEFT" underline="false" wrapText="false">
+            <ToggleButton alignment="CENTER" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="longpoll" layoutX="5" layoutY="36" prefHeight="16" prefWidth="200" styleClass="toggle-button " text="Подключиться long-poll" textAlignment="LEFT" underline="false" wrapText="false">
+              <font>
+                <Font name="SansSerif Regular" size="13"/>
+              </font>
+            </ToggleButton>
+            <Data cursor="HAND" enabled="" graphic=".data/img/Exit.png" id="data-longpoll" visible="1"/>
+            <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="idgroup" layoutX="5" layoutY="67" prefHeight="18" prefWidth="200" styleClass="check-box " text="Группа / челу" textAlignment="LEFT" underline="false" wrapText="false">
               <font>
                 <Font name="SansSerif Regular" size="13"/>
               </font>
             </CheckBox>
             <Data cursor="DEFAULT" enabled="1" id="data-idgroup" visible="1"/>
-            <Separator focusTraversable="false" id="separator3" layoutX="0" layoutY="87" orientation="HORIZONTAL" prefHeight="8" prefWidth="144" styleClass="separator "/>
+            <Separator focusTraversable="false" id="separator3" layoutX="5" layoutY="90" orientation="HORIZONTAL" prefHeight="8" prefWidth="144" styleClass="separator "/>
             <Data cursor="DEFAULT" enabled="1" id="data-separator3" visible="1"/>
-          </children>
-        </VBox>
-        <Data cursor="DEFAULT" enabled="1" id="data-vboxAlt" visible="1"/>
-        <HBox alignment="TOP_LEFT" focusTraversable="false" id="hbox" layoutX="0" layoutY="96" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="40" prefWidth="208" spacing="5" styleClass="">
-          <padding>
-            <Insets bottom="0" left="5" right="0" top="0"/>
-          </padding>
-          <children>
-            <TextField alignment="CENTER" editable="true" focusTraversable="true" id="prefix" layoutX="5" layoutY="0" prefColumnCount="12" prefHeight="32" prefWidth="32" promptText="prefix" styleClass="text-input text-field " text="\$">
+            <LabelEx alignment="CENTER_LEFT" autoSize="true" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="label12" layoutX="5" layoutY="101" prefHeight="15.1328125" prefWidth="52.99658203125" styleClass="label " text="Префикс" textAlignment="LEFT" underline="false" wrapText="false">
+              <font>
+                <Font name="SansSerif Regular" size="13"/>
+              </font>
+            </LabelEx>
+            <Data cursor="DEFAULT" enabled="1" id="data-label12" visible="1"/>
+            <ComboBox editable="false" focusTraversable="true" id="prefixvk" layoutX="5" layoutY="122" prefHeight="26" prefWidth="72" promptText="Префикс" styleClass="combo-box-base combo-box " value="null" visibleRowCount="10">
+              <items xmlns:fx="http://javafx.com/fxml">
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="null"/>
+                  <String fx:value="$"/>
+                  <String fx:value="!"/>
+                  <String fx:value="*"/>
+                  <String fx:value="&amp;"/>
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Data cursor="DEFAULT" enabled="1" id="data-prefixvk" visible="1"/>
+            <Separator focusTraversable="false" id="separator5" layoutX="5" layoutY="153" orientation="HORIZONTAL" prefHeight="8" prefWidth="144" styleClass="separator "/>
+            <Data cursor="DEFAULT" enabled="1" id="data-separator5" visible="1"/>
+            <LabelEx alignment="CENTER_LEFT" autoSize="false" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="label14" layoutX="5" layoutY="164" prefHeight="16" prefWidth="72" styleClass="label " text="Версия api" textAlignment="LEFT" underline="false" wrapText="false">
+              <font>
+                <Font name="System Regular" size="13"/>
+              </font>
+            </LabelEx>
+            <ComboBox editable="false" focusTraversable="true" id="versionapivk" layoutX="5" layoutY="185" prefHeight="26" prefWidth="112" promptText="Версия api" styleClass="combo-box-base combo-box " value="" visibleRowCount="10">
+              <items xmlns:fx="http://javafx.com/fxml">
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="5.103"/>
+                  <String fx:value="5.77"/>
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <Separator focusTraversable="false" id="separator6" layoutX="5" layoutY="216" orientation="HORIZONTAL" prefHeight="8" prefWidth="144" styleClass="separator "/>
+            <CheckBox alignment="CENTER_LEFT" contentDisplay="LEFT" ellipsisString="..." focusTraversable="true" graphicTextGap="4" id="proxyVkEnable" layoutX="5" layoutY="228" prefHeight="18" prefWidth="200" styleClass="check-box " text="Вкл/выкл (Прокси)" textAlignment="LEFT" underline="false" wrapText="false">
+              <font>
+                <Font name="SansSerif Regular" size="13"/>
+              </font>
+            </CheckBox>
+            <TextField alignment="CENTER" editable="true" focusTraversable="true" id="proxyVk" layoutX="5" layoutY="251" prefColumnCount="12" prefHeight="26" prefWidth="200" promptText="Прокси" styleClass="text-input text-field " text="127.0.0.1:9050">
               <font>
                 <Font name="SansSerif Regular" size="13"/>
               </font>
             </TextField>
-            <org.develnext.jphp.ext.javafx.support.control.NumberSpinner alignment="CENTER" arrowsStyle="RIGHT_VERTICAL" editable="true" focusTraversable="true" id="groupandid" initial="0" layoutX="42" layoutY="0" max="2147483647" min="0" prefHeight="32" prefWidth="160" step="1" styleClass="spinner "/>
-            <Data cursor="DEFAULT" enabled="1" id="data-groupandid" visible="1"/>
-            <Data cursor="DEFAULT" enabled="1" id="data-prefix" visible="1"/>
+            <LabelEx alignment="CENTER_LEFT" autoSize="false" contentDisplay="LEFT" ellipsisString="..." focusTraversable="false" graphicTextGap="4" id="label13" layoutX="5" layoutY="282" prefHeight="16" prefWidth="72" styleClass="label " text="Версия api" textAlignment="LEFT" underline="false" wrapText="false">
+              <font>
+                <Font name="System Regular" size="13"/>
+              </font>
+            </LabelEx>
+            <ComboBox editable="false" focusTraversable="true" id="typeProxyVk" layoutX="5" layoutY="303" prefHeight="26" prefWidth="96" promptText="Префикс" styleClass="combo-box-base combo-box " value="SOCKS" visibleRowCount="10">
+              <items xmlns:fx="http://javafx.com/fxml">
+                <FXCollections fx:factory="observableArrayList">
+                  <String fx:value="HTTP"/>
+                  <String fx:value="SOCKS"/>
+                </FXCollections>
+              </items>
+            </ComboBox>
+            <HBox alignment="TOP_LEFT" focusTraversable="false" id="hboxAlt" layoutX="5" layoutY="334" maxHeight="-1" maxWidth="-1" minHeight="-1" minWidth="-1" prefHeight="34" prefWidth="203" spacing="5" styleClass="">
+              <padding>
+                <Insets bottom="5" left="5" right="5" top="5"/>
+              </padding>
+              <children>
+                <org.develnext.jphp.ext.javafx.support.control.NumberSpinner alignment="CENTER" arrowsStyle="RIGHT_VERTICAL" editable="true" focusTraversable="true" id="groupandid" initial="0" layoutX="5" layoutY="5" max="2147483647" min="0" prefHeight="32" prefWidth="200" step="1" styleClass="spinner "/>
+                <Data cursor="DEFAULT" enabled="1" id="data-groupandid" visible="1"/>
+              </children>
+            </HBox>
+            <Data cursor="DEFAULT" enabled="1" id="data-hboxAlt" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-label14" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-versionapivk" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-separator6" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-proxyVkEnable" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-label13" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-typeProxyVk" visible="1"/>
+            <Data cursor="DEFAULT" enabled="1" id="data-proxyVk" tooltipText="Прокси [ip:port]" visible="1"/>
+            <Data cursor="HAND" enabled="1" graphic=".data/img/action.png" id="data-loginvk" visible="1"/>
           </children>
-        </HBox>
-        <Data cursor="DEFAULT" enabled="1" id="data-hbox" visible="1"/>
+        </VBox>
+        <Data cursor="DEFAULT" enabled="1" id="data-vboxAlt" visible="1"/>
       </children>
       <titleFont>
         <Font name="System Regular" size="13"/>

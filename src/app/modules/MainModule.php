@@ -2,9 +2,7 @@
 namespace app\modules;
 
 use facade\Json;
-use php\lang\System;
 use app\classes\jTelegramApi;
-use php\lang\Thread;
 use std, gui, framework, app;
 use app\modules\vkModule as VK;
 
@@ -17,7 +15,7 @@ class MainModule extends AbstractModule {
      */
     function doDirChooserAction(ScriptEvent $e = null) {//Выбор папок или папки блять
         $form = app()->getForm(Settings);//Ну форма настроек
-        $files = fs::scan($e->sender->file , ['extensions' => ['jpg', 'png', 'gif', 'jpeg'], 'excludeDirs' => true]);//Тупа переменная для скана папка = $array
+        $files = fs::scan($e->sender->file, ['extensions' => ['jpg', 'png', 'gif', 'jpeg'], 'excludeDirs' => true]);//Тупа переменная для скана папка = $array
         foreach ($files as $val) {//Типичный фореч изи короче из files в val каждый массив
             $img = str::replace($val, $e->sender->file . '/', "");//А тут замена короче не ебу чт за код ну он не в функционале
             $form->list->items->add($img);//Ну тут тупа короче добавлеие в лист iteams $img конент
@@ -72,46 +70,59 @@ class MainModule extends AbstractModule {
         $ChatSettings = app()->getForm(SettingsChat);//Получение формы настройки формы чата 
         //Male типа для м но я не ебу зах это написал
         //Female типа для ж но я не ебу зах это написал просто копипаст 
-        $this->ini->set('FemaleName' , $Settings->NameFemale->text , 'SettingsFemale');//Сохрание имени короче ж это имя бота короче
-        $this->ini->set('waitsend' , $ChatSettings->waitsend->value , 'SettingsFemale');//Сохрание время отправки на локал машине
-        $this->ini->set('clearchatauto' , $ChatSettings->clearchatauto->selected , 'SettingsFemale');//Сохранение Удаление автоматически чат диалог чтобы засора не была
-        $this->ini->set('clearchatauto_interval' , $ChatSettings->intervaltext->value , 'SettingsFemale');//Сохранение Интервал тоже время отправки ну это интервал в чате
-        $this->ini->set('dateandtime' , $ChatSettings->datamessage->selected , 'SettingsFemale');//Сохранение это короче время отправки во сколько отправилось когда отправилось и всё
+        $this->ini->set('FemaleName', $Settings->NameFemale->text, 'SettingsFemale');//Сохрание имени короче ж это имя бота короче
+        $this->ini->set('waitsend', $ChatSettings->waitsend->value, 'SettingsFemale');//Сохрание время отправки на локал машине
+        $this->ini->set('clearchatauto', $ChatSettings->clearchatauto->selected, 'SettingsFemale');//Сохранение Удаление автоматически чат диалог чтобы засора не была
+        $this->ini->set('clearchatauto_interval', $ChatSettings->intervaltext->value, 'SettingsFemale');//Сохранение Интервал тоже время отправки ну это интервал в чате
+        $this->ini->set('dateandtime', $ChatSettings->datamessage->selected, 'SettingsFemale');//Сохранение это короче время отправки во сколько отправилось когда отправилось и всё
         //Widget виджет настройки
-        $this->ini->set('WidgetX' , $Settings->valueX->value , 'SettingsFemale');//Ну тута просто виджет настройки перемещение ботище на x
-        $this->ini->set('WidgetY' , $Settings->valueY->value , 'SettingsFemale');//Тута также только Y
+        $this->ini->set('WidgetX', $Settings->valueX->value, 'SettingsFemale');//Ну тута просто виджет настройки перемещение ботище на x
+        $this->ini->set('WidgetY', $Settings->valueY->value, 'SettingsFemale');//Тута также только Y
         //AlwaysOnTop поверх всех окон
-        $this->ini->set('AlwaysOnTop' , $MainForm->alwaysOnTop , 'view');//Чексбокс сохранеие поверх или нет
+        $this->ini->set('AlwaysOnTop', $MainForm->alwaysOnTop, 'view');//Чексбокс сохранеие поверх или нет
         //colorAdjustEffect цветовая коррекция скриптик для смены короче цветов ботище
-        $this->ini->set('selected' , $Settings->colorcorrection->selected , 'colorAdjustEffect');//переключатель блять
-        $this->ini->set('brightness' , $Settings->brightness->value , 'colorAdjustEffect');//Яркость
-        $this->ini->set('contrast' , $Settings->contrast->value , 'colorAdjustEffect');//Контрактность
-        $this->ini->set('hue' , $Settings->hue->value , 'colorAdjustEffect');//ХУЕ
-        $this->ini->set('saturation' , $Settings->saturation->value , 'colorAdjustEffect');//насыщение
+        $this->ini->set('selected', $Settings->colorcorrection->selected, 'colorAdjustEffect');//переключатель блять
+        $this->ini->set('brightness', $Settings->brightness->value, 'colorAdjustEffect');//Яркость
+        $this->ini->set('contrast', $Settings->contrast->value, 'colorAdjustEffect');//Контрактность
+        $this->ini->set('hue', $Settings->hue->value, 'colorAdjustEffect');//ХУЕ
+        $this->ini->set('saturation', $Settings->saturation->value, 'colorAdjustEffect');//насыщение
         //shadowEffect  эффекты блять теней
-        $this->ini->set('selected' , $Settings->selectedShadow->selected , 'shadowEffect'); //переключатель!!
-        $this->ini->set('color' , $Settings->colorPicker->value , 'shadowEffect');//цвета
-        $this->ini->set('radius' , $Settings->radiusShadow->value , 'shadowEffect');//Изи радиус
-        $this->ini->set('Intensity' , $Settings->Intensity->value , 'shadowEffect');//Интенсивность
-        $this->ini->set('offsetX' , $Settings->transetX->value , 'shadowEffect');//Смещение х
-        $this->ini->set('offsetY' , $Settings->transetY->value , 'shadowEffect');//смещение y
+        $this->ini->set('selected', $Settings->selectedShadow->selected, 'shadowEffect'); //переключатель!!
+        $this->ini->set('color', $Settings->colorPicker->value, 'shadowEffect');//цвета
+        $this->ini->set('radius', $Settings->radiusShadow->value, 'shadowEffect');//Изи радиус
+        $this->ini->set('Intensity', $Settings->Intensity->value, 'shadowEffect');//Интенсивность
+        $this->ini->set('offsetX', $Settings->transetX->value, 'shadowEffect');//Смещение х
+        $this->ini->set('offsetY', $Settings->transetY->value, 'shadowEffect');//смещение y
         //skin СКИНЫ Ботище 
-        $this->ini->set('path' , 'skin' . fs::separator() . $Settings->Category_skin->selected . fs::separator() . $Settings->skin->selected , 'SettingsFemale');//Установка скина
-        $this->ini->set('size' , $MainForm->size , 'SettingsFemale');//Размер
+        $this->ini->set('path', 'skin' . fs::separator() . $Settings->Category_skin->selected . fs::separator() . $Settings->skin->selected, 'SettingsFemale');//Установка скина
+        $this->ini->set('size', $MainForm->size, 'SettingsFemale');//Размер
         //vk панель
-        $this->ini->set('longpoll' , $Settings->longpoll->selected , 'vk');//Лонгполл сервер
-        $this->ini->set('selectedGroupandUsert' , $Settings->groupandid->value , 'vk');//Установить в группу кидать или нет ? или тип в лс
-        $this->ini->set('id' , $Settings->idgroup->selected , 'vk');//id группу
-        $this->ini->set('prefix' , $Settings->prefix->text , 'vk');//Префикс при написаний блять
+        $this->ini->set('longpoll', $Settings->longpoll->selected, 'vk');//Лонгполл сервер
+        $this->ini->set('selectedGroupandUsert', $Settings->groupandid->value, 'vk');//Установить в группу кидать или нет ? или тип в лс
+        $this->ini->set('id', $Settings->idgroup->selected, 'vk');//id группу
+        $this->ini->set('prefix', $Settings->prefixvk->selected, 'vk');//Префикс при написаний блять
+        $this->ini->set('version', $Settings->versionapivk->selected, 'vk');//Версия api
+        //Прокси
+        $this->ini->set('proxy', $Settings->proxyVk->text, 'vk');//Прокси если типа провайдер блочит то юзай эту хрень
+        $this->ini->set('typeProxy', $Settings->typeProxyVk->selected, 'vk');//Прокси тип
+        $this->ini->set('proxyEnable', $Settings->proxyVkEnable->selected, 'vk');//Прокси вкл
         //telegram телега 
-        $this->ini->set('proxyTelegram' , $Settings->proxyTelegram->text , 'telegram');//Прокси если типа провайдер блочит то юзай эту хрень
-        $this->ini->set('token' , $Settings->token->text , 'telegram');//Токен ну это надо
-        $this->ini->set('chatid' , $Settings->chatid->text , 'telegram');//Чат id от кого получила ссобщение и отправила тож
-        $this->ini->set('prefix' , $Settings->prefixtelegram->selected , 'telegram');
-        $this->ini->set('chatid_look' , $Settings->chatid_look->selected , 'telegram');//Закрепить id и отправлять только ему
+        $this->ini->set('token', $Settings->token->text, 'telegram');//Токен ну это надо
+        $this->ini->set('chatid', $Settings->chatid->text, 'telegram');//Чат id от кого получила ссобщение и отправила тож
+        $this->ini->set('prefix', $Settings->prefixtelegram->selected, 'telegram');
+        $this->ini->set('chatid_look', $Settings->chatid_look->selected, 'telegram');//Закрепить id и отправлять только ему
+        //Уведомление
+        $this->ini->set('Notification', $Settings->notificationtelegram->selected, 'telegram');//Уведомление включатель
+        $this->ini->set('positionNotification', $Settings->positionnotificationtelegram->selected, 'telegram');//Позиция уведомление
+        $this->ini->set('typeNotification', $Settings->typetelegramnotification->selected, 'telegram');//Тип уведомление
+        $this->ini->set('animationNotification', $Settings->animationnotificationtelegram->selected, 'telegram');//Анимация уведомление
+        //Прокси
+        $this->ini->set('proxy', $Settings->proxyTelegram->text, 'telegram');//Прокси если типа провайдер блочит то юзай эту хрень
+        $this->ini->set('typeProxy', $Settings->typeProxyTelegram->selected, 'telegram');//Прокси тип
+        $this->ini->set('proxyEnable', $Settings->proxyTelegramEnable->selected, 'telegram');//Прокси вкл
         //Тема
-        $this->ini->set('colorpanel' , $Settings->colorPicker_panel->value , 'theme');
-        $this->ini->set('colorbackground' , $Settings->colorPicker_background->value , 'theme');
+        $this->ini->set('colorpanel', $Settings->colorPicker_panel->value, 'theme');
+        $this->ini->set('colorbackground', $Settings->colorPicker_background->value, 'theme');
         Logger::info('[Настройки] => сохранились успешно!');
     }
     
@@ -122,64 +133,77 @@ class MainModule extends AbstractModule {
         $Settings = app()->getForm(Settings);//Получаем форму Settings
         $MainForm = app()->getForm(MainForm);//Получаем форму MainForm
         //------------------------------------------
-            $MainForm->title = $this->ini->get('FemaleName' , 'SettingsFemale');//Название формы равняется имени бота
+            $MainForm->title = $this->ini->get('FemaleName', 'SettingsFemale');//Название формы равняется имени бота
         //------------------------------------------
         $ChatSettings = app()->getForm(SettingsChat);//Получаем форму SettingsChat
         //MaleName опять тутат 
         //FemaleName fem загрузка
-        $Settings->NameFemale->text = $this->ini->get('FemaleName' , 'SettingsFemale');//Загрузка имени ботмище
-        $ChatSettings->waitsend->value = $this->ini->get('waitsend' , 'SettingsFemale');//Загрузка время ожиданий
-        $ChatSettings->clearchatauto->selected = $this->ini->get('clearchatauto' , 'SettingsFemale');//Удаление автоматом мусор диалог чата
-        $ChatSettings->intervaltext->value = $this->ini->get('clearchatauto_interval' , 'SettingsFemale');//Интервал ну локал хост время ожидание запроса
-        $ChatSettings->datamessage->selected = $this->ini->get('dateandtime' , 'SettingsFemale');//лоад и это все лоад ну да datamessage дата отправки сообщение когда во сколько была сообщение и тд
+        $Settings->NameFemale->text = $this->ini->get('FemaleName', 'SettingsFemale');//Загрузка имени ботмище
+        $ChatSettings->waitsend->value = $this->ini->get('waitsend', 'SettingsFemale');//Загрузка время ожиданий
+        $ChatSettings->clearchatauto->selected = $this->ini->get('clearchatauto', 'SettingsFemale');//Удаление автоматом мусор диалог чата
+        $ChatSettings->intervaltext->value = $this->ini->get('clearchatauto_interval', 'SettingsFemale');//Интервал ну локал хост время ожидание запроса
+        $ChatSettings->datamessage->selected = $this->ini->get('dateandtime', 'SettingsFemale');//лоад и это все лоад ну да datamessage дата отправки сообщение когда во сколько была сообщение и тд
         //Widget виджеты расположение тяночки )))
-        $Settings->valueX->value = $this->ini->get('WidgetX' , 'SettingsFemale');//ПО Х
-        $Settings->valueY->value = $this->ini->get('WidgetY' , 'SettingsFemale');//ПО Y
+        $Settings->valueX->value = $this->ini->get('WidgetX', 'SettingsFemale');//ПО Х
+        $Settings->valueY->value = $this->ini->get('WidgetY', 'SettingsFemale');//ПО Y
         //widgetLoad Виджеты грузка разгрузка
-        $MainForm->x = $this->ini->get('WidgetX' , 'SettingsFemale');//Расположение по Х
-        $MainForm->y = $this->ini->get('WidgetY' , 'SettingsFemale');//Расположение по Y формы маинформас
+        $MainForm->x = $this->ini->get('WidgetX', 'SettingsFemale');//Расположение по Х
+        $MainForm->y = $this->ini->get('WidgetY', 'SettingsFemale');//Расположение по Y формы маинформас
         //leafeffect типа листик эффектор
         //colorAdjustEffect думаю тут понятно
-        $Settings->colorcorrection->selected = $this->ini->get('selected' , 'colorAdjustEffect');//Селектед ини загрузка
-        $Settings->brightness->value = $this->ini->get('brightness' , 'colorAdjustEffect');//ЯрКость загрузка
-        $Settings->contrast->value = $this->ini->get('contrast' , 'colorAdjustEffect');//Контрактность
-        $Settings->hue->value = $this->ini->get('hue' , 'colorAdjustEffect');//Хуе
-        $Settings->saturation->value = $this->ini->get('saturation' , 'colorAdjustEffect');//Насыщение загрузка
+        $Settings->colorcorrection->selected = $this->ini->get('selected', 'colorAdjustEffect');//Селектед ини загрузка
+        $Settings->brightness->value = $this->ini->get('brightness', 'colorAdjustEffect');//ЯрКость загрузка
+        $Settings->contrast->value = $this->ini->get('contrast', 'colorAdjustEffect');//Контрактность
+        $Settings->hue->value = $this->ini->get('hue', 'colorAdjustEffect');//Хуе
+        $Settings->saturation->value = $this->ini->get('saturation', 'colorAdjustEffect');//Насыщение загрузка
         //shadowEffect тени эффектор
-        $Settings->selectedShadow->selected = $this->ini->get('selected' , 'shadowEffect');//чекер
-        $Settings->colorPicker->value = UXColor::of($this->ini->get('color' , 'shadowEffect'));//колопиккер загрузчик
-        $Settings->radiusShadow->value = $this->ini->get('radius' , 'shadowEffect');//Радиус
-        $Settings->Intensity->value = $this->ini->get('Intensity' , 'shadowEffect');//Размер ну дальность
-        $Settings->transetX->value = $this->ini->get('offsetX' , 'shadowEffect');//Смешение по Х
-        $Settings->transetY->value = $this->ini->get('offsetY' , 'shadowEffect');//Смещение по Y
+        $Settings->selectedShadow->selected = $this->ini->get('selected', 'shadowEffect');//чекер
+        $Settings->colorPicker->value = UXColor::of($this->ini->get('color', 'shadowEffect'));//колопиккер загрузчик
+        $Settings->radiusShadow->value = $this->ini->get('radius', 'shadowEffect');//Радиус
+        $Settings->Intensity->value = $this->ini->get('Intensity', 'shadowEffect');//Размер ну дальность
+        $Settings->transetX->value = $this->ini->get('offsetX', 'shadowEffect');//Смешение по Х
+        $Settings->transetY->value = $this->ini->get('offsetY', 'shadowEffect');//Смещение по Y
         //AlwaysOnTop Поверх экрана окон 
-        $MainForm->alwaysOnTop = $this->ini->get('AlwaysOnTop' , 'view');//Загрзука вроверх экрана 
+        $MainForm->alwaysOnTop = $this->ini->get('AlwaysOnTop', 'view');//Загрзука вроверх экрана 
         //bd бд
-        $Settings->bd->itemsText = $this->bdini->get('key' , 'section');//Загрузка секций
+        $Settings->bd->itemsText = $this->bdini->get('key', 'section');//Загрузка секций
         $Settings->bd->selectedIndex = 0;//Секция равно 0
         $Settings->selectedbd();//Выбранная бд )
         //Skin
-        $pathskin = str::split($this->ini->get('path' , 'SettingsFemale') , fs::separator());//Split окно чё блять )
+        $pathskin = str::split($this->ini->get('path', 'SettingsFemale'), fs::separator());//Split окно чё блять )
         $Settings->Category_skin->selected = $pathskin[1];//Категория скинов 
         $Settings->skin->selected = $pathskin[2];//Выбранный скин
-        $MainForm->image->image = new UXImage($this->ini->get('path' , 'SettingsFemale'));//Картинка загрузка 
-        $MainForm->image->size = $this->ini->get('size' , 'SettingsFemale');//Размер ботще
+        $MainForm->image->image = new UXImage($this->ini->get('path', 'SettingsFemale'));//Картинка загрузка 
+        $MainForm->image->size = $this->ini->get('size', 'SettingsFemale');//Размер ботще
         $Settings->sizeimage->value = $MainForm->image->size[0];//Размер пикчи
         //vk вк
-        $Settings->groupandid->value = $this->ini->get('selectedGroupandUsert' , 'vk'); // группка идов
-        $Settings->idgroup->selected = $this->ini->get('id' , 'vk');//Ид группа ..
-        $Settings->prefix->text = $this->ini->get('prefix' , 'vk');//Префикс и загрузка
+        $Settings->groupandid->value = $this->ini->get('selectedGroupandUsert', 'vk'); // группка идов
+        $Settings->idgroup->selected = $this->ini->get('id', 'vk');//Ид группа ..
+        $Settings->prefixvk->selected = $this->ini->get('prefix', 'vk');//Префикс и загрузка
+        $Settings->versionapivk->selected = $this->ini->get('version', 'vk');//Версия api
+        //Прокси
+        $Settings->proxyVk->text = $this->ini->get('proxy', 'vk');//Прокси ну это чтобы можно была авторизоваться короче
+        $Settings->typeProxyVk->selected = $this->ini->get('typeProxy', 'vk');//Прокси тип
+        $Settings->proxyVkEnable->selected = $this->ini->get('proxyEnable', 'vk');//Прокси
         $this->vklogin();//вк загрузка
         //telegram телега 
-        $Settings->proxyTelegram->text = $this->ini->get('proxyTelegram' , 'telegram');//Прокси ну это чтобы можно была авторизоваться короче
-        $Settings->token->text = $this->ini->get('token' , 'telegram');//Токен нужно от бота и всё если ты бот можешь кинуть свой токен )
-        $Settings->chatid->text = $this->ini->get('chatid' , 'telegram');//Чат ид просто чат ид всё блять что тут описывать ?
-        $Settings->prefixtelegram->selected = $this->ini->get('prefix' , 'telegram');//Сохраняет префикс
-        $Settings->chatid_look->selected = $this->ini->get('chatid_look' , 'telegram');//Установка закрепа
+        $Settings->token->text = $this->ini->get('token', 'telegram');//Токен нужно от бота и всё если ты бот можешь кинуть свой токен )
+        $Settings->chatid->text = $this->ini->get('chatid', 'telegram');//Чат ид просто чат ид всё блять что тут описывать ?
+        $Settings->prefixtelegram->selected = $this->ini->get('prefix', 'telegram');//Сохраняет префикс
+        $Settings->chatid_look->selected = $this->ini->get('chatid_look', 'telegram');//Установка закрепа
+        //Уведомление
+        $Settings->notificationtelegram->selected = $this->ini->get('Notification', 'telegram');//Уведомление включатель
+        $Settings->positionnotificationtelegram->selected = $this->ini->get('positionNotification', 'telegram');//Позиция уведомление
+        $Settings->typetelegramnotification->selected = $this->ini->get('typeNotification', 'telegram');//Тип уведомление
+        $Settings->animationnotificationtelegram->selected = $this->ini->get('animationNotification', 'telegram');//Анимация уведомление
+        //Прокси
+        $Settings->proxyTelegram->text = $this->ini->get('proxy', 'telegram');//Прокси ну это чтобы можно была авторизоваться короче
+        $Settings->typeProxyTelegram->selected = $this->ini->get('typeProxy', 'telegram');//Прокси тип
+        $Settings->proxyTelegramEnable->selected = $this->ini->get('proxyEnable', 'telegram');//Прокси
         //theme
         $theme = new theme();
-        $Settings->colorPicker_panel->value = UXColor::of($this->ini->get('colorpanel' , 'theme'));
-        $Settings->colorPicker_background->value = UXColor::of($this->ini->get('colorbackground' , 'theme'));
+        $Settings->colorPicker_panel->value = UXColor::of($this->ini->get('colorpanel', 'theme'));
+        $Settings->colorPicker_background->value = UXColor::of($this->ini->get('colorbackground', 'theme'));
         $theme->EsetTheme($Settings->colorPicker_background->value , $Settings->colorPicker_panel->value);
         //Проверка обновление
         $update = new update();//Создается новый упдате модуль чтобы его юзать пожалуйста воспользуйтесь командой Модули и всё там команды
@@ -242,9 +266,9 @@ class MainModule extends AbstractModule {
                  return ;
              }
              $GLOBALS['telegram_text'] = $txt;
-             if($this->bdini->get('key' , $txt) != null || $Settings->prefixtelegram->selectedIndex != 0 && !str::startsWith($txt , '/')) {
-                 if($Settings->prefixtelegram->selected != 'null' && !str::startsWith($txt , '/')) {
-                     $text = explode($Settings->prefixtelegram->selected , trim($txt));
+             if($this->bdini->get('key', $txt) != null || $Settings->prefixtelegram->selectedIndex != 0 && !str::startsWith($txt, '/')) {
+                 if($Settings->prefixtelegram->selected != 'null' && !str::startsWith($txt, '/')) {
+                     $text = explode($Settings->prefixtelegram->selected, trim($txt));
                      $Settings->bd->selected = $text[1];
                  } else {
                      $Settings->bd->selected = $txt;
@@ -301,7 +325,7 @@ class MainModule extends AbstractModule {
      * @return string 
      */
     public function SendChat(string $type, string $txt) {
-        (new Thread(function () use ($type, $txt) {
+        (new Thread(function () use ($type, $txt) {//Процесс дурный 
             uiLater(function () use ($type, $txt) {
                 $chat = app()->getForm(chat);
                 $Settings = app()->getForm(Settings);
@@ -312,12 +336,30 @@ class MainModule extends AbstractModule {
                 if ($type == 'Телеграмм' || $type == 'Вконтакте' || $type == 'Локальный') {
                     $this->checkbd($type, $txt, $Settings);//Проверка бд
                 }
+                switch ($type) {
+                    case 'Телеграмм':
+                        //Уведомление
+                        if ($Settings->notificationtelegram->selected) {
+                            $notification = new UXTrayNotification();
+                            $notification->notificationType = $Settings->typetelegramnotification->selected;
+                            $notification->animationType = $Settings->animationnotificationtelegram->selected;
+                            $notification->title = $GLOBALS['name'];
+                            $notification->message = urldecode($txt);
+                            $notification->location = $Settings->positionnotificationtelegram->selected;
+                            $notification->show();
+                        }
+                    break;
+                }
                 $chat->textArea->appendText($this->genMODX($settingschat, $txt, $Name, $type)  . "\n");//Добавляем блять карл эту модх а не мод-икс так просто правильно читается и была задумно ну короче это в этой переменной этот исходный результат вроде тут понятно 
                 $counterror = $chat->counterrorlist->text;
                 if ($this->request == true) {
                     waitAsync($this->ini->get('waitsend' , 'SettingsFemale') , function () use ($Settings, $chat, $settingschat, $Name, $type, $ultimate, $txt) {//Отправка блять с ожиданием плюс юзается Сеттингс форма потом чат форма и модх
                         if (str::startsWith($txt, '/')) {
-                            $txt = explode(' ', $txt)[0];
+                            $txt = $GLOBALS['modules'];
+                        } else {
+                            if ($Settings->prefixtelegram->selectedIndex != 0 || $Settings->prefixtelegram->selectedIndex != -1) {
+                                $txt = explode($Settings->prefixtelegram->selected, trim($txt))[1];
+                            }
                         }
                         $item = new UXListView();
                         $item->itemsText = $this->bdini->get('key', $txt);
@@ -332,14 +374,14 @@ class MainModule extends AbstractModule {
                                     //Вызов модуля
                                     $namemodule = $item->items[0];
                                     $module = new Module($namemodule);
-                                    $module->call();
+                                    main();
                                     $chat->textArea->appendText($this->genMODX($settingschat, "Был выполнен модуль ->$namemodule" , 'Бот', $type) . "\n");
                                     Logger::info("Был выполнен модуль ->$namemodule");
                                     $GLOBALS['execute_modules'] = $item->items[0];
                                 } else {
                                     if ($ultimate->alllist->selected) {
                                         $jTelegramApi = new jTelegramApi();
-                                        $jTelegramApi->sendEachText_id($jTelegramApi->getChatid() , $item->itemsText, $item->items->count() - 1);
+                                        $jTelegramApi->sendEachText_id($jTelegramApi->getChatid(), $item->itemsText, $item->items->count() - 1);
                                         $chat->textArea->appendText($this->genMODX($settingschat, "\n" . $item->itemsText, 'Бот', $type) . "\n");
                                     } elseif ($ultimate->imageurl->selected) {
                                         $jTelegramApi = new jTelegramApi();
@@ -358,7 +400,7 @@ class MainModule extends AbstractModule {
                                     //Вызов модуля
                                     $namemodule = $item->items[0];
                                     $module = new Module($namemodule);
-                                    $module->call();
+                                    main();
                                     $chat->textArea->appendText($this->genMODX($settingschat , "Был выполнен модуль ->$namemodule" , 'Бот' , $type) . "\n");
                                     Logger::info("Был выполнен модуль ->$namemodule");
                                 } else {
@@ -529,16 +571,16 @@ class MainModule extends AbstractModule {
     /**
      * Авторизация вк
      */
-    function vklogin() {
+    function vklogin () {
         $Settings = app()->getForm(Settings);
         $MainForm = app()->getForm(MainForm);
-        if(VK::isAuth() == false) {
+        $Settings->loginvk->selected = VK::isAuth();
+        $Settings->longpoll->selected = VK::isAuth();
+        if(!VK::isAuth()) {
             $Settings->loginvk->graphic = new UXImageView (new UXImage('res://.data/img/Exit.png'));
-            $Settings->longpoll->enabled = false;
         }
         else {
             $Settings->loginvk->graphic = new UXImageView (new UXImage('res://.data/img/action.png'));
-            $Settings->longpoll->enabled = true;
             $MainForm->toast('Авторизован вк -> успешно!');
         }
     }

@@ -1,9 +1,5 @@
 <?php
-use app , std , framework , gui;
-
-UXApplication::runLater(function () {
-    main();
-});
+use app, std, framework, gui;
 
 function main () {
     $vk = new app\modules\vkapi;

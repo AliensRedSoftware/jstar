@@ -1,6 +1,7 @@
 <?php
 namespace app\modules;
 
+use app;
 use framework;
 use php\framework\Logger;
 use php\format\JsonProcessor;
@@ -14,6 +15,7 @@ use php\lib\Str;
 class vkModule {
     
     const LOG = false;
+    
     private static    // Если есть своё приложение, поменяйте параметры $appID и $appSecret
                     $appID = '5119526',
                     $appSecret = 'QFWVrezg1DAypE6vCqFj',
@@ -21,7 +23,6 @@ class vkModule {
                     // Файл, в котором хранится access_token
                     $tokenFile = './cache.vk',
                     $accessToken = 'false',
-                    $apiVersion = '5.77', //5.53
 
                     // Конфиги для загрузки фото
                     $uploadImageConfig = [
@@ -30,13 +31,24 @@ class vkModule {
                         'photos.saveOwnerPhoto' => ['method' => 'photos.getOwnerPhotoUploadServer', 'upload' => ['owner_id'], 'POST' => 'photo'], // * //
                         'photos.saveMessagesPhoto' => ['method' => 'photos.getMessagesUploadServer', 'upload' => [], 'POST' => 'photo'],
                         'messages.setChatPhoto' => ['method' => 'photos.getChatUploadServer', 'upload' => ['chat_id'], 'POST' => 'file'], // * //
-                    ];
+                    ];                       
     private function Log(){
         if(self::LOG) Logger::Debug('[VK] ' . var_export(func_get_args(), true));
     }
-
+    
     private static $longPoll, $lpAbort = false;
 
+    /**
+     * Возвращаем версию api 
+     */
+    public static function getApiVersion() {
+        $ver = app()->getForm(Settings)->versionapivk->selected;
+        if (!$ver) {
+            $ver = '5.103';
+        }
+        return $ver;
+    }
+    
     /**
      * Подключение к long-poll серверу
      *
@@ -150,11 +162,10 @@ class vkModule {
      * 
      * @example vkModule::Query('users.get', ['fields'=>'photo_100'], function($answer){ });
      **/
-    public static function Query($method, $params = [], $callback = false, $jParams = [])
-    {        
-        $params['v'] = self::$apiVersion;
-                        
-        if(self::$accessToken){
+    public static function Query($method, $params = [], $callback = false, $jParams = []) {
+        $form = app()->getForm(Settings);
+        $params['v'] = self::getApiVersion();
+        if(self::$accessToken) {
             $params['access_token'] = self::$accessToken;
         }
                         
@@ -162,6 +173,10 @@ class vkModule {
 
         $connect = new jURL($url);
         $connect->setOpts($jParams);
+        if (app()->getForm(Settings)->proxyVkEnable->selected) {
+            $connect->setProxy(app()->getForm(Settings)->proxyVk->text);
+            $connect->setProxyType(app()->getForm(Settings)->typeProxyVk->selected);
+        }
         if(is_callable($callback)){
             $connect->asyncExec(function($content, $connect) use ($method, $params, $callback, $jParams){
                 $result = self::processResult($content, $connect, $method, $params, $callback, $jParams);
@@ -173,13 +188,12 @@ class vkModule {
         }
     }
 
-    private static function processResult($content, $connect, $method, $params, $callback, $jParams){
+    private static function processResult($content, $connect, $method, $params, $callback, $jParams) {
         try {
             $errors = $connect->getError();
             if($errors !== false){
                 throw new vkException('Невозможно совершить запрос', -1, $errors);
             }
-
             $json = new JsonProcessor(JsonProcessor::DESERIALIZE_AS_ARRAYS);
             $data = $json->parse($content);
 
@@ -190,7 +204,7 @@ class vkModule {
                 throw new vkException($data['error']['error_msg'], $data['error']['error_code'], $data);
                 return false;
             }
-
+            
             return $data;
             
         }catch(vkException $e){
@@ -199,9 +213,7 @@ class vkModule {
                     //api.vk.com недоступен, обычно из-за частых запросов
                     case -2:
                         wait(500);
-                        
                     break;    
-                    
                     case 5://Просроченный access_token
                     case 10://Ошибка авторизации
                         UXDialog::show('Вам необходимо повторно авторизоваться', 'ERROR');
@@ -238,8 +250,7 @@ class vkModule {
      *
      * @return bool
      **/     
-    public static function isAuth()
-    {
+    public static function isAuth() {
         if(file_exists(self::$tokenFile) and $t = file_get_contents(self::$tokenFile) and Str::Length($t) > 85){
             $token = str::sub($t, 0, 85);
             $hash = str::sub($t, 85);
@@ -258,7 +269,7 @@ class vkModule {
     /**
      * Проверяет, авторизован ли пользователь, если нет - покажет форму авторизации
      **/
-    public static function checkAuth($callback = false){
+    public static function checkAuth($callback = false) {
         $callback = is_callable($callback) ? $callback : function(){};
 
         if(!self::isAuth()){
@@ -289,7 +300,11 @@ class vkModule {
      * @return string
      */
     public static function getApiVersion(){
-        return self::$apiVersion;
+        $ver = app()->getForm(Settings)->versionapivk->selected;
+        if (!$ver) {
+            $ver = '5.103';
+        }
+        return $ver;
     }
 
     /**

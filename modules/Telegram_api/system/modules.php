@@ -1,13 +1,8 @@
 <?php
+use app, std, framework, gui;
 
-use app , std , framework , gui;
-
-UXApplication::runLater(function () {
+function main () {
     $ver = '0.0.4v';//Версия модуля
-    main($ver);
-});
-
-function main ($ver) {
     $api = new app\classes\jTelegramApi;
     $txt = explode(' ' , $GLOBALS['telegram_text']);
     if (str::startsWith ($txt[1] , 'h') || $txt[1] == 'help') {

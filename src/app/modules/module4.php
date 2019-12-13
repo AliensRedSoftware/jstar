@@ -10,12 +10,12 @@ class module4 extends AbstractModule {
         $Settings = app()->getForm(Settings);
         if($id == $Settings->groupandid->value) {
             if($Settings->idgroup->selected == false) {
-                $MainModule->SendChat($id, $txt , false);
+                $MainModule->SendChat($id, $txt, false);
             }
         }
         elseif($id == 2000000000 + $Settings->groupandid->value) {    
             if($Settings->idgroup->selected == true) {
-                $MainModule->SendChat($id, $txt , $MainModule->bdini->get('all' , $txt));
+                $MainModule->SendChat($id, $txt, $MainModule->bdini->get('all', $txt));
             }
         }
     }

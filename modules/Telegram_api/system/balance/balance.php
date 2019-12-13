@@ -1,12 +1,8 @@
 <?php
-use app , std , framework , gui;
+use app, std, framework, gui;
 
-UXApplication::runLater(function () {
+function main () {
     $ver = '0.0.1v';
-    main($ver);
-});
-
-function main ($ver) {
     $api = new app\classes\jTelegramApi;
     $txt = explode(' ' , $GLOBALS['telegram_text']);
     $name = $GLOBALS['name'];

@@ -1,10 +1,6 @@
 <?php
-use app , std , framework , gui;
+use app, std, framework, gui;
 use php\jsoup\Jsoup;
-
-UXApplication::runLater(function () {
-    main();
-});
 
 function main () {
     $api = new app\classes\jTelegramApi;

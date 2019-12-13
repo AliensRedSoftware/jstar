@@ -8,29 +8,28 @@ use std, gui, framework, app;
 /**
  * Авторизация пользователя через встроенный компонент браузер
  **/
- 
 class vkAuth extends AbstractForm {
     private $callback;
 
     function setCallback($callback){
         $this->callback = $callback;
     }
+    
     /**
      * @event show 
      **/
     function doShow($event = null) {    
         $url = 'https://oauth.vk.com/authorize?'.
-                'v='.VK::getApiVersion().'&'.
-                'client_id='.VK::getAppID().'&'.
-                'display=popup'.'&'.
-                'redirect_uri=https://oauth.vk.com/blank.html'.'&'.
-                'response_type=token'.'&'.
+                'v=' . VK::getApiVersion() . '&'.
+                'client_id=' . VK::getAppID() . '&'.
+                'display=popup' . '&'.
+                'redirect_uri=https://oauth.vk.com/blank.html' . '&'.
+                'response_type=token' . '&'.
                 'scope=friends,notify,photos,audio,video,docs,notes,pages,status,wall,groups,messages,offline'; // Всевозможные права
 
         $browser = new UXWebView;
-
-        $browser->engine->watchState(function($self, $old, $new) use ($browser){
-            switch($new){
+        $browser->engine->watchState(function($self, $old, $new) use ($browser) {
+            switch($new) {
                 case 'RUNNING':
                     $this->showPreloader('Загрузка');
                 break;
@@ -41,7 +40,7 @@ class vkAuth extends AbstractForm {
             }
 
             $hash = parse_url($browser->engine->location);
-            if($hash!== false and isset($hash['fragment'])){
+            if($hash !== false and isset($hash['fragment'])){
                         
                 $data = parse_str($hash['fragment']);
                         
@@ -76,8 +75,7 @@ class vkAuth extends AbstractForm {
     /**
      * @event showing 
      */
-    function doShowing(UXWindowEvent $e = null)
-    {    
+    function doShowing(UXWindowEvent $e = null) {    
         $this->opacity = 0;
         Animation::fadeIn($this , 1000);
         $this->showAndWait();
@@ -86,41 +84,37 @@ class vkAuth extends AbstractForm {
     /**
      * @event hide 
      */
-    function doHide(UXWindowEvent $e = null)
-    {    
+    function doHide(UXWindowEvent $e = null) {    
         $this->vklogin();
     }
 }
 
-if(!function_exists('parse_str')){
-    function parse_str($str) 
-    {
-      # result array
-      $arr = array();
+if(!function_exists('parse_str')) {
+    function parse_str($str) {
+        # result array
+        $arr = array();  
+        # split on outer delimiter
+        $pairs = explode('&', $str);
         
-      # split on outer delimiter
-      $pairs = explode('&', $str);
-        
-      # loop through each pair
-      foreach ($pairs as $i) {
-        # split into name and value
-        list($name,$value) = explode('=', $i, 2);
-        
-        # if name already exists
-        if( isset($arr[$name]) ) {
-          # stick multiple values into an array
-          if( is_array($arr[$name]) ) {
-            $arr[$name][] = $value;
-          }
-          else {
-            $arr[$name] = array($arr[$name], $value);
-          }
+        # loop through each pair
+        foreach ($pairs as $i) {
+            # split into name and value
+            list($name,$value) = explode('=', $i, 2);
+            # if name already exists
+            if(isset($arr[$name])) {
+                # stick multiple values into an array
+                if( is_array($arr[$name]) ) {
+                    $arr[$name][] = $value;
+                }
+                else {
+                    $arr[$name] = array($arr[$name], $value);
+                }
+            }
+            # otherwise, simply stick it in a scalar
+            else {
+                $arr[$name] = $value;
+            }
         }
-        # otherwise, simply stick it in a scalar
-        else {
-          $arr[$name] = $value;
-        }
-      }
-      return $arr;
+        return $arr;
     }
 }

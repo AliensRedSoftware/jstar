@@ -12,7 +12,7 @@
   <target id="proxyTelegram">
     <behaviour allowedSymbols="0123456789.:" matchCase="" maxLength="25" type="behaviour\custom\KeyInputRuleBehaviour"/>
   </target>
-  <target id="prefix">
-    <behaviour allowedSymbols="$;:?#@*" matchCase="" maxLength="0" type="behaviour\custom\KeyInputRuleBehaviour"/>
+  <target id="proxyVk">
+    <behaviour allowedSymbols="0123456789.:" matchCase="" maxLength="25" type="behaviour\custom\KeyInputRuleBehaviour"/>
   </target>
 </behaviours>
